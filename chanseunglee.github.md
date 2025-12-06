@@ -1,12 +1,13 @@
----
-layout: default
-title: "CV — Chan Seung Lee"
----
-
 # **Chan Seung Lee**
 Undergraduate Student, Applied Physics & Electronic Engineering  
 Kyung Hee University, South Korea  
 📧 **cslee20a@gmail.com**  
+
+---
+
+## **Education**
+**Kyung Hee University**, B.S. in Applied Physics & Electronic Engineering  
+*2023 – 2027 (expected)*  
 
 ---
 
@@ -18,12 +19,6 @@ developing semiconductor-based photonic integrated circuits for next-generation 
   *Towards integrated quantum processors with strain-engineered 2D quantum devices*
 - **Graphene Photonics**  
   *Towards graphene-integrated photonic circuits with strained graphene devices*
-
----
-
-## **Education**
-**Kyung Hee University**, B.S. in Applied Physics & Electronic Engineering  
-*2023 – 2027 (expected)*  
 
 ---
 
