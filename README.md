@@ -16,15 +16,15 @@ aspiring researcher in **Silicon Photonics, Quantum Photonics, and Graphene Phot
 
 ## 🧪 Research Position
 **Research Intern (Scheduled)**  
-📍 *KAIST Silicon Photonics Laboratory*  
+📍 *KAIST Q-Spin Laboratory (Quantum Semiconductor Photonic Integrated Lab) 
 📅 *Dec 2025 – Feb 2026*  
 Advisor: **Prof. Dong-Wook Nam**
 
 **Focus Areas:**  
-- TCAD process/device simulation (Silvaco ATHENA / ATLAS)  
-- Strain-engineered optical & quantum semiconductor devices  
-- CMOS-compatible photonic integration  
-- Modeling of next-generation integrated optical computing platforms  
+   developing semiconductor-based photonic integrated circuits for next-generation quantum computers.
+  - Strain-engineered optical & quantum semiconductor devices
+  - CMOS-compatible photonic integration  
+  - Modeling of next-generation integrated optical computing platforms  
 
 ---
 
@@ -37,8 +37,8 @@ Advisor: **Prof. Dong-Wook Nam**
 - Python (numpy, matplotlib)
 
 ### **Device & Fabrication Knowledge**
-- Semiconductor processes (CVD, PVD, ALD, plasma etching, lithography)  
-- MOSFET/TFT physics, strain engineering, photonic device structures  
+- Semiconductor processes (CVD, PVD, ALD, plasma etching, lithography, wafer bonding, MEMS)  
+- MOSFET/TFT physics  
 
 ---
 
@@ -46,7 +46,7 @@ Advisor: **Prof. Dong-Wook Nam**
 ### 🔹 **TCAD CMOS Process Simulation**
 - Built complete nMOS fabrication flow: oxidation → implantation → annealing → metallization  
 - Extracted electrical characteristics (ID–VG/VD, Vth, gm, ro)  
-- Explored high-k oxide and strain engineering effects  
+- Explored high-k oxide effects  
 
 ### 🔹 **Three-Stage Analog Amplifier (LTspice)**
 - Designed differential → gain → output stages  
