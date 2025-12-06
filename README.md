@@ -1,10 +1,10 @@
-# # 👋 Hi, I'm **ChanSeung Lee**
+# Hi, I'm **ChanSeung Lee**
 Undergraduate student in **Applied Physics & Electronic Engineering** at **Kyung Hee University**,  
 aspiring researcher in **Silicon Photonics, Quantum Photonics, and Graphene Photonics**.
 
 ---
 
-## 🔬 Research Interests
+## Research Interests
 - **Silicon Photonics**  
   *Towards integrated optical computers with strain-engineered on-chip lasers*
 - **Quantum Photonics**  
@@ -14,7 +14,7 @@ aspiring researcher in **Silicon Photonics, Quantum Photonics, and Graphene Phot
 
 ---
 
-## 🧪 Research Position
+## Research Position
 **Research Intern (Scheduled)**  
 📍 *KAIST Q-Spin Laboratory (Quantum Semiconductor Photonic Integrated Lab) 
 📅 *Dec 2025 – Feb 2026*  
@@ -28,7 +28,7 @@ Advisor: **Prof. Dong-Wook Nam**
 
 ---
 
-## 🛠 Skills
+##  Skills
 ### **Simulation & Modeling**
 - Silvaco TCAD (ATHENA, ATLAS)  
 - LTspice (analog integrated circuit design)
@@ -42,18 +42,18 @@ Advisor: **Prof. Dong-Wook Nam**
 
 ---
 
-## 📚 Selected Projects
-### 🔹 **TCAD CMOS Process Simulation**
+## Selected Projects
+### **TCAD CMOS Process Simulation**
 - Built complete nMOS fabrication flow: oxidation → implantation → annealing → metallization  
 - Extracted electrical characteristics (ID–VG/VD, Vth, gm, ro)  
 - Explored high-k oxide effects  
 
-### 🔹 **Three-Stage Analog Amplifier (LTspice)**
+### **Three-Stage Analog Amplifier (LTspice)**
 - Designed differential → gain → output stages  
 - Performed AC/DC/transient analysis and pole-zero estimation  
 - Optimized gain, bandwidth, and power consumption  
 
-### 🔹 **Quantum Optics Experiment**
+###  **Quantum Optics Experiment**
 - Conducted BBO-based SPDC single-photon generation  
 - Measured **g²(0)** using HBT and GRA setups  
 - Analyzed coincidence detection and photon statistics  
