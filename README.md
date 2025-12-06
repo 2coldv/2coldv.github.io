@@ -1,4 +1,4 @@
-# # 👋 Hi, I'm **Chan Seung Lee**
+# # 👋 Hi, I'm **ChanSeung Lee**
 Undergraduate student in **Applied Physics & Electronic Engineering** at **Kyung Hee University**,  
 aspiring researcher in **Silicon Photonics, Quantum Photonics, and Graphene Photonics**.
 
