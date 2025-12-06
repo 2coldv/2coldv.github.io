@@ -1,10 +1,9 @@
 # **Chan Seung Lee**
-Undergraduate Student, Applied Physics & Electronic Engineering  
+Undergraduate Student 
 Kyung Hee University, South Korea  
 📧 **cslee20a@gmail.com**  
 
 ---
-
 ## **Education**
 **Kyung Hee University**, B.S. in Applied Physics & Electronic Engineering  
 *2023 – 2027 (expected)*  
