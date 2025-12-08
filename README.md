@@ -1,5 +1,5 @@
 # Hi, I'm **ChanSeung Lee**
-Undergraduate student in **Applied Physics & Electronic Engineering** at **Kyung Hee University**,  
+Undergraduate student at **KyungHee University**,  
 aspiring researcher in **Silicon Photonics, Quantum Photonics, and Graphene Photonics**.
 
 ---
@@ -15,17 +15,16 @@ aspiring researcher in **Silicon Photonics, Quantum Photonics, and Graphene Phot
 ---
 
 ## Research Position
-**Research Intern (Scheduled)**  
+**Research Intern**  
 📍 *KAIST Q-Spin Laboratory (Quantum Semiconductor Photonic Integrated Lab) 
 📅 *Dec 2025 – Feb 2026*  
-Advisor: **Prof. Dong-Wook Nam**
+Advisor: **Prof. Donguk Nam**
 
 **Focus Areas:**  
    developing semiconductor-based photonic integrated circuits for next-generation quantum computers.
   - Strain-engineered optical & quantum semiconductor devices
   - CMOS-compatible photonic integration  
   - Modeling of next-generation integrated optical computing platforms  
-
 ---
 
 ##  Skills
@@ -65,5 +64,4 @@ Advisor: **Prof. Dong-Wook Nam**
 
 ---
 
-⭐ *Thanks for visiting my profile! Feel free to explore my repositories or reach out for collaboration.*
 
