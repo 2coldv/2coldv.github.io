@@ -47,7 +47,7 @@ nav a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--fg)}
 main{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:56px 96px}
 .view{animation:rise .45s ease both}
 @keyframes rise{from{transform:translateY(8px)}to{transform:none}}
-@media (prefers-reduced-motion:reduce){.view{animation:none}.flow{animation:none!important}}
+@media (prefers-reduced-motion:reduce){.view{animation:none}.flow,.qo-pulse{animation:none!important}}
 
 .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
 h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.02em;text-wrap:balance;margin:0}
@@ -117,6 +117,24 @@ p{margin:0;max-width:66ch}
 .xp ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px;max-width:78ch}
 .xp li{position:relative;padding-left:22px;color:var(--muted);line-height:1.65}
 .xp li::before{content:"";position:absolute;left:2px;top:.72em;width:8px;height:1px;background:var(--faint)}
+.grade{margin-top:10px;font-size:.72rem;letter-spacing:.04em;color:var(--fg);border:1px solid var(--line);border-radius:4px;padding:2px 7px}
+.pdf-btn{display:inline-flex;align-items:center;gap:5px;margin-left:8px;vertical-align:3px;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.04em;color:var(--accent);text-decoration:none;border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:4px;padding:3px 8px 3px 9px;white-space:nowrap;transition:background .15s}
+.pdf-btn:hover{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.pj-fig{margin:22px 0 0;display:grid;gap:12px}
+.pj-scroll{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
+.pj-scroll svg{display:block;width:100%;min-width:620px;height:auto}
+.pj-fig figcaption,.pj-photos figcaption{font-size:.85rem;color:var(--faint);line-height:1.6}
+.key{display:inline-block;width:10px;height:3px;border-radius:2px;background:var(--k);vertical-align:middle;margin:0 5px 0 2px}
+.key:not(:first-child){margin-left:10px}
+.pj-photos{display:flex;gap:14px;margin-top:22px}
+.pj-photos figure{flex:var(--ar) 1 0;min-width:0;margin:0;display:grid;gap:8px;align-content:start}
+.zoom{display:block;cursor:zoom-in;border-radius:8px}
+.zoom:focus-visible{outline-offset:2px}
+.pj-photos img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line)}
+.qo-pulse{animation:qoPulse 1.8s ease-in-out infinite}
+@keyframes qoPulse{50%{opacity:.35}}
+.qo-lbl text{font-family:var(--mono);font-size:9.5px;fill:#eceef2}
+.qo-lbl rect{fill:#0b0d11;fill-opacity:.82}
 .list{display:grid;gap:16px;margin-top:40px}
 .c-center{display:grid;justify-items:center;text-align:center;gap:20px;padding-block:72px 40px}
 .c-eye{color:var(--accent);font-weight:500}
@@ -169,6 +187,10 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
   .xp-when{flex-direction:row}
   .xp-logo{margin:0;width:64px;padding:0}
   .xp-logo.sq{width:44px}
+  .grade{margin-top:0}
+  .pj-photos{gap:10px}
+  .pj-photos.stack{flex-direction:column;gap:18px}
+  .pj-photos.stack figure{flex:none}
   .c-row{grid-template-columns:1fr auto;gap:6px 12px}
   .c-label{grid-column:1/-1}
   .c-val{font-size:1rem}
@@ -575,10 +597,109 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
 <!-- ============ PROJECTS ============ -->
 <section class="view" id="v-projects" data-view="projects" hidden>
   <div class="eyebrow">Projects</div>
-  <h2 style="margin-top:12px">Projects</h2>
-  <div class="list">
-    <div class="ph"><b>프로젝트 이름</b> · 연도 — 설명 2–3줄, 그림 넣을지 같이 정하기</div>
-    <div class="ph"><b>프로젝트 이름</b> · 연도 — 설명 2–3줄</div>
+  <h2 style="margin-top:12px">Selected academic projects</h2>
+  <div class="xp">
+
+    <article class="xp-item">
+      <div class="xp-when">2025<span class="grade">Grade A+</span></div>
+      <div class="xp-body">
+        <h3>Single-Photon Verification, Photon-Statistics Analysis Using HBT and GRA Experiments <a class="pdf-btn" href="Quantum_Optics_Report.pdf" download="Chanseung_Lee_HBT_GRA_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
+        <div class="xp-org">Prof. Gwang Jo Lee · Kyung Hee University</div>
+        <ul>
+          <li>Performed optical alignment of HBT and GRA setups and measured g<sup>(2)</sup>(0) to characterize the photon statistics of coherent, thermal, and SPDC-based light sources.</li>
+          <li>Generated photon pairs via SPDC with a BBO crystal and verified nonclassical single-photon behavior through coincidence suppression.</li>
+        </ul>
+        <figure class="pj-fig">
+          <div class="pj-scroll">
+            <svg id="qo" viewBox="8 2 812 360" role="img" aria-label="Optical breadboard with an animated GRA overlay: the 405 nm pump beam reflects off two mirrors into the BBO crystal. Each photon pair splits: one photon goes to herald detector A, the other hits a 50:50 beam splitter and reaches either detector B or detector C. A time tagger counts AB and AC coincidences while the ABC triple count stays at zero.">
+              <defs>
+                <filter id="qoGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                <filter id="qoSoft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4"/></filter>
+                <linearGradient id="qoRes" x1="207" y1="56" x2="290" y2="56" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9b7bff" stop-opacity=".9"/><stop offset="1" stop-color="#9b7bff" stop-opacity="0"/></linearGradient>
+              </defs>
+              <image href="img/qo-table.png" x="0" y="0" width="854" height="378"/>
+              <g fill="none" stroke="#1d2027" stroke-width="1.3" stroke-opacity=".55" stroke-dasharray="1 0">
+                <path id="qo-c1" d="M699 58 C 702 130, 700 190, 703 240"/>
+                <path id="qo-c2" d="M692 100 C 690 160, 714 190, 715 240"/>
+                <path id="qo-c3" d="M550 172 C 610 178, 684 196, 692 240"/>
+              </g>
+              <g stroke="#ff4d5e" stroke-width="1" stroke-opacity=".32">
+                <line x1="207" y1="56" x2="624" y2="43"/>
+                <polyline points="207,56 534,68 627,73" fill="none"/>
+                <line x1="534" y1="68" x2="535" y2="127"/>
+              </g>
+              <circle cx="164" cy="241" r="6" fill="#9b7bff" opacity=".55" filter="url(#qoSoft)" class="qo-pulse"/>
+              <polyline points="164,241 50,240 78,58 207,56" fill="none" stroke="#9b7bff" stroke-width="2.2" stroke-linejoin="round" filter="url(#qoGlow)"/>
+              <polyline class="flow" points="164,241 50,240 78,58 207,56" fill="none" stroke="#efe8ff" stroke-width="2.2" stroke-dasharray="2 14" stroke-linecap="round" opacity=".9"/>
+              <line x1="207" y1="56" x2="290" y2="56" stroke="url(#qoRes)" stroke-width="2"/>
+              <circle cx="50" cy="240" r="4.5" fill="#c4b2ff" filter="url(#qoSoft)"/>
+              <circle cx="78" cy="58" r="4.5" fill="#c4b2ff" filter="url(#qoSoft)"/>
+              <circle cx="50" cy="240" r="1.6" fill="#ffffff"/>
+              <circle cx="78" cy="58" r="1.6" fill="#ffffff"/>
+              <circle cx="207" cy="56" r="8" fill="#c4b2ff" filter="url(#qoSoft)" class="qo-pulse"/>
+              <circle cx="207" cy="56" r="2.4" fill="#ffffff"/>
+              <g stroke="#e9ecf1" stroke-opacity=".75" stroke-width=".8">
+                <line x1="198" y1="234" x2="212" y2="234"/>
+                <line x1="207" y1="25" x2="207" y2="36"/>
+                <line x1="514" y1="99" x2="527" y2="79"/>
+              </g>
+              <g id="qo-dyn"></g>
+              <g id="qo-labels"></g>
+            </svg>
+          </div>
+          <figcaption><span class="key" style="--k:#9b7bff"></span>pump (405 nm) <span class="key" style="--k:#ff4d5e"></span>photon pair <span class="key" style="--k:#ffb35c"></span>detector pulse · GRA measurement on the tabletop kit: the BBO crystal emits a photon pair, detector A heralds one photon, and its partner meets a 50:50 beam splitter and is counted at B or at C, never both. Heralded AB and AC coincidences build up while the triple coincidence ABC ideally stays at zero.</figcaption>
+        </figure>
+      </div>
+    </article>
+
+    <article class="xp-item">
+      <div class="xp-when">2025<span class="grade">Grade A+</span></div>
+      <div class="xp-body">
+        <h3>Characterization and Parameter Extraction of Long- and Short-Channel MOSFETs <a class="pdf-btn" href="report.pdf" download="Chanseung_Lee_MOSFET_Characterization_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
+        <div class="xp-org">Prof. Seung Hwan Lee · Kyung Hee University</div>
+        <ul>
+          <li>Measured transistor I–V characteristics using an MS TECH probe station and CLARIUS software, and extracted key parameters including V<sub>t</sub>, SS, I<sub>off</sub>, GIDL, DIBL, and g<sub>m</sub>.</li>
+          <li>Analyzed long- and short-channel device behavior, body-bias effects, and transistor scaling by comparing L = 10 µm and L = 0.35 µm devices.</li>
+        </ul>
+        <div class="pj-photos">
+          <figure style="--ar:.75"><img src="img/probe-station.jpg" width="900" height="1200" alt="Probe station with four micro-positioner probes landing on a die under a microscope" loading="lazy"><figcaption>MS TECH probe station</figcaption></figure>
+          <figure style="--ar:1.148"><img src="img/clarius.jpg" width="1200" height="1045" alt="CLARIUS test setup: gate voltage step 0 to 5 V, drain linear sweep 0 to 3.3 V, bulk bias, source grounded" loading="lazy"><figcaption>CLARIUS I–V sweep setup</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+
+    <article class="xp-item">
+      <div class="xp-when">2025<span class="grade">Grade A+</span></div>
+      <div class="xp-body">
+        <h3>Design of a Multistage Analog Amplifier Using LTspice <a class="pdf-btn" href="circuit%20design%20report.pdf" download="Chanseung_Lee_Multistage_Amplifier_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
+        <div class="xp-org">Prof. Young Hyun Lim · Kyung Hee University</div>
+        <ul>
+          <li>Designed differential, gain, and output stages, and performed AC/DC/transient analysis with pole-zero estimation.</li>
+          <li>Optimized amplifier performance in terms of gain, bandwidth, and power consumption.</li>
+        </ul>
+        <div class="pj-photos stack">
+          <figure style="--ar:1.822"><a class="zoom" href="img/amp-schematic.png" target="_blank" rel="noopener"><img src="img/amp-schematic.png" width="1436" height="788" alt="LTspice schematic of the multistage amplifier: differential pair M3/M5 with current-mirror load M2/M4, second gain stage M7/M8, source-follower output M9 driving a 100 ohm load, biased by a 100 µA current source" loading="lazy"></a><figcaption>Full schematic, biased so every MOSFET operates in saturation</figcaption></figure>
+          <figure style="--ar:2"><a class="zoom" href="img/amp-bode.png" target="_blank" rel="noopener"><img src="img/amp-bode.png" width="1600" height="800" alt="LTspice Bode plot of V(out) from 1 Hz to 10 MHz with cursor readout 134.9 dB at 40.6 Hz" loading="lazy"></a><figcaption>Bode plot of V(out), cursor at 134.9 dB, 40.6 Hz</figcaption></figure>
+        </div>
+      </div>
+    </article>
+
+    <article class="xp-item">
+      <div class="xp-when">2025</div>
+      <div class="xp-body">
+        <h3>Device and Process Simulation of CMOS Transistors Using Silvaco TCAD <a class="pdf-btn" href="TCAD%20project.pdf" download="Chanseung_Lee_Silvaco_TCAD_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
+        <div class="xp-org">Prof. Seung Hyun Lee · Kyung Hee University</div>
+        <ul>
+          <li>Built a complete NMOS fabrication flow including oxidation, implantation, annealing, and metallization, and extracted key electrical characteristics such as I<sub>D</sub>–V<sub>G</sub>/V<sub>D</sub>, V<sub>th</sub>, g<sub>m</sub>, and r<sub>o</sub>.</li>
+          <li>Investigated short-channel non-idealities including DIBL, GIDL, and the effects of high-k gate oxides.</li>
+        </ul>
+        <div class="pj-photos stack">
+          <figure style="--ar:1.524"><a class="zoom" href="img/tcad-structure.png" target="_blank" rel="noopener"><img src="img/tcad-structure.png" width="1198" height="786" alt="Silvaco Athena cross-section of the 90 nm NMOS: silicon substrate, SiO2 gate oxide and spacers, polysilicon gate, aluminum contacts" loading="lazy"></a><figcaption>Athena cross-section of the 90 nm NMOS</figcaption></figure>
+          <figure style="--ar:1.524"><a class="zoom" href="img/tcad-lch-log.png" target="_blank" rel="noopener"><img src="img/tcad-lch-log.png" width="1198" height="786" alt="Log-scale drain current versus gate voltage at V_DS = 3 V for channel lengths of 60, 90 and 120 nm; the 60 nm device shows higher off-current and a gentler subthreshold slope" loading="lazy"></a><figcaption>Log-scale I<sub>D</sub>–V<sub>G</sub> at V<sub>DS</sub> = 3 V for L = 60, 90, 120 nm</figcaption></figure>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -659,6 +780,110 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById("mail"));var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);cb.textContent="Selected";setTimeout(function(){cb.textContent="Copy";},1600);}
     try{navigator.clipboard.writeText(txt).then(ok,fallback);}catch(e){fallback();}
   });}
+
+  // quantum optics figure animation (GRA: herald A, 50:50 BS -> B or C)
+  (function(){
+    var svg=document.getElementById("qo"); if(!svg) return;
+    var dyn=document.getElementById("qo-dyn"), lab=document.getElementById("qo-labels");
+    var P={bbo:{x:207,y:56},A:{x:624,y:43},bs:{x:534,y:68},B:{x:627,y:73},C:{x:535,y:127}}, TT={x:712,y:262};
+    var cable={A:document.getElementById("qo-c1"),B:document.getElementById("qo-c2"),C:document.getElementById("qo-c3")};
+    var clen={}; for(var k in cable) clen[k]=cable[k].getTotalLength();
+    var V=360, PULSE=0.6;
+    var cnt={ab:0,ac:0,abc:0}, cntEl={};
+    function mk(tag,a,p){var e=document.createElementNS(NS,tag);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+    function dist(a,b){return Math.hypot(b.x-a.x,b.y-a.y);}
+    function pad(n){return String(n).padStart(4,"0");}
+    var labels=[
+      {x:214,y:237,a:"start",parts:["pump laser · 405 nm"]},
+      {x:207,y:20,a:"middle",parts:["BBO crystal"]},
+      {x:592,y:19,a:"end",parts:["single-photon detectors"]},
+      {x:512,y:107,a:"end",parts:["50:50 BS"]},
+      {x:610,y:33,a:"end",parts:["A"]},
+      {x:610,y:93,a:"end",parts:["B"]},
+      {x:551,y:132,a:"start",parts:["C"]},
+      {x:800,y:320,a:"end",parts:["time tagger · AB ",{id:"ab",c:"#ffb35c"}," · AC ",{id:"ac",c:"#ffb35c"}," · ABC ",{id:"abc",c:"#8fd0ff"}]}
+    ];
+    function buildLabels(){
+      lab.textContent="";
+      labels.forEach(function(L){
+        var g=mk("g",{"class":"qo-lbl"},lab);
+        var r=mk("rect",{rx:3,height:15},g);
+        var t=mk("text",{x:L.x,y:L.y,"text-anchor":L.a},g);
+        var chars=0;
+        L.parts.forEach(function(pt){
+          if(typeof pt==="string"){t.appendChild(document.createTextNode(pt));chars+=pt.length;}
+          else{var ts=mk("tspan",{fill:pt.c},t);ts.textContent=pad(cnt[pt.id]);cntEl[pt.id]=ts;chars+=4;}
+        });
+        var w; try{w=t.getComputedTextLength();}catch(e){w=0;}
+        if(!w) w=chars*5.8;
+        var x0=L.a==="start"?L.x:L.a==="end"?L.x-w:L.x-w/2;
+        r.setAttribute("x",x0-6);r.setAttribute("y",L.y-10.5);r.setAttribute("width",w+12);
+      });
+    }
+    buildLabels();
+    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(buildLabels);
+
+    function at(path,d){ // point at distance d along polyline
+      for(var i=0;i<path.length-1;i++){var L=dist(path[i],path[i+1]);
+        if(d<=L){var f=d/L;return {x:path[i].x+(path[i+1].x-path[i].x)*f,y:path[i].y+(path[i+1].y-path[i].y)*f};}
+        d-=L;}
+      return path[path.length-1];
+    }
+    function plen(path){var s=0;for(var i=0;i<path.length-1;i++)s+=dist(path[i],path[i+1]);return s;}
+
+    var events=[];
+    function spawn(t0,forceC){
+      var toC=forceC!=null?forceC:Math.random()<0.5, det=toC?"C":"B";
+      var g=mk("g",{},dyn);
+      var routes=[{det:"A",path:[P.bbo,P.A]},{det:det,path:toC?[P.bbo,P.bs,P.C]:[P.bbo,P.bs,P.B]}];
+      routes.forEach(function(r){
+        r.len=plen(r.path); r.tArr=r.len/V;
+        r.tail=mk("line",{stroke:"#ff4d5e","stroke-width":2,"stroke-linecap":"round",opacity:0},g);
+        r.ph=mk("circle",{r:3.2,fill:"#ff4d5e",filter:"url(#qoGlow)",opacity:0},g);
+        r.fl=mk("circle",{cx:P[r.det].x,cy:P[r.det].y,r:0,fill:"none",stroke:"#ff8a96","stroke-width":1.5,opacity:0},g);
+        r.pu=mk("circle",{r:2.4,fill:"#ffb35c",filter:"url(#qoGlow)",opacity:0},g);
+      });
+      var o={t0:t0,g:g,routes:routes,det:det,counted:false,
+        tBS:dist(P.bbo,P.bs)/V,
+        bsf:mk("circle",{cx:P.bs.x,cy:P.bs.y,r:0,fill:"none",stroke:"#ffd0d5","stroke-width":1.2,opacity:0},g),
+        ring:mk("circle",{cx:TT.x,cy:TT.y,r:0,fill:"none",stroke:"#ffb35c","stroke-width":1.6,opacity:0},g)};
+      o.tTT=Math.max(routes[0].tArr,routes[1].tArr)+PULSE;
+      events.push(o);return o;
+    }
+    function draw(o,t){
+      o.routes.forEach(function(r){
+        if(t<r.tArr){
+          var d=t*V,p=at(r.path,d),q=at(r.path,Math.max(0,d-22));
+          r.ph.setAttribute("cx",p.x);r.ph.setAttribute("cy",p.y);r.ph.setAttribute("opacity",1);
+          r.tail.setAttribute("x1",q.x);r.tail.setAttribute("y1",q.y);r.tail.setAttribute("x2",p.x);r.tail.setAttribute("y2",p.y);r.tail.setAttribute("opacity",.45);
+        }else{r.ph.setAttribute("opacity",0);r.tail.setAttribute("opacity",0);}
+        var k=(t-r.tArr)/0.4;
+        if(k>=0&&k<1){r.fl.setAttribute("r",3+k*10);r.fl.setAttribute("opacity",1-k);}else r.fl.setAttribute("opacity",0);
+        var m=(t-r.tArr)/PULSE;
+        if(m>=0&&m<1){var c=cable[r.det],pt=c.getPointAtLength(m*clen[r.det]);
+          r.pu.setAttribute("cx",pt.x);r.pu.setAttribute("cy",pt.y);r.pu.setAttribute("opacity",1);}
+        else r.pu.setAttribute("opacity",0);
+      });
+      var b=(t-o.tBS)/0.35;
+      if(b>=0&&b<1){o.bsf.setAttribute("r",2+b*7);o.bsf.setAttribute("opacity",.9*(1-b));}else o.bsf.setAttribute("opacity",0);
+      var n=(t-o.tTT)/0.45;
+      if(n>=0&&n<1){o.ring.setAttribute("r",4+n*16);o.ring.setAttribute("opacity",1-n);
+        if(!o.counted){o.counted=true;var id=o.det==="B"?"ab":"ac";cnt[id]++;if(cntEl[id])cntEl[id].textContent=pad(cnt[id]);}}
+      else o.ring.setAttribute("opacity",0);
+      return t<o.tTT+0.5;
+    }
+    if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){
+      draw(spawn(0,false),0.85);return;
+    }
+    var last=-1e9;
+    function loop(now){
+      requestAnimationFrame(loop);
+      if(!svg.getBoundingClientRect().width){last=-1e9;return;}
+      if(now-last>1250){spawn(now);last=now;}
+      events=events.filter(function(o){var alive=draw(o,(now-o.t0)/1000);if(!alive)o.g.remove();return alive;});
+    }
+    requestAnimationFrame(loop);
+  })();
 
   // routing
   var routes=["home","experience","research","projects","contact"];
