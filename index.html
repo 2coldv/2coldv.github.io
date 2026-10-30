@@ -184,6 +184,7 @@ p{margin:0;max-width:66ch}
 .t2{font-family:var(--mono);font-size:10px;fill:var(--faint)}
 .tl{font-family:var(--body);font-size:13px;fill:var(--fg)}
 .mshow{display:none}
+.edu-when-m{display:none}
 @media (max-width:640px){.mshow{display:inline}}
 .icw{font-family:var(--mono);font-size:12px;letter-spacing:2.5px;font-weight:500}
 .icl{font-family:var(--body);font-size:12px;fill:#a3abb8}
@@ -241,15 +242,20 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
   .xp li::before{width:6px}
   .xp ul{margin-top:10px;gap:7px}
   .pj-fig figcaption,.pj-photos figcaption{font-size:.72rem}
-  .pdf-btn{font-size:.62rem;padding:2px 6px}
+  .pdf-btn{font-size:.62rem;padding:2px 7px}
+  #v-projects .xp-when{justify-content:flex-start;align-items:center;gap:8px}
+  #v-projects .xp-when>:first-child{margin-left:auto}
+  #v-projects .xp-when .pdf-btn{margin-left:0;vertical-align:0;padding:3px 8px}
   .grade{font-size:.62rem}
   #v-experience .xp-item{grid-template-columns:58px minmax(0,1fr);gap:0 14px}
-  #v-experience .xp-when{flex-direction:column;align-items:center;justify-content:flex-start;gap:12px;white-space:normal;text-align:center;font-size:.6rem;line-height:1.35;padding-top:2px}
+  #v-experience .xp-when{flex-direction:column;align-items:center;justify-content:center;gap:12px;white-space:normal;text-align:center;font-size:.6rem;line-height:1.35;padding-top:0}
   #v-experience .xp-logo{width:50px}
   #v-experience .xp-logo.sq{width:42px}
-  .edu{grid-template-columns:58px minmax(0,1fr);gap:0 14px;align-items:start;margin-top:36px;padding-top:22px}
-  .edu-logo{flex-direction:column;align-items:center;justify-content:flex-start;gap:12px}
-  .edu-when{white-space:normal;text-align:center;font-size:.6rem;line-height:1.35}
+  .edu{grid-template-columns:58px minmax(0,1fr);gap:0 14px;align-items:stretch;margin-top:36px;padding-top:22px}
+  .edu-logo{flex-direction:column;align-items:center;justify-content:center;gap:0}
+  .edu-when{display:none}
+  .edu-eye{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .edu-when-m{display:inline;font-size:.66rem;text-transform:none;letter-spacing:0;white-space:nowrap;color:var(--muted)}
   .edu-logo img{width:52px}
   .edu-row h3{font-size:.98rem}
   .edu-row .what{font-size:.8rem}
@@ -296,7 +302,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
   <div class="edu">
     <div class="edu-logo"><span class="edu-when">Mar 2023 – Feb 2027 (expected)</span><img src="img/logo-khu.png" alt="Kyung Hee University emblem" width="200" loading="lazy"></div>
     <div class="edu-main">
-    <div class="eyebrow">Education</div>
+    <div class="eyebrow edu-eye">Education<span class="edu-when-m">Mar 2023 – Feb 2027 (expected)</span></div>
     <div class="edu-body">
         <div class="edu-row">
           <h3>Kyung Hee University</h3>
@@ -1144,14 +1150,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       XR.forEach(function(x,k){var p=P(x,16,T+3.2),q=P(x,16,T+lift);leader(p,[q[0],q[1]+h/2]);rxw.push(tag(q[0],q[1],WD[k],C[k]));});
       var p0=P(XM[0],RC,T+lift),q0=P(XR[0],16,T+lift),gx=w/2+(mob?8:9);
       txt(p0[0]-gx,p0[1]+FS.icl*0.35,"bits sent","icl","end"); txt(q0[0]-gx,q0[1]+FS.icl*0.35,"bits read","icl","end");
-      // phones: crop the viewBox to the drawing so it fills the screen width
-      if(mob){
-        var bx=null;
-        [G.ch,G.li,G.fi,G.pa,G.lb].forEach(function(g){var r=g.getBBox(); if(!r.width)return;
-          if(!bx)bx={x0:r.x,y0:r.y,x1:r.x+r.width,y1:r.y+r.height};
-          else{bx.x0=Math.min(bx.x0,r.x);bx.y0=Math.min(bx.y0,r.y);bx.x1=Math.max(bx.x1,r.x+r.width);bx.y1=Math.max(bx.y1,r.y+r.height);}});
-        if(bx){var pd=10;svg.setAttribute("viewBox",(bx.x0-pd).toFixed(0)+" "+(bx.y0-pd).toFixed(0)+" "+(bx.x1-bx.x0+2*pd).toFixed(0)+" "+(bx.y1-bx.y0+2*pd).toFixed(0));}
-      } else svg.setAttribute("viewBox","0 0 960 400");
+      svg.setAttribute("viewBox",mob?"22 24 880 412":"0 0 960 400");
     }
     buildLabels();
     if(mq){ if(mq.addEventListener) mq.addEventListener("change",function(){buildLabels();frame(T0+(performance.now()/1000));}); else if(mq.addListener) mq.addListener(function(){buildLabels();}); }
@@ -1389,6 +1388,20 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       events=events.filter(function(o){var alive=draw(o,(now-o.t0)/1000);if(!alive)o.g.remove();return alive;});
     }
     requestAnimationFrame(loop);
+  })();
+
+  // phones: move each project's PDF button into its meta row (year · grade · PDF); back into the title on wider screens
+  (function(){
+    var mq=window.matchMedia?matchMedia("(max-width:640px)"):null; if(!mq) return;
+    var items=[].slice.call(document.querySelectorAll("#v-projects .xp-item")).map(function(it){
+      return {btn:it.querySelector(".pdf-btn"),h3:it.querySelector(".xp-body h3"),meta:it.querySelector(".xp-when")};
+    }).filter(function(o){return o.btn&&o.h3&&o.meta;});
+    function apply(){items.forEach(function(o){
+      if(mq.matches){ if(o.btn.parentNode!==o.meta) o.meta.appendChild(o.btn); }
+      else if(o.btn.parentNode!==o.h3){ o.h3.appendChild(document.createTextNode(" ")); o.h3.appendChild(o.btn); }
+    });}
+    apply();
+    if(mq.addEventListener) mq.addEventListener("change",apply); else if(mq.addListener) mq.addListener(apply);
   })();
 
   // routing
