@@ -135,7 +135,8 @@ p{margin:0;max-width:66ch}
 @keyframes qoPulse{50%{opacity:.35}}
 .qo-lbl text{font-family:var(--mono);font-size:9.5px;fill:#eceef2}
 .qo-lbl rect{fill:#0b0d11;fill-opacity:.82}
-.fig3d{position:relative;aspect-ratio:2.1/1;overflow:hidden;background:radial-gradient(120% 90% at 50% 40%,#151922 0%,var(--surface) 70%)}
+.fig3d{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 40%,#151922 0%,var(--surface) 70%)}
+.tx3d-stage{position:relative;aspect-ratio:2.1/1}
 .fig3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .fig3d svg.tx3d-lines{position:absolute;inset:0;width:100%;height:100%;min-width:0;pointer-events:none}
 .tx3d-labels{position:absolute;inset:0;pointer-events:none}
@@ -144,9 +145,13 @@ p{margin:0;max-width:66ch}
 .tx3d-title{left:18px;top:14px}
 .tx3d-hint{right:16px;bottom:12px;letter-spacing:.06em;text-transform:none}
 .tx3d-fallback{display:none;position:absolute;inset:0;place-items:center;color:var(--faint);font-size:.9rem;padding:16px;text-align:center}
-.fig3d.no3d .tx3d-fallback{display:grid}
-.fig3d.no3d .tx3d-hint{display:none}
-@media (max-width:640px){.fig svg#icx,.fig svg#sfx,.fig svg#qfx,.pj-scroll svg#qo{min-width:0}#sfx .tl{font-size:22px}#sfx .t{font-size:18px}#sfx .t2{font-size:16px}#qfx .tl{font-size:24px}#qfx .t{font-size:22px}#qfx .t2{font-size:20px}#qo .qo-lbl text{font-size:19px}.fig3d{aspect-ratio:1/1}.tx3d-lab{font-size:10.5px}.tx3d-title{font-size:9.5px;left:14px;top:12px}}
+.tx3d-stage.no3d .tx3d-fallback{display:grid}
+.tx3d-stage.no3d .tx3d-hint{display:none}
+.tx3d-num{position:absolute;transform:translate(-50%,-50%);width:17px;height:17px;border-radius:50%;display:none;place-items:center;font-family:var(--mono);font-size:10px;font-weight:500;line-height:1;color:#0b0d11;background:#e3e7ee;box-shadow:0 0 0 2px rgba(11,13,17,.85),0 2px 6px rgba(0,0,0,.6)}
+.tx3d-key{display:none;list-style:none;margin:0;padding:6px 16px 16px;grid-template-columns:1fr 1fr;gap:6px 14px;font-size:12px;line-height:1.35;color:var(--muted);border-top:1px solid var(--line)}
+.tx3d-key li{display:flex;align-items:flex-start;gap:7px;min-width:0}
+.tx3d-key i{flex:none;font-style:normal;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:9.5px;font-weight:500;color:#0b0d11;background:#e3e7ee;margin-top:1px}
+@media (max-width:640px){.fig svg#icx,.fig svg#sfx,.fig svg#qfx,.pj-scroll svg#qo{min-width:0}#sfx .tl{font-size:22px}#sfx .t{font-size:18px}#sfx .t2{font-size:16px}#qfx .tl{font-size:24px}#qfx .t{font-size:22px}#qfx .t2{font-size:20px}#qo .qo-lbl text{font-size:19px}.tx3d-stage{aspect-ratio:1.9/1}.tx3d-lab,.tx3d-lines{display:none}.tx3d-num{display:grid}.tx3d-key{display:grid;padding-top:12px}.tx3d-title{font-size:9px;left:14px;top:12px}body{font-size:15px}h1{font-size:2.05rem}h2{font-size:1.55rem}h3{font-size:1.16rem}.xp-body h3{font-size:1.08rem}.lede{font-size:1rem}.intro{font-size:1rem}.eyebrow{font-size:.68rem}.cap p,.xp li{font-size:.94rem}.name{font-size:1.3rem}.bar nav{flex-wrap:wrap;gap:4px 18px;overflow:visible}.bar nav a{font-size:.9rem;padding-block:3px}.topic{padding-block:36px;gap:18px}}
 .list{display:grid;gap:16px;margin-top:40px}
 .c-center{display:grid;justify-items:center;text-align:center;gap:20px;padding-block:72px 40px}
 .c-eye{color:var(--accent);font-weight:500}
@@ -323,12 +328,25 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       <h3>Optical interconnects &amp; co-packaged optics</h3>
       <span class="eyebrow">Classical links</span>
     </div>
-    <div class="fig fig3d" id="tx3d-wrap">
+    <div class="fig fig3d">
+      <div class="tx3d-stage" id="tx3d-wrap">
       <canvas id="tx3d" role="img" aria-label="3D view of a comb-driven silicon photonic transmitter. A continuous-wave pump laser feeds two series-coupled Si3N4 microresonators that generate a frequency comb. An optical fiber carries the comb to a silicon photonic transmitter chip, where a de-multiplexer tree of MZI filters with delay lines splits the comb lines into four lanes, ten resonant ring modulators per lane encode data, and a mirrored multiplexer combines everything onto one output fiber."></canvas>
       <svg class="tx3d-lines" id="tx3d-lines" aria-hidden="true"></svg>
       <div class="tx3d-labels" id="tx3d-labels" aria-hidden="true"></div>
       <div class="tx3d-title">Transmitter · one comb, many channels</div>
       <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
+      </div>
+      <ol class="tx3d-key" aria-hidden="true">
+        <li><i>1</i>C.W. pump laser</li>
+        <li><i>2</i>Si₃N₄ microresonators</li>
+        <li><i>3</i>Generated comb</li>
+        <li><i>4</i>Optical fiber</li>
+        <li><i>5</i>Si photonic transmitter chip</li>
+        <li><i>6</i>De-multiplexer</li>
+        <li><i>7</i>Resonant modulators</li>
+        <li><i>8</i>Multiplexer</li>
+        <li><i>9</i>Output fiber</li>
+      </ol>
     </div>
     <div class="fig">
       <svg id="icx" viewBox="0 0 960 400" role="img" aria-label="Animated optical link with four channels. Comb light enters a silicon photonic transmitter from the left, where four ring modulators write the bit words 1110, 1100, 0111 and 1010 onto their own colors. A fiber carries the light to a silicon photonic receiver, where four ring filters each drop one color into its own germanium photodetector and the same words are read back.">
@@ -910,21 +928,22 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
 
     // ---------------- labels ----------------
     var labs=[
-      {p:[r1[0],YG,r1[1]-ra],t:"Si₃N₄ microresonators",o:[-95,-110],om:[-6,-62]},
-      {p:[-1.0,0.57,-0.42],t:"Generated comb",o:[-40,-110],om:[-22,-112]},
-      {p:[cx0+0.72,0.06,0],t:"C.W. pump laser",o:[40,95],om:[4,64]},
-      {p:[-1.2,0.06,0.1],t:"Optical fiber",o:[50,105],om:[46,104]},
-      {p:[4.6,RH,-ZW],t:"Silicon photonic transmitter chip",o:[-30,-105],om:[62,-60]},
-      {p:[4.3,YW,1.0],t:"De-multiplexer",o:[30,125],om:[26,144]},
-      {p:[8.5,YW,1.26],t:"Resonant modulators",o:[60,110],om:[20,96]},
-      {p:[13.0,YW,1.0],t:"Multiplexer",o:[60,95],om:[18,62]},
-      {p:[L+1.35,0.06,0],t:"Output fiber",o:[-20,-75],om:[-24,-58]}
+      {n:2,bo:[-6,-16],p:[r1[0],YG,r1[1]-ra],t:"Si₃N₄ microresonators",o:[-95,-110],om:[-6,-62]},
+      {n:3,bo:[0,-14],p:[-1.0,0.57,-0.42],t:"Generated comb",o:[-40,-110],om:[-22,-112]},
+      {n:1,bo:[-4,16],p:[cx0+0.72,0.06,0],t:"C.W. pump laser",o:[40,95],om:[4,64]},
+      {n:4,bo:[4,16],p:[-1.2,0.06,0.1],t:"Optical fiber",o:[50,105],om:[46,104]},
+      {n:5,bo:[-4,-14],p:[4.6,RH,-ZW],t:"Silicon photonic transmitter chip",o:[-30,-105],om:[62,-60]},
+      {n:6,bo:[0,18],p:[4.3,YW,1.0],t:"De-multiplexer",o:[30,125],om:[26,144]},
+      {n:7,bo:[0,18],p:[8.5,YW,1.26],t:"Resonant modulators",o:[60,110],om:[20,96]},
+      {n:8,bo:[0,18],p:[13.0,YW,1.0],t:"Multiplexer",o:[60,95],om:[18,62]},
+      {n:9,bo:[4,-15],p:[L+1.35,0.06,0],t:"Output fiber",o:[-20,-75],om:[-24,-58]}
     ];
     var NS2="http://www.w3.org/2000/svg";
     labs.forEach(function(l){
       l.el=document.createElement("div"); l.el.className="tx3d-lab"+(l.cls?" "+l.cls:""); l.el.textContent=l.t; labsEl.appendChild(l.el);
       l.ln=document.createElementNS(NS2,"line"); l.ln.setAttribute("stroke","#7a828f"); l.ln.setAttribute("stroke-width","1"); linesEl.appendChild(l.ln);
       l.dot=document.createElementNS(NS2,"circle"); l.dot.setAttribute("r","2"); l.dot.setAttribute("fill","#a3abb8"); linesEl.appendChild(l.dot);
+      l.nb=document.createElement("div"); l.nb.className="tx3d-num"; l.nb.textContent=l.n; labsEl.appendChild(l.nb);
       l.v=new THREE.Vector3(l.p[0],l.p[1],l.p[2]);
     });
     var Wd=0,Hd=0;
@@ -932,9 +951,10 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       var small=Wd<640, k=Math.max(.55,Math.min(1.15,Wd/1000));
       world.updateMatrixWorld();
       labs.forEach(function(l){
-        var hide=false, off=(small&&l.om)?l.om:[l.o[0]*k,l.o[1]*k];
+        var hide=small, off=[l.o[0]*k,l.o[1]*k];
         var q=l.v.clone(); world.localToWorld(q); q.project(camera);
         var ax=(q.x+1)/2*Wd, ay=(1-q.y)/2*Hd;
+        if(small){l.nb.style.left=(ax+l.bo[0])+"px"; l.nb.style.top=(ay+l.bo[1])+"px";}
         var hw=(l.el.offsetWidth||120)/2+8, tx=Math.max(hw,Math.min(Wd-hw,ax+off[0])), ty=Math.max(small?30:36,Math.min(Hd-14,ay+off[1]));
         l.el.style.left=tx+"px"; l.el.style.top=ty+"px"; l.el.style.display=hide?"none":"";
         var dx=tx-ax, dy=ty-ay, dl=Math.hypot(dx,dy)||1, stop=Math.max(0,dl-11);
@@ -949,10 +969,10 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       var w=wrap.clientWidth,h=wrap.clientHeight; if(!w||!h) return false;
       if(w===Wd&&h===Hd) return true;
       Wd=w;Hd=h; renderer.setSize(w,h,false);
-      var halfW=w<640?13.6:12.6, halfH=halfW*h/w;
+      var halfW=w<640?11.2:12.6, halfH=halfW*h/w;
       camera.left=-halfW; camera.right=halfW; camera.top=halfH; camera.bottom=-halfH;
       var d=40; camera.position.set(-Math.sin(AZ)*Math.cos(EL)*d, Math.sin(EL)*d, Math.cos(AZ)*Math.cos(EL)*d);
-      camera.lookAt(0,-0.4,0); camera.updateProjectionMatrix();
+      camera.lookAt(0,w<640?-0.15:-0.4,0); camera.updateProjectionMatrix();
       linesEl.setAttribute("viewBox","0 0 "+w+" "+h);
       renderer.shadowMap.needsUpdate=true;
       return true;
