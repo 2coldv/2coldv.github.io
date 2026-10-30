@@ -135,6 +135,18 @@ p{margin:0;max-width:66ch}
 @keyframes qoPulse{50%{opacity:.35}}
 .qo-lbl text{font-family:var(--mono);font-size:9.5px;fill:#eceef2}
 .qo-lbl rect{fill:#0b0d11;fill-opacity:.82}
+.fig3d{position:relative;aspect-ratio:2.1/1;overflow:hidden;background:radial-gradient(120% 90% at 50% 40%,#151922 0%,var(--surface) 70%)}
+.fig3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fig3d svg.tx3d-lines{position:absolute;inset:0;width:100%;height:100%;min-width:0;pointer-events:none}
+.tx3d-labels{position:absolute;inset:0;pointer-events:none}
+.tx3d-lab{position:absolute;transform:translate(-50%,-50%);font-family:var(--body);font-size:12.5px;line-height:1.25;color:#b3bac6;white-space:nowrap;text-shadow:0 1px 8px #000,0 0 2px #000}
+.tx3d-title,.tx3d-hint{position:absolute;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);pointer-events:none}
+.tx3d-title{left:18px;top:14px}
+.tx3d-hint{right:16px;bottom:12px;letter-spacing:.06em;text-transform:none}
+.tx3d-fallback{display:none;position:absolute;inset:0;place-items:center;color:var(--faint);font-size:.9rem;padding:16px;text-align:center}
+.fig3d.no3d .tx3d-fallback{display:grid}
+.fig3d.no3d .tx3d-hint{display:none}
+@media (max-width:640px){.fig3d{aspect-ratio:1.45/1}.tx3d-lab{font-size:10.5px}.tx3d-lab.p2{display:none}.tx3d-title{font-size:10px}}
 .list{display:grid;gap:16px;margin-top:40px}
 .c-center{display:grid;justify-items:center;text-align:center;gap:20px;padding-block:72px 40px}
 .c-eye{color:var(--accent);font-weight:500}
@@ -166,7 +178,10 @@ p{margin:0;max-width:66ch}
 .t{font-family:var(--mono);font-size:11px;fill:var(--muted)}
 .t2{font-family:var(--mono);font-size:10px;fill:var(--faint)}
 .tl{font-family:var(--body);font-size:13px;fill:var(--fg)}
-.icw{font-family:var(--mono);font-size:13px;letter-spacing:3px;font-weight:500}
+.icw{font-family:var(--mono);font-size:12px;letter-spacing:2.5px;font-weight:500}
+.icl{font-family:var(--body);font-size:12px;fill:#a3abb8}
+.ich{font-family:var(--body);font-size:14px;font-weight:500;fill:#e6e9ee}
+.icm{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;fill:#5d636e}
 .flow{animation:flow 1.6s linear infinite}
 @keyframes flow{to{stroke-dashoffset:-32}}
 
@@ -204,7 +219,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
   <div class="bar-in">
     <a class="name" href="#home" data-route="home">Chanseung Lee</a>
     <nav aria-label="Sections">
-      <a href="#experience" data-route="experience">Experience</a>
+      <a href="#experience" data-route="experience">Research Experience</a>
       <a href="#research" data-route="research">Research Interests</a>
       <a href="#projects" data-route="projects">Projects</a>
       <a href="#contact" data-route="contact">Contact</a>
@@ -306,99 +321,39 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       <h3>Optical interconnects &amp; co-packaged optics</h3>
       <span class="eyebrow">Classical links</span>
     </div>
+    <div class="fig fig3d" id="tx3d-wrap">
+      <canvas id="tx3d" role="img" aria-label="3D view of a comb-driven silicon photonic transmitter. A continuous-wave pump laser feeds two series-coupled Si3N4 microresonators that generate a frequency comb. An optical fiber carries the comb to a silicon photonic transmitter chip, where a de-multiplexer tree of MZI filters with delay lines splits the comb lines into four lanes, ten resonant ring modulators per lane encode data, and a mirrored multiplexer combines everything onto one output fiber."></canvas>
+      <svg class="tx3d-lines" id="tx3d-lines" aria-hidden="true"></svg>
+      <div class="tx3d-labels" id="tx3d-labels" aria-hidden="true"></div>
+      <div class="tx3d-title">Transmitter · one comb, many channels</div>
+      <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
+    </div>
     <div class="fig">
-      <svg id="icx" viewBox="0 0 960 470" role="img" aria-label="Animated optical link. On the transmitter chiplet a CW laser pumps a microring Kerr comb that creates four colored channels on one bus waveguide. Four ring modulators, driven by a co-packaged driver IC, write the bit words 1110, 1100, 0111 and 1010 onto their own colors. The light crosses a fiber to the receiver chiplet, where four ring filters each drop one color to its own photodetector, and the receiver IC reads back the same words.">
+      <svg id="icx" viewBox="0 0 960 400" role="img" aria-label="Animated optical link with four channels. Comb light enters a silicon photonic transmitter from the left, where four ring modulators write the bit words 1110, 1100, 0111 and 1010 onto their own colors. A fiber carries the light to a silicon photonic receiver, where four ring filters each drop one color into its own germanium photodetector and the same words are read back.">
         <defs>
-          <linearGradient id="die1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#151920"/><stop offset="1" stop-color="#0e1116"/></linearGradient>
-          <pattern id="grid1" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#1a1e25" stroke-width=".7"/></pattern>
-          <filter id="glow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="470"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="icBlur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3.2"/></filter>
-          <linearGradient id="combRing" x1="95" y1="192" x2="175" y2="272" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#ff6b6b"/><stop offset=".33" stop-color="#ffd43b"/><stop offset=".66" stop-color="#69db7c"/><stop offset="1" stop-color="#4dabf7"/>
-          </linearGradient>
+          <filter id="glow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="icBlur" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="2.6"/></filter>
+          <filter id="icShadow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="9"/></filter>
+          <linearGradient id="icTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#46505f"/><stop offset=".55" stop-color="#323946"/><stop offset="1" stop-color="#3b4351"/></linearGradient>
+          <linearGradient id="icOxF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c4452"/><stop offset="1" stop-color="#2a303a"/></linearGradient>
+          <linearGradient id="icSubF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2027"/><stop offset="1" stop-color="#121418"/></linearGradient>
+          <linearGradient id="icGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d488"/><stop offset="1" stop-color="#b48a3a"/></linearGradient>
+          <linearGradient id="icGe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a84a6"/><stop offset="1" stop-color="#55506b"/></linearGradient>
+          <linearGradient id="icGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9f1ff" stop-opacity=".34"/><stop offset=".5" stop-color="#9fb2cc" stop-opacity=".1"/><stop offset="1" stop-color="#e9f1ff" stop-opacity=".22"/></linearGradient>
         </defs>
-
-        <!-- legend -->
-        <g transform="translate(24 28)">
-          <line x1="0" y1="6" x2="26" y2="6" stroke="#6b7380" stroke-width="3"/><text class="t2" x="36" y="9">waveguide</text>
-          <rect x="4" y="22" width="18" height="10" fill="#b8924a"/><text class="t2" x="36" y="31">heater / electrode</text>
-          <circle cx="13" cy="51" r="8" fill="none" stroke="#4a5a70" stroke-width="3"/><text class="t2" x="36" y="54">PN-doped ring</text>
-        </g>
-
-        <!-- spectrum -->
-        <g>
-          <text class="t" x="392" y="82" text-anchor="end">comb spectrum</text>
-          <line x1="400" y1="104" x2="600" y2="104" stroke="#3a404b"/>
-          <text class="t" x="606" y="108">λ</text>
-          <line x1="408" y1="50" x2="572" y2="50" stroke="#5d636e" stroke-dasharray="3 4"/>
-          <text class="t2" x="580" y="53">equal power</text>
-          <g stroke-linecap="round" stroke-width="3">
-            <line x1="425" y1="104" x2="425" y2="50" stroke="#ff6b6b"/>
-            <line x1="470" y1="104" x2="470" y2="50" stroke="#ffd43b"/>
-            <line x1="515" y1="104" x2="515" y2="50" stroke="#69db7c"/>
-            <line x1="560" y1="104" x2="560" y2="50" stroke="#4dabf7"/>
-          </g>
-          <g stroke-width="1.5" opacity=".55" stroke-linecap="round">
-            <line x1="417" y1="104" x2="417" y2="80" stroke="#ff6b6b"/><line x1="433" y1="104" x2="433" y2="80" stroke="#ff6b6b"/>
-            <line x1="462" y1="104" x2="462" y2="80" stroke="#ffd43b"/><line x1="478" y1="104" x2="478" y2="80" stroke="#ffd43b"/>
-            <line x1="507" y1="104" x2="507" y2="80" stroke="#69db7c"/><line x1="523" y1="104" x2="523" y2="80" stroke="#69db7c"/>
-            <line x1="552" y1="104" x2="552" y2="80" stroke="#4dabf7"/><line x1="568" y1="104" x2="568" y2="80" stroke="#4dabf7"/>
-          </g>
-          <text class="t2" x="580" y="84">data sidebands</text>
-          <text class="t2" x="580" y="96">Gb/s per λ</text>
-        </g>
-
-        <!-- chiplets -->
-        <text class="tl" x="20" y="130">Transmitter</text>
-        <text class="tl" x="940" y="130" text-anchor="end">Receiver</text>
-        <rect x="20" y="140" width="410" height="232" rx="8" fill="url(#die1)" stroke="#2a2f38"/>
-        <rect x="20" y="140" width="410" height="232" rx="8" fill="url(#grid1)" opacity=".7"/>
-        <rect x="530" y="140" width="410" height="232" rx="8" fill="url(#die1)" stroke="#2a2f38"/>
-        <rect x="530" y="140" width="410" height="232" rx="8" fill="url(#grid1)" opacity=".7"/>
-        <text class="t2" x="36" y="162">photonic chiplet</text>
-        <text class="t2" x="546" y="162">photonic chiplet</text>
-
-        <!-- laser, bus, comb -->
-        <rect x="32" y="266" width="54" height="28" rx="3" fill="#232831" stroke="#3a404b"/>
-        <text class="t2" x="59" y="284" text-anchor="middle">CW laser</text>
-        <rect x="86" y="271" width="344" height="18" rx="2" fill="#1d2129" stroke="#343a45"/>
-        <rect x="530" y="271" width="384" height="18" rx="2" fill="#1d2129" stroke="#343a45"/>
-        <line x1="86" y1="280" x2="135" y2="280" stroke="#ffe8cc" stroke-width="2" filter="url(#glow)"/>
-        <path d="M86 214 A52 52 0 0 1 184 214" fill="none" stroke="#b8924a" stroke-width="4" opacity=".75"/>
-        <rect x="74" y="208" width="16" height="12" fill="#b8924a"/>
-        <rect x="180" y="208" width="16" height="12" fill="#b8924a"/>
-        <circle cx="135" cy="232" r="40" fill="none" stroke="#3a414c" stroke-width="6"/>
-        <circle cx="135" cy="232" r="40" fill="none" stroke="url(#combRing)" stroke-width="2" filter="url(#glow)"/>
-        <text class="tl" x="135" y="231" text-anchor="middle">Kerr comb</text>
-        <text class="t2" x="135" y="247" text-anchor="middle">microring</text>
-
-        <!-- fiber -->
-        <rect x="422" y="268" width="116" height="24" rx="12" fill="#161a20" stroke="#3a404b"/>
-        <rect x="428" y="272" width="14" height="16" rx="2" fill="#2c323c"/>
-        <rect x="518" y="272" width="14" height="16" rx="2" fill="#2c323c"/>
-        <text class="t2" x="480" y="312" text-anchor="middle">fiber</text>
-
-        <!-- labels -->
-        <text class="t2" x="196" y="316" text-anchor="end">ring modulators</text>
-        <text class="t2" x="820" y="314">ring filters</text>
-        <text class="t2" x="820" y="354">photodetectors</text>
-
-        <!-- electronics -->
-        <rect x="196" y="392" width="230" height="62" rx="4" fill="#191d24" stroke="#3a404b"/>
-        <text class="t2" x="208" y="410">driver IC · bits sent</text>
-        <rect x="584" y="392" width="236" height="62" rx="4" fill="#191d24" stroke="#3a404b"/>
-        <text class="t2" x="596" y="410">receiver IC · bits read</text>
-
-        <g id="ic-elec"></g>
-        <g id="ic-base"></g>
-        <g id="ic-rings"></g>
-        <g id="ic-dyn"></g>
-        <g id="ic-words"></g>
+        <g id="ic-shadow"></g>
+        <g id="ic-chips"></g>
+        <g id="ic-surf"></g>
+        <g id="ic-light"></g>
+        <g id="ic-parts"></g>
+        <g id="ic-fiber"></g>
+        <g id="ic-over"></g>
+        <g id="ic-labels"></g>
       </svg>
     </div>
     <div class="cap">
-      <p>One continuous-wave laser drives a microring Kerr comb, which splits it into many evenly spaced wavelengths with near-equal power. Each wavelength becomes its own data channel on a single waveguide.</p>
-      <p>A ring modulator tuned to each comb line writes that channel's bits. After the fiber, a matching ring filter drops the same color to its own photodetector. Packaging the photonic chiplets right next to the driver and receiver electronics keeps the electrical path short, which is what sets energy per bit in chip-to-chip and memory links.</p>
+      <p>One continuous-wave laser pumps a Si₃N₄ microresonator that turns it into a comb of evenly spaced wavelengths. On the silicon transmitter, a tree of ring-assisted and asymmetric MZI filters sorts the comb lines into lanes, a ring modulator tuned to each line writes its data, and a mirrored tree folds every channel back onto one output fiber.</p>
+      <p>The animation below follows four of those channels. Each ring modulator writes its color's bits, and at the receiver a matching ring filter drops that color into its own photodetector. Packaging these chiplets next to the driver and receiver electronics keeps the electrical path short, which is what sets energy per bit in chip-to-chip and memory links.</p>
     </div>
   </article>
 
@@ -422,17 +377,17 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
         <text class="t2" x="46" y="52">χ⁽³⁾ photonic chip</text>
 
         <!-- heater -->
-        <path d="M176 140 A 145 145 0 0 1 444 140" fill="none" stroke="#b8924a" stroke-width="5" opacity=".7"/>
-        <rect x="158" y="124" width="22" height="16" fill="#b8924a"/>
-        <rect x="440" y="124" width="22" height="16" fill="#b8924a"/>
+        <path d="M234 236 A 88 88 0 0 1 386 236" fill="none" stroke="#b8924a" stroke-width="4" opacity=".7"/>
+        <rect x="220" y="230" width="18" height="12" fill="#b8924a"/>
+        <rect x="382" y="230" width="18" height="12" fill="#b8924a"/>
 
         <!-- ring -->
-        <circle cx="310" cy="218" r="130" fill="none" stroke="#3a414c" stroke-width="7"/>
-        <circle cx="310" cy="218" r="131.5" fill="none" stroke="#ff5d6c" stroke-width="1.2" opacity=".55" filter="url(#glow2)"/>
-        <circle cx="310" cy="218" r="128.5" fill="none" stroke="#5cb8ff" stroke-width="1.2" opacity=".55" filter="url(#glow2)"/>
-        <circle cx="310" cy="218" r="130" fill="none" stroke="#ffa94d" stroke-width="2" filter="url(#glow2)"/>
-        <text class="tl" x="310" y="208" text-anchor="middle">spontaneous four-wave mixing</text>
-        <text class="t2" x="310" y="228" text-anchor="middle">2 pump photons → signal + idler</text>
+        <circle cx="310" cy="276" r="72" fill="none" stroke="#3a414c" stroke-width="6"/>
+        <circle cx="310" cy="276" r="73.4" fill="none" stroke="#ff5d6c" stroke-width="1.2" opacity=".55" filter="url(#glow2)"/>
+        <circle cx="310" cy="276" r="70.6" fill="none" stroke="#5cb8ff" stroke-width="1.2" opacity=".55" filter="url(#glow2)"/>
+        <circle cx="310" cy="276" r="72" fill="none" stroke="#ffa94d" stroke-width="2" filter="url(#glow2)"/>
+        <text class="tl" x="310" y="150" text-anchor="middle">spontaneous four-wave mixing</text>
+        <text class="t2" x="310" y="170" text-anchor="middle">2 pump photons → signal + idler</text>
 
         <!-- bus -->
         <line x1="30" y1="360" x2="590" y2="360" stroke="#3a414c" stroke-width="7"/>
@@ -715,6 +670,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
 
 <footer>© 2026 Chanseung Lee</footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
   var NS="http://www.w3.org/2000/svg";
@@ -767,77 +723,380 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     for(var x=410;x<=830;x+=14) el("circle",{cx:x,cy:440,r:2.6,fill:"#8a7448"},b);
   }
 
-  // interconnect link animation: comb -> ring modulators -> fiber -> ring filters -> PDs
+  // 3D transmitter (three.js, fixed view): C.W. pump laser + series-coupled Si3N4 microresonators -> fiber -> Si TX chip (MZI demux tree -> resonant modulators -> MZI mux tree) -> output fiber
+  (function(){
+    var wrap=document.getElementById("tx3d-wrap"); if(!wrap) return;
+    var canvas=document.getElementById("tx3d"), linesEl=document.getElementById("tx3d-lines"), labsEl=document.getElementById("tx3d-labels");
+    if(!window.THREE){wrap.classList.add("no3d");return;}
+    var renderer;
+    try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});}catch(e){wrap.classList.add("no3d");return;}
+    if(!renderer.getContext()){wrap.classList.add("no3d");return;}
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    renderer.outputEncoding=THREE.sRGBEncoding;
+    renderer.toneMapping=THREE.NoToneMapping;
+    renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+
+    var scene=new THREE.Scene();
+    var camera=new THREE.OrthographicCamera(-10,10,5,-5,0.1,200);
+    var world=new THREE.Group(); scene.add(world);
+    var CX=6.5, CZ=0.0; world.position.set(-CX,0,-CZ);
+
+    scene.add(new THREE.HemisphereLight(0xdfe7f5,0x101318,0.3));
+    var key=new THREE.DirectionalLight(0xffffff,0.6); key.position.set(-6,14,9); key.castShadow=true;
+    key.shadow.mapSize.set(2048,2048);
+    var sc=key.shadow.camera; sc.left=-16; sc.right=16; sc.top=12; sc.bottom=-12; sc.near=1; sc.far=60;
+    key.shadow.bias=-0.0004; key.shadow.radius=4; scene.add(key); scene.add(key.target);
+    var fill=new THREE.DirectionalLight(0xbcd0ff,0.22); fill.position.set(10,6,12); scene.add(fill);
+    var ground=new THREE.Mesh(new THREE.PlaneGeometry(90,50),new THREE.ShadowMaterial({opacity:.45}));
+    ground.rotation.x=-Math.PI/2; ground.position.y=-0.6; ground.receiveShadow=true; scene.add(ground);
+
+    var M={
+      sub:new THREE.MeshStandardMaterial({color:0x5c6169,roughness:.7,metalness:.05}),
+      floor:new THREE.MeshStandardMaterial({color:0x666b73,roughness:.55,metalness:.05}),
+      rim:new THREE.MeshStandardMaterial({color:0x878c94,roughness:.5,metalness:.05}),
+      goldDark:new THREE.MeshStandardMaterial({color:0x9a7a28,roughness:.5,metalness:.3}),
+      subTop:new THREE.MeshStandardMaterial({color:0x6b727d,roughness:.6,metalness:.05}),
+      clad:new THREE.MeshPhysicalMaterial({color:0x8d9aac,roughness:.15,metalness:0,clearcoat:.5,transparent:true,opacity:.16,depthWrite:false}),
+      comb:new THREE.MeshStandardMaterial({color:0x6c7179,roughness:.6,metalness:.05}),
+      gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5}),
+      core:new THREE.MeshBasicMaterial({color:0xff4a26}),
+      green:new THREE.MeshBasicMaterial({color:0x7be04c}),
+      glow:new THREE.MeshBasicMaterial({color:0xff3a14,transparent:true,opacity:.3,depthWrite:false}),
+      gglow:new THREE.MeshBasicMaterial({color:0x6ad83a,transparent:true,opacity:.22,depthWrite:false}),
+      edge:new THREE.LineBasicMaterial({color:0xd4dbe6,transparent:true,opacity:.32}),
+      glass:new THREE.MeshPhysicalMaterial({color:0xe6eeff,roughness:.05,metalness:0,clearcoat:1,transparent:true,opacity:.3,depthWrite:false}),
+      cap:new THREE.MeshBasicMaterial({color:0xf2f6ff,transparent:true,opacity:.6})
+    };
+    var R0=0.022;
+    function edges(mesh){var e=new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry),M.edge); e.position.copy(mesh.position); world.add(e);}
+    function v3(p,y){return new THREE.Vector3(p[0],y,p[1]);}
+    class PolyCurve extends THREE.Curve{
+      constructor(pts){super();this.p=pts;var Ls=[0];for(var i=1;i<pts.length;i++)Ls.push(Ls[i-1]+pts[i].distanceTo(pts[i-1]));this.Ls=Ls;this.T=Ls[Ls.length-1]||1;}
+      getPoint(t,o){o=o||new THREE.Vector3();var d=t*this.T,Ls=this.Ls,i=1;while(i<Ls.length-1&&Ls[i]<d)i++;var f=(d-Ls[i-1])/((Ls[i]-Ls[i-1])||1);return o.copy(this.p[i-1]).lerp(this.p[i],Math.max(0,Math.min(1,f)));}
+    }
+    function tube(pts,y,mat,gmat,r,gr){
+      r=r||R0;
+      var curve=new PolyCurve(pts.map(function(p){return v3(p,y);}));
+      var seg=Math.max(8,Math.round(curve.T*60));
+      world.add(new THREE.Mesh(new THREE.TubeGeometry(curve,seg,r,8,false),mat||M.core));
+      world.add(new THREE.Mesh(new THREE.TubeGeometry(curve,seg,gr||r*3.4,8,false),gmat||M.glow));
+    }
+    function ring(x,z,r,y,mat,gmat){
+      var t=new THREE.Mesh(new THREE.TorusGeometry(r,R0,8,72),mat||M.core); t.rotation.x=-Math.PI/2; t.position.set(x,y,z); world.add(t);
+      var g=new THREE.Mesh(new THREE.TorusGeometry(r,R0*3.4,8,72),gmat||M.glow); g.rotation.x=-Math.PI/2; g.position.copy(t.position); world.add(g);
+    }
+    function sb(x0,z0,x1,z1,n){var a=[];n=n||16;for(var i=0;i<=n;i++){var u=i/n,s=u*u*(3-2*u);a.push([x0+(x1-x0)*u,z0+(z1-z0)*s]);}return a;}
+    function cat(){var o=[];for(var i=0;i<arguments.length;i++)arguments[i].forEach(function(p){var l=o[o.length-1];if(l&&Math.abs(l[0]-p[0])<1e-6&&Math.abs(l[1]-p[1])<1e-6)return;o.push(p);});return o;}
+    // rectangular delay box on an arm: leaves the arm at x0, goes out by h (sign = direction), runs to x1, returns
+    function box(x0,x1,z,h){
+      var s=Math.sign(h), r=Math.min(0.06,Math.abs(h)/2.2), a=[], n=8, i, t;
+      for(i=0;i<=n;i++){t=i/n*Math.PI/2; a.push([x0+r*Math.sin(t), z+s*r*(1-Math.cos(t))]);}
+      for(i=0;i<=n;i++){t=i/n*Math.PI/2; a.push([x0+2*r-r*Math.cos(t), z+h-s*r+s*r*Math.sin(t)]);}
+      for(i=0;i<=n;i++){t=i/n*Math.PI/2; a.push([x1-2*r+r*Math.sin(t), z+h-s*r+s*r*Math.cos(t)]);}
+      for(i=0;i<=n;i++){t=i/n*Math.PI/2; a.push([x1-r*Math.cos(t), z+s*r-s*r*Math.sin(t)]);}
+      return cat(a);
+    }
+
+    // ---------------- TX chip: tray (raised rim around a recessed floor) ----------------
+    var L=17, ZW=2.2, RIM=0.24, RH=0.075, YW=R0+0.004;
+    var subM=new THREE.Mesh(new THREE.BoxGeometry(L,0.55,2*ZW),M.sub); subM.position.set(L/2,-0.275,0); subM.castShadow=true; subM.receiveShadow=true; world.add(subM); edges(subM);
+    var floor=new THREE.Mesh(new THREE.PlaneGeometry(L-2*RIM,2*ZW-2*RIM),M.floor); floor.rotation.x=-Math.PI/2; floor.position.set(L/2,0.001,0); floor.receiveShadow=true; world.add(floor);
+    [[L/2,-ZW+RIM/2,L,RIM],[L/2,ZW-RIM/2,L,RIM],[RIM/2,0,RIM,2*ZW-2*RIM],[L-RIM/2,0,RIM,2*ZW-2*RIM]].forEach(function(r){
+      var m=new THREE.Mesh(new THREE.BoxGeometry(r[2],RH,r[3]),M.rim); m.position.set(r[0],RH/2,r[1]); m.castShadow=true; m.receiveShadow=true; world.add(m); edges(m);
+    });
+
+    // circuit, top view: x along the chip, z toward the viewer ("upper" on screen = -z)
+    var red=[], loops=[], thick=[];
+    function seg(x0,z0,x1,z1){red.push([[x0,z0],[x1,z1]]);}
+    // closed rounded-rectangle racetrack
+    function racetrack(x0,x1,z0,z1){
+      var rc=0.045,a=[],n=6,i,t;
+      for(i=0;i<=n;i++){t=Math.PI*(1+0.5*i/n);a.push([x0+rc+rc*Math.cos(t),z0+rc+rc*Math.sin(t)]);}
+      for(i=0;i<=n;i++){t=Math.PI*(1.5+0.5*i/n);a.push([x1-rc+rc*Math.cos(t),z0+rc+rc*Math.sin(t)]);}
+      for(i=0;i<=n;i++){t=Math.PI*(0.5*i/n);a.push([x1-rc+rc*Math.cos(t),z1-rc+rc*Math.sin(t)]);}
+      for(i=0;i<=n;i++){t=Math.PI*(0.5+0.5*i/n);a.push([x0+rc+rc*Math.cos(t),z1-rc+rc*Math.sin(t)]);}
+      a.push(a[0]); loops.push(a);
+    }
+    // ring-assisted MZI: two straight arms with chamfered ends, a racetrack coupled to one arm
+    // side -1: racetrack above the upper arm, left part;  side +1: below the lower arm, right part
+    function ramzi(xa,xb,c,d,side){
+      var t=0.2, g=0.03, h=0.17, Ls=xb-xa-2*t, Lr=0.68*Ls;
+      red.push([[xa,c],[xa+t,c-d],[xb-t,c-d],[xb,c]]);
+      red.push([[xa,c],[xa+t,c+d],[xb-t,c+d],[xb,c]]);
+      if(side<0){var x0=xa+t+0.05; racetrack(x0,x0+Lr,c-d-g-h,c-d-g);}
+      else{var x1=xb-t-0.05; racetrack(x1-Lr,x1,c+d+g,c+d+g+h);}
+    }
+    function bar(x0,x1,z){thick.push([[x0,z],[x1,z]]);}
+    function ybend(x0,z0,x1,z1){red.push(sb(x0,z0,x1,z1,18));}
+
+    // demux
+    seg(0,0,0.62,0); bar(0.22,0.46,0);
+    ramzi(0.62,2.2,0,0.17,-1);
+    seg(2.2,0,2.55,0); bar(2.26,2.5,0);
+    ybend(2.55,0,3.2,-0.5); ybend(2.55,0,3.2,0.5);
+    seg(3.2,-0.5,3.55,-0.5); bar(3.25,3.48,-0.5);
+    ramzi(3.55,5.0,-0.5,0.15,-1);
+    seg(3.2,0.5,4.0,0.5); bar(3.62,3.88,0.5);
+    ramzi(4.0,5.45,0.5,0.15,1);
+    seg(5.0,-0.5,5.32,-0.5); bar(5.05,5.27,-0.5);
+    ybend(5.32,-0.5,5.92,-0.78); ybend(5.32,-0.5,5.92,-0.22);
+    seg(5.45,0.5,5.77,0.5); bar(5.5,5.72,0.5);
+    ybend(5.77,0.5,6.37,0.22); ybend(5.77,0.5,6.37,0.78);
+    // lanes + resonant modulators
+    var LANES=[[-0.78,5.92,10.72],[-0.22,5.92,10.72],[0.22,6.37,11.17],[0.78,6.37,11.17]], RR=0.16, NR=8, DXR=0.5, XR0=(6.37+10.72)/2-DXR*(NR-1)/2;
+    LANES.forEach(function(l){seg(l[1],l[0],l[2],l[0]);});
+    // mux (same handedness as the demux, run in reverse)
+    ybend(10.72,-0.78,11.32,-0.5); ybend(10.72,-0.22,11.32,-0.5);
+    seg(11.32,-0.5,11.65,-0.5); bar(11.37,11.6,-0.5);
+    ramzi(11.65,13.1,-0.5,0.15,-1);
+    seg(13.1,-0.5,13.8,-0.5); bar(13.15,13.38,-0.5);
+    ybend(11.17,0.22,11.77,0.5); ybend(11.17,0.78,11.77,0.5);
+    seg(11.77,0.5,12.1,0.5); bar(11.82,12.05,0.5);
+    ramzi(12.1,13.55,0.5,0.15,1);
+    seg(13.55,0.5,13.8,0.5); bar(13.58,13.78,0.5);
+    ybend(13.8,-0.5,14.42,0); ybend(13.8,0.5,14.42,0);
+    seg(14.42,0,14.78,0); bar(14.47,14.7,0);
+    ramzi(14.78,16.3,0,0.17,-1);
+    seg(16.3,0,L,0); bar(16.36,16.6,0);
+
+    var F=1.62; function zs(p){return p.map(function(q){return [q[0],q[1]*F];});}
+    red.forEach(function(p){tube(zs(p),YW);});
+    loops.forEach(function(p){tube(zs(p),YW);});
+    thick.forEach(function(p){tube(zs(p),YW,M.core,M.glow,0.05,0.08);});
+    LANES.forEach(function(l){for(var k=0;k<NR;k++){ring(XR0+k*DXR,l[0]*F-RR-0.025,RR,YW);}});
+
+    // ---------------- comb chip: pump laser + coupled Si3N4 microresonators ----------------
+    var cx0=-5.4, cx1=-2.4, cz0=-1.86, cz1=1.14, CS=cx1-cx0;
+    var cm=new THREE.Mesh(new THREE.BoxGeometry(CS,0.5,cz1-cz0),M.comb); cm.position.set((cx0+cx1)/2,-0.25,(cz0+cz1)/2); cm.castShadow=true; cm.receiveShadow=true; world.add(cm); edges(cm);
+    var YG=R0+0.004;
+    var lp=new THREE.Mesh(new THREE.BoxGeometry(1.15,0.06,0.5),M.gold); lp.position.set(cx0+0.72,0.03,0); lp.castShadow=true; world.add(lp);
+    [-0.13,0.13].forEach(function(dz){var s=new THREE.Mesh(new THREE.BoxGeometry(1.05,0.016,0.04),M.goldDark); s.position.set(cx0+0.72,0.066,dz); world.add(s);});
+    tube([[cx0+0.3,0],[cx0+1.3,0]],0.07,M.green,M.gglow);
+    var ra=0.21, r2=[cx0+2.34,-(ra+0.035)];
+    var r1=[r2[0], r2[1]-(2*ra+0.035)];
+    tube([[cx0+1.3,0],[r2[0],0]],YG,M.green,M.gglow);
+    tube([[r2[0],0],[cx1,0]],YG);
+    ring(r2[0],r2[1],ra,YG); ring(r1[0],r1[1],ra,YG);
+
+    // ---------------- fibers ----------------
+    function fiber(x0,x1,y){
+      var len=x1-x0;
+      var f=new THREE.Mesh(new THREE.CylinderGeometry(0.15,0.15,len,40,1,true),M.glass); f.rotation.z=Math.PI/2; f.position.set((x0+x1)/2,y,0); f.renderOrder=3; world.add(f);
+      var c=new THREE.Mesh(new THREE.CylinderGeometry(0.024,0.024,len,12),M.core); c.rotation.z=Math.PI/2; c.position.copy(f.position); world.add(c);
+      var cg=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.06,len,12,1,true),M.glow); cg.rotation.z=Math.PI/2; cg.position.copy(f.position); world.add(cg);
+      [x0,x1].forEach(function(x){var r=new THREE.Mesh(new THREE.TorusGeometry(0.15,0.008,6,40),M.cap); r.rotation.y=Math.PI/2; r.position.set(x,y,0); world.add(r);});
+    }
+    fiber(cx1,0,0.06); fiber(L,L+1.5,0.06);
+
+    // ---------------- generated comb: spectrum standing beside the fiber, along it ----------------
+    var nb=20;
+    for(var i=0;i<nb;i++){
+      var u=i/(nb-1);
+      var col=new THREE.Color().setHSL(0.66-0.66*u,0.9,0.55);
+      var hgt=0.55;
+      var bar2=new THREE.Mesh(new THREE.BoxGeometry(0.035,hgt,0.012),new THREE.MeshBasicMaterial({color:col}));
+      bar2.position.set(-1.78+u*1.5,0.02+hgt/2,-0.42); world.add(bar2);
+    }
+
+    // ---------------- labels ----------------
+    var labs=[
+      {p:[r1[0],YG,r1[1]-ra],t:"Si₃N₄ microresonators",o:[-95,-110]},
+      {p:[-1.0,0.57,-0.42],t:"Generated comb",o:[-40,-110],cls:"p2"},
+      {p:[cx0+0.72,0.06,0],t:"C.W. pump laser",o:[40,95],cls:"p2"},
+      {p:[-1.2,0.06,0.1],t:"Optical fiber",o:[50,105],cls:"p2"},
+      {p:[4.6,RH,-ZW],t:"Silicon photonic transmitter chip",o:[-30,-105],cls:"p2"},
+      {p:[4.3,YW,1.0],t:"De-multiplexer",o:[30,125]},
+      {p:[8.5,YW,1.26],t:"Resonant modulators",o:[60,110]},
+      {p:[13.0,YW,1.0],t:"Multiplexer",o:[60,95],cls:"p2"},
+      {p:[L+1.35,0.06,0],t:"Output fiber",o:[-20,-75]}
+    ];
+    var NS2="http://www.w3.org/2000/svg";
+    labs.forEach(function(l){
+      l.el=document.createElement("div"); l.el.className="tx3d-lab"+(l.cls?" "+l.cls:""); l.el.textContent=l.t; labsEl.appendChild(l.el);
+      l.ln=document.createElementNS(NS2,"line"); l.ln.setAttribute("stroke","#7a828f"); l.ln.setAttribute("stroke-width","1"); linesEl.appendChild(l.ln);
+      l.dot=document.createElementNS(NS2,"circle"); l.dot.setAttribute("r","2"); l.dot.setAttribute("fill","#a3abb8"); linesEl.appendChild(l.dot);
+      l.v=new THREE.Vector3(l.p[0],l.p[1],l.p[2]);
+    });
+    var Wd=0,Hd=0;
+    function place(){
+      var small=Wd<640, k=Math.max(.55,Math.min(1.15,Wd/1000));
+      world.updateMatrixWorld();
+      labs.forEach(function(l){
+        var hide=small&&l.cls==="p2";
+        var q=l.v.clone(); world.localToWorld(q); q.project(camera);
+        var ax=(q.x+1)/2*Wd, ay=(1-q.y)/2*Hd;
+        var hw=(l.el.offsetWidth||120)/2+8, tx=Math.max(hw,Math.min(Wd-hw,ax+l.o[0]*k)), ty=Math.max(36,Math.min(Hd-16,ay+l.o[1]*k));
+        l.el.style.left=tx+"px"; l.el.style.top=ty+"px"; l.el.style.display=hide?"none":"";
+        var dx=tx-ax, dy=ty-ay, dl=Math.hypot(dx,dy)||1, stop=Math.max(0,dl-11);
+        l.ln.setAttribute("x1",ax.toFixed(1)); l.ln.setAttribute("y1",ay.toFixed(1));
+        l.ln.setAttribute("x2",(ax+dx/dl*stop).toFixed(1)); l.ln.setAttribute("y2",(ay+dy/dl*stop).toFixed(1));
+        l.dot.setAttribute("cx",ax.toFixed(1)); l.dot.setAttribute("cy",ay.toFixed(1));
+        l.ln.style.display=l.dot.style.display=hide?"none":"";
+      });
+    }
+    var AZ=THREE.MathUtils.degToRad(36), EL=THREE.MathUtils.degToRad(29);
+    function size(){
+      var w=wrap.clientWidth,h=wrap.clientHeight; if(!w||!h) return false;
+      if(w===Wd&&h===Hd) return true;
+      Wd=w;Hd=h; renderer.setSize(w,h,false);
+      var halfW=w<640?13.6:12.6, halfH=halfW*h/w;
+      camera.left=-halfW; camera.right=halfW; camera.top=halfH; camera.bottom=-halfH;
+      var d=40; camera.position.set(-Math.sin(AZ)*Math.cos(EL)*d, Math.sin(EL)*d, Math.cos(AZ)*Math.cos(EL)*d);
+      camera.lookAt(0,-0.4,0); camera.updateProjectionMatrix();
+      linesEl.setAttribute("viewBox","0 0 "+w+" "+h);
+      renderer.shadowMap.needsUpdate=true;
+      return true;
+    }
+    function render(){renderer.render(scene,camera); place();}
+    var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches, visible=true;
+    if(window.ResizeObserver){new ResizeObserver(function(){if(size())render();}).observe(wrap);}
+    window.addEventListener("resize",function(){if(size())render();});
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){if(size())render();});
+    if(size()) render();
+    if(still) return;
+    if(window.IntersectionObserver){new IntersectionObserver(function(en){visible=en[0].isIntersecting;}).observe(wrap);}
+    renderer.shadowMap.autoUpdate=false;
+    function loop(now){
+      requestAnimationFrame(loop);
+      if(!visible||!wrap.getBoundingClientRect().width) return;
+      if(!size()) return;
+      var t=now/1000;
+      M.glow.opacity=.26+.08*Math.sin(t*1.3);
+      render();
+    }
+    requestAnimationFrame(loop);
+  })();
+
+  // link animation (isometric SVG): TX ring modulators -> fiber -> RX ring filters -> Ge photodetectors
   (function(){
     var svg=document.getElementById("icx"); if(!svg) return;
     function mk(tag,a,p){var e=document.createElementNS(NS,tag);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
-    var C=["#ff6b6b","#ffd43b","#69db7c","#4dabf7"], W=["1110","1100","0111","1010"], DY=[-6,-2,2,6];
-    var XM=[228,283,338,393], XR=[612,672,732,792];
-    var yb=280,R=19,yc=310,ytop=yc-R,ybot=yc+R,ypd=344,L=16,V=46,K=4,ONF=.72,P=K*L;
-    var gE=document.getElementById("ic-elec"),gB=document.getElementById("ic-base"),gR=document.getElementById("ic-rings"),gD=document.getElementById("ic-dyn"),gW=document.getElementById("ic-words");
-    function dashFor(word){
-      var pat=word.split("").reverse(),segs=[];
-      pat.forEach(function(b){ if(b==="1"){segs.push([1,L*ONF]);segs.push([0,L*(1-ONF)]);} else segs.push([0,L]); });
-      var m=[]; segs.forEach(function(q){ if(m.length&&m[m.length-1][0]===q[0]) m[m.length-1][1]+=q[1]; else m.push([q[0],q[1]]); });
-      if(m[0][0]===0) m.unshift([1,0]);
-      if(m.length%2) m.push([0,0]);
-      return m.map(function(x){return x[1].toFixed(2);}).join(" ");
+    var S=1.17,A=16*Math.PI/180,EX=[Math.cos(A)*S,-Math.sin(A)*S],EY=[0.42*S,0.62*S],O=[86,316],N=[Math.sin(A),Math.cos(A)];
+    function P(x,y,z){return [O[0]+x*EX[0]+y*EY[0], O[1]+x*EX[1]+y*EY[1]-z*S];}
+    function pts(a){return a.map(function(p){return p[0].toFixed(1)+","+p[1].toFixed(1);}).join(" ");}
+    function dOf(a){return "M"+a.map(function(p){return p[0].toFixed(1)+" "+p[1].toFixed(1);}).join(" L");}
+    function poly(a,at,par){at.points=pts(a);return mk("polygon",at,par);}
+    var G={sh:document.getElementById("ic-shadow"),ch:document.getElementById("ic-chips"),sf:document.getElementById("ic-surf"),li:document.getElementById("ic-light"),pa:document.getElementById("ic-parts"),fi:document.getElementById("ic-fiber"),ov:document.getElementById("ic-over"),lb:document.getElementById("ic-labels")};
+    var T1=8,T=11,W=72,YB=52,RR=12,RC=YB-RR-3.4;
+    var C=["#ff6b6b","#ffd43b","#69db7c","#4dabf7"], WD=["1110","1100","0111","1010"];
+    var XM=[62,118,174,230], XR=[452,508,564,620];
+    function box(x0,x1,y0,y1,z0,z1,c,par){
+      poly([P(x0,y1,z0),P(x1,y1,z0),P(x1,y1,z1),P(x0,y1,z1)],{fill:c.f},par);
+      poly([P(x0,y0,z0),P(x0,y1,z0),P(x0,y1,z1),P(x0,y0,z1)],{fill:c.l},par);
+      poly([P(x0,y0,z1),P(x1,y0,z1),P(x1,y1,z1),P(x0,y1,z1)],{fill:c.t},par);
+      if(c.e){mk("path",{d:dOf([P(x0,y0,z1),P(x0,y1,z1),P(x1,y1,z1)]),fill:"none",stroke:c.e,"stroke-width":.9},par);}
     }
+    function chip(x0,x1){
+      poly([P(x0,0,0),P(x1,0,0),P(x1,W,0),P(x0,W,0)].map(function(p){return [p[0]+8,p[1]+18];}),{fill:"#000",opacity:.75,filter:"url(#icShadow)"},G.sh);
+      box(x0,x1,0,W,0,T1,{t:"#20242c",f:"url(#icSubF)",l:"#171a20"},G.ch);
+      box(x0,x1,0,W,T1,T,{t:"url(#icTop)",f:"url(#icOxF)",l:"#2e343f",e:"rgba(255,255,255,.32)"},G.ch);
+      mk("path",{d:dOf([P(x0,W,T1),P(x1,W,T1)]),fill:"none",stroke:"rgba(255,255,255,.08)","stroke-width":.8},G.ch);
+      mk("path",{d:dOf([P(x1,0,T),P(x1,W,T)]),fill:"none",stroke:"rgba(255,255,255,.12)","stroke-width":.8},G.ch);
+    }
+    function circ(cx,cy,r,z,t0,t1,n){var a=[];n=n||56;t0=t0||0;t1=(t1==null)?2*Math.PI:t1;for(var i=0;i<=n;i++){var t=t0+(t1-t0)*i/n;a.push(P(cx+r*Math.sin(t),cy+r*Math.cos(t),z));}return a;}
+    function groove(a){mk("path",{d:dOf(a),fill:"none",stroke:"#0c0e12","stroke-width":3.6,"stroke-linecap":"round"},G.sf);mk("path",{d:dOf(a),fill:"none",stroke:"#56607a","stroke-width":.8},G.sf);}
+    var gold={t:"url(#icGold)",f:"#8f6d2c",l:"#a8833a"};
+
+    chip(0,300); chip(380,680);
+    groove([P(0,YB,T),P(300,YB,T)]); groove([P(380,YB,T),P(680,YB,T)]);
+
+    // TX ring modulators: ring + heater arc + traces to bond pads
+    var mods=[];
+    XM.forEach(function(x,k){
+      mk("path",{d:dOf(circ(x,RC,RR,T)),fill:"none",stroke:"#0c0e12","stroke-width":3.8},G.sf);
+      mk("path",{d:dOf(circ(x,RC,RR,T)),fill:"none",stroke:C[k],"stroke-width":1.1,opacity:.6},G.sf);
+      mk("path",{d:dOf(circ(x,RC,RR+3.6,T,0.6*Math.PI,1.4*Math.PI,26)),fill:"none",stroke:"#e0bb66","stroke-width":1.8},G.pa);
+      [-5,5].forEach(function(dx){mk("path",{d:dOf([P(x+dx,RC-RR-3.2,T),P(x+dx,10,T)]),fill:"none",stroke:"#d9b25c","stroke-width":1.1},G.pa);
+        box(x+dx-3.2,x+dx+3.2,4,10,T,T+1.2,gold,G.pa);});
+      mods.push(mk("path",{d:dOf(circ(x,RC,RR,T)),fill:"none",stroke:C[k],"stroke-width":3.4,opacity:0,filter:"url(#icBlur)"},G.ov));
+    });
+    // RX ring filters + drop waveguides + Ge photodetectors
+    var rxr=[],pds=[];
+    XR.forEach(function(x,k){
+      mk("path",{d:dOf(circ(x,RC,RR,T)),fill:"none",stroke:"#0c0e12","stroke-width":3.8},G.sf);
+      mk("path",{d:dOf(circ(x,RC,RR,T)),fill:"none",stroke:C[k],"stroke-width":1.1,opacity:.45},G.sf);
+      groove([P(x,RC-RR,T),P(x,20,T)]);
+      box(x-6,x+6,12,20,T,T+3.2,{t:"url(#icGe)",f:"#2f2b3a",l:"#3c3749",e:"rgba(255,255,255,.18)"},G.pa);
+      mk("path",{d:dOf([P(x,12,T),P(x,7,T)]),fill:"none",stroke:"#d9b25c","stroke-width":1.1},G.pa);
+      box(x-3.2,x+3.2,2,7,T,T+1.2,gold,G.pa);
+      pds.push(poly([P(x-6,12,T+3.2),P(x+6,12,T+3.2),P(x+6,20,T+3.2),P(x-6,20,T+3.2)],{fill:C[k],opacity:0,filter:"url(#glow)"},G.ov));
+      rxr.push(mk("path",{d:dOf(circ(x,RC,RR,T)),fill:"none",stroke:C[k],"stroke-width":3.4,opacity:0,filter:"url(#icBlur)"},G.ov));
+    });
+
+    // fibers (glass)
+    function fib1(){var a=[];for(var i=0;i<=12;i++){var u=i/12;a.push([-58+58*u,YB,T-2.5]);}return a;}
+    function fib2(){var a=[];for(var i=0;i<=28;i++){var u=i/28,b=Math.sin(Math.PI*u);a.push([300+80*u,YB+26*b,T-2.5-2*b]);}return a;}
+    [fib1(),fib2()].forEach(function(f){var pp=f.map(function(p){return P(p[0],p[1],p[2]);});
+      mk("path",{d:dOf(pp),fill:"none",stroke:"url(#icGlass)","stroke-width":10,"stroke-linecap":"round"},G.fi);
+      mk("path",{d:dOf(pp),fill:"none",stroke:"#a9bbd4","stroke-width":10,"stroke-linecap":"round",opacity:.08},G.fi);
+      mk("path",{d:dOf(pp.map(function(p){return [p[0],p[1]-3];})),fill:"none",stroke:"#f2f6ff","stroke-width":1,"stroke-linecap":"round",opacity:.35},G.fi);
+    });
+
+    // light paths
+    var OFF=[-2.4,-0.8,0.8,2.4];
+    var L=11,V=36,K=4,ONF=.7,PER=K*L;
+    function proj(list,k,offN){return list.map(function(p,i){var q=P(p[0],p[1],p[2]);if(i<offN){q=[q[0]+OFF[k]*N[0],q[1]+OFF[k]*N[1]];}return q;});}
+    function lens(a){var s=[0];for(var i=1;i<a.length;i++)s.push(s[i-1]+Math.hypot(a[i][0]-a[i-1][0],a[i][1]-a[i-1][1]));return s;}
+    function dashFor(word){var pat=word.split("").reverse(),segs=[];
+      pat.forEach(function(b){if(b==="1"){segs.push([1,L*ONF]);segs.push([0,L*(1-ONF)]);}else segs.push([0,L]);});
+      var m=[];segs.forEach(function(q){if(m.length&&m[m.length-1][0]===q[0])m[m.length-1][1]+=q[1];else m.push([q[0],q[1]]);});
+      if(m[0][0]===0)m.unshift([1,0]); if(m.length%2)m.push([0,0]);
+      return m.map(function(x){return x[1].toFixed(2);}).join(" ");}
     var ch=[];
     for(var k=0;k<4;k++){
-      var y=yb+DY[k], xm=XM[k], xr=XR[k];
-      var modD="M"+xm+" "+y+" L"+xr+" "+y+" L"+xr+" "+ytop+" A"+R+" "+R+" 0 0 1 "+xr+" "+ybot+" L"+xr+" "+ypd;
-      mk("path",{d:"M135 "+y+" L"+xm+" "+y,fill:"none",stroke:C[k],"stroke-width":2,filter:"url(#glow)"},gB);
-      mk("path",{d:modD,fill:"none",stroke:C[k],"stroke-width":2,opacity:.38},gB);
-      var dp=mk("path",{d:modD,fill:"none",stroke:C[k],"stroke-width":2.6,"stroke-dasharray":dashFor(W[k]),filter:"url(#glow)"},gD);
-      var s0=(xr-xm)+(ytop-y);
-      // transmitter ring modulator
-      mk("circle",{cx:xm,cy:yc,r:R+5,fill:"none",stroke:"#4f3b48","stroke-width":3},gR);
-      mk("circle",{cx:xm,cy:yc,r:R-5,fill:"none",stroke:"#3a4a5e","stroke-width":3},gR);
-      mk("circle",{cx:xm,cy:yc,r:R,fill:"none",stroke:"#3a414c","stroke-width":5},gR);
-      mk("circle",{cx:xm,cy:yc,r:R,fill:"none",stroke:C[k],"stroke-width":1.4,opacity:.55},gR);
-      var mg=mk("circle",{cx:xm,cy:yc,r:R,fill:"none",stroke:C[k],"stroke-width":4,filter:"url(#icBlur)",opacity:0},gR);
-      var t1=mk("text",{x:xm,y:yc+3.5,"text-anchor":"middle","class":"t2"},gR); t1.textContent="λ"+(k+1);
-      mk("rect",{x:xm-11,y:334,width:8,height:10,fill:"#b8924a"},gE);
-      mk("rect",{x:xm+3,y:334,width:8,height:10,fill:"#b8924a"},gE);
-      mk("line",{x1:xm-7,y1:344,x2:xm-7,y2:392,stroke:"#b8924a","stroke-width":1.4,opacity:.8},gE);
-      mk("line",{x1:xm+7,y1:344,x2:xm+7,y2:392,stroke:"#b8924a","stroke-width":1.4,opacity:.8},gE);
-      // receiver ring filter + photodetector
-      mk("circle",{cx:xr,cy:yc,r:R,fill:"none",stroke:"#3a414c","stroke-width":5},gR);
-      var rg=mk("circle",{cx:xr,cy:yc,r:R,fill:"none",stroke:C[k],"stroke-width":4,filter:"url(#icBlur)",opacity:0},gR);
-      var t2=mk("text",{x:xr,y:yc+3.5,"text-anchor":"middle","class":"t2"},gR); t2.textContent="λ"+(k+1);
-      mk("rect",{x:xr-9,y:344,width:18,height:12,rx:2,fill:"#2a2f3a",stroke:"#555d6b"},gE);
-      var pd=mk("rect",{x:xr-9,y:344,width:18,height:12,rx:2,fill:C[k],opacity:0,filter:"url(#glow)"},gE);
-      mk("line",{x1:xr,y1:356,x2:xr,y2:392,stroke:"#b8924a","stroke-width":1.4,opacity:.8},gE);
-      // bit words
-      function word(x){var t=mk("text",{x:x,y:440,"text-anchor":"middle","class":"icw"},gW),sp=[];
-        for(var i=0;i<K;i++){var s=mk("tspan",{},t);s.textContent=W[k][i];sp.push(s);} return sp;}
-      ch.push({dp:dp,mg:mg,rg:rg,pd:pd,tx:word(xm),rx:word(xr),sMid:s0+Math.PI*R/2,sPD:s0+Math.PI*R+(ypd-ybot)});
+      var cw=fib1().concat([[0,YB,T],[XM[k],YB,T]]);
+      mk("path",{d:dOf(proj(cw,k,cw.length)),fill:"none",stroke:C[k],"stroke-width":1.6,"stroke-linejoin":"round",filter:"url(#glow)"},G.li);
+      var md=[[XM[k],YB,T],[300,YB,T]].concat(fib2().slice(1),[[380,YB,T],[XR[k],YB,T]]);
+      var nb=md.length;
+      md=md.concat([[XR[k],RC+RR,T]]);
+      for(var i=1;i<=18;i++){var t=Math.PI*i/18;md.push([XR[k]+RR*Math.sin(t),RC+RR*Math.cos(t),T]);}
+      md.push([XR[k],20,T]);
+      var mp=proj(md,k,nb), ls=lens(mp);
+      mk("path",{d:dOf(mp),fill:"none",stroke:C[k],"stroke-width":1.5,"stroke-linejoin":"round",opacity:.38},G.li);
+      var dp=mk("path",{d:dOf(mp),fill:"none",stroke:C[k],"stroke-width":2.5,"stroke-linejoin":"round","stroke-dasharray":dashFor(WD[k]),filter:"url(#glow)"},G.li);
+      ch.push({dp:dp,sMid:ls[nb+9],sPD:ls[ls.length-1]});
     }
+
+    // labels: chip names, fiber, from-comb, bit tags
+    function txt(x,y,s,cls,anchor,par){var t=mk("text",{x:x,y:y,"class":cls,"text-anchor":anchor||"start"},par||G.lb);t.textContent=s;return t;}
+    var a=P(150,W,0); txt(a[0],a[1]+34,"Transmitter","ich","middle");
+    var b=P(530,W,0); txt(b[0],b[1]+34,"Receiver","ich","middle");
+    var f=P(340,YB+26,T-4.5); mk("path",{d:dOf([[f[0],f[1]+8],[f[0],f[1]+34]]),fill:"none",stroke:"#5d636e","stroke-width":.8},G.lb); txt(f[0],f[1]+48,"fiber","icl","middle");
+    var s0=P(-58,YB,T-2.5); txt(s0[0]-2,s0[1]+30,"from the comb above","icl","start");
+    mk("path",{d:dOf([[s0[0]+4,s0[1]+18],[s0[0]+4,s0[1]+8]]),fill:"none",stroke:"#5d636e","stroke-width":.8},G.lb);
+    txt(18,26,"LINK · 4 CHANNELS","icm");
+    function tag(cx,cy,word,col){
+      var g=mk("g",{},G.lb), w=50,h=22;
+      mk("rect",{x:cx-w/2,y:cy-h/2,width:w,height:h,rx:5,fill:"#0c0e12",stroke:col,"stroke-opacity":.6},g);
+      var t=mk("text",{x:cx,y:cy+4.5,"text-anchor":"middle","class":"icw"},g),sp=[];
+      for(var i=0;i<K;i++){var q=mk("tspan",{},t);q.textContent=word[i];sp.push(q);}
+      return sp;
+    }
+    function leader(p,q){mk("path",{d:dOf([p,q]),fill:"none",stroke:"#5d636e","stroke-width":.8},G.lb);}
+    var txw=[],rxw=[];
+    XM.forEach(function(x,k){var p=P(x,RC-RR,T),q=P(x,RC,T+46);leader(p,[q[0],q[1]+11]);txw.push(tag(q[0],q[1],WD[k],C[k]));});
+    XR.forEach(function(x,k){var p=P(x,16,T+3.2),q=P(x,16,T+46);leader(p,[q[0],q[1]+11]);rxw.push(tag(q[0],q[1],WD[k],C[k]));});
+    (function(){var p=P(XM[0],RC,T+46),q=P(XR[0],16,T+46);txt(p[0]-34,p[1]+4,"bits sent","icl","end");txt(q[0]-34,q[1]+4,"bits read","icl","end");})();
+
     function slot(t,s){var x=(V*t-s)/L,n=Math.floor(x);return {n:n,f:x-n};}
-    function bit(k,n){return W[k][((n%K)+K)%K]==="1";}
-    function setWord(sp,idx,col){for(var i=0;i<K;i++){sp[i].setAttribute("fill",i===idx?col:"#4a505a");}}
+    function bit(k,n){return WD[k][((n%K)+K)%K]==="1";}
+    function setW(sp,idx,col){for(var i=0;i<K;i++)sp[i].setAttribute("fill",i===idx?col:"#4a505a");}
     function frame(t){
-      var off=-((V*t)%P);
+      var off=-((V*t)%PER);
       ch.forEach(function(c,k){
         c.dp.setAttribute("stroke-dashoffset",off.toFixed(2));
-        var a=slot(t,0), ia=((a.n%K)+K)%K;
-        c.mg.setAttribute("opacity",bit(k,a.n)?0:.9);
-        setWord(c.tx,ia,C[k]);
-        var m=slot(t,c.sMid); c.rg.setAttribute("opacity",(bit(k,m.n)&&m.f>1-ONF)?.9:0);
-        var d=slot(t,c.sPD), id=((d.n%K)+K)%K;
-        c.pd.setAttribute("opacity",(bit(k,d.n)&&d.f>1-ONF)?.95:0);
-        setWord(c.rx,id,C[k]);
+        var a=slot(t,0);
+        mods[k].setAttribute("opacity",bit(k,a.n)?0:.95);
+        setW(txw[k],((a.n%K)+K)%K,C[k]);
+        var m=slot(t,c.sMid); rxr[k].setAttribute("opacity",(bit(k,m.n)&&m.f>1-ONF)?.95:0);
+        var d=slot(t,c.sPD); pds[k].setAttribute("opacity",(bit(k,d.n)&&d.f>1-ONF)?.95:0);
+        setW(rxw[k],((d.n%K)+K)%K,C[k]);
       });
     }
-    var T0=40;
-    if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){frame(T0+0.2);return;}
-    function loop(now){
-      requestAnimationFrame(loop);
-      if(!svg.getBoundingClientRect().width) return;
-      frame(T0+now/1000);
-    }
+    var T0=60;
+    if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){frame(T0+.2);return;}
     frame(T0);
+    function loop(now){requestAnimationFrame(loop);if(!svg.getBoundingClientRect().width)return;frame(T0+now/1000);}
     requestAnimationFrame(loop);
   })();
 
