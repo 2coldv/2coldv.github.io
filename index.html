@@ -185,6 +185,7 @@ p{margin:0;max-width:66ch}
 .tl{font-family:var(--body);font-size:13px;fill:var(--fg)}
 .mshow{display:none}
 .edu-when-m{display:none}
+.xp-role{display:none}
 @media (max-width:640px){.mshow{display:inline}}
 .icw{font-family:var(--mono);font-size:12px;letter-spacing:2.5px;font-weight:500}
 .icl{font-family:var(--body);font-size:12px;fill:#a3abb8}
@@ -244,19 +245,21 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
   .pj-fig figcaption,.pj-photos figcaption{font-size:.72rem}
   .pdf-btn{font-size:.62rem;padding:2px 7px}
   #v-projects .xp-when{justify-content:flex-start;align-items:center;gap:8px}
-  #v-projects .xp-when>:first-child{margin-left:auto}
+  #v-projects .xp-when .grade{margin-left:auto}
   #v-projects .xp-when .pdf-btn{margin-left:0;vertical-align:0;padding:3px 8px}
   .grade{font-size:.62rem}
-  #v-experience .xp-item{grid-template-columns:58px minmax(0,1fr);gap:0 14px}
-  #v-experience .xp-when{flex-direction:column;align-items:center;justify-content:center;gap:12px;white-space:normal;text-align:center;font-size:.6rem;line-height:1.35;padding-top:0}
-  #v-experience .xp-logo{width:50px}
-  #v-experience .xp-logo.sq{width:42px}
-  .edu{grid-template-columns:58px minmax(0,1fr);gap:0 14px;align-items:stretch;margin-top:36px;padding-top:22px}
-  .edu-logo{flex-direction:column;align-items:center;justify-content:center;gap:0}
-  .edu-when{display:none}
-  .edu-eye{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-  .edu-when-m{display:inline;font-size:.66rem;text-transform:none;letter-spacing:0;white-space:nowrap;color:var(--muted)}
-  .edu-logo img{width:52px}
+  /* header row: logo tile + role + dates, details full width below */
+  #v-experience .xp-item{grid-template-columns:minmax(0,1fr);gap:14px;padding-block:22px}
+  #v-experience .xp-when,.edu-logo{display:grid;grid-template-columns:46px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:3px;align-items:center;justify-items:start;text-align:left;white-space:nowrap;padding:0}
+  #v-experience .xp-when .xp-logo,.edu-logo img{grid-column:1;grid-row:1/3;width:46px;height:46px;max-width:none;object-fit:contain;padding:4px;margin:0;background:#11141a;border:1px solid var(--line);border-radius:11px;box-sizing:border-box}
+  #v-experience .xp-when .xp-logo.sq{padding:5px}
+  .xp-role{display:block;grid-column:2;grid-row:1;align-self:end;font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .xp-date,.edu-when{display:block;grid-column:2;grid-row:2;align-self:start;font-family:var(--mono);font-size:.74rem;color:var(--muted);padding:0}
+  .edu{display:flex;flex-direction:column;gap:14px;margin-top:36px;padding-top:22px}
+  .edu-main{display:contents}
+  .edu-eye{order:0}
+  .edu-logo{order:1}
+  .edu-body{order:2}
   .edu-row h3{font-size:.98rem}
   .edu-row .what{font-size:.8rem}
   .course span{font-size:.58rem}
@@ -300,7 +303,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     </div>
   </div>
   <div class="edu">
-    <div class="edu-logo"><span class="edu-when">Mar 2023 – Feb 2027 (expected)</span><img src="img/logo-khu.png" alt="Kyung Hee University emblem" width="200" loading="lazy"></div>
+    <div class="edu-logo"><span class="xp-role edu-role">Bachelor of Science</span><span class="edu-when">Mar 2023 – Feb 2027 (expected)</span><img src="img/logo-khu.png" alt="Kyung Hee University emblem" width="200" loading="lazy"></div>
     <div class="edu-main">
     <div class="eyebrow edu-eye">Education<span class="edu-when-m">Mar 2023 – Feb 2027 (expected)</span></div>
     <div class="edu-body">
@@ -321,7 +324,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
   <div class="xp">
 
     <article class="xp-item">
-      <div class="xp-when">2026.05 – Present<img class="xp-logo sq" src="img/logo-snu.png" alt="Seoul National University" width="80" loading="lazy"></div>
+      <div class="xp-when"><span class="xp-role">Research Intern</span><span class="xp-date">2026.05 – Present</span><img class="xp-logo sq" src="img/logo-snu.png" alt="Seoul National University" width="80" loading="lazy"></div>
       <div class="xp-body">
         <h3>On-Chip Quantum Frequency Conversion in LN-on-SiN Waveguides</h3>
         <div class="xp-org">Seoul National University (SNU), Q-SPIN Lab, Republic of Korea</div>
@@ -335,7 +338,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     </article>
 
     <article class="xp-item">
-      <div class="xp-when">2025.12 – 2026.05<img class="xp-logo" src="img/logo-kaist.png" alt="KAIST" width="88" loading="lazy"></div>
+      <div class="xp-when"><span class="xp-role">Research Intern</span><span class="xp-date">2025.12 – 2026.05</span><img class="xp-logo" src="img/logo-kaist.png" alt="KAIST" width="88" loading="lazy"></div>
       <div class="xp-body">
         <h3>Micro-Ring Resonator Photon-Pair Sources Based on SFWM</h3>
         <div class="xp-org">KAIST, Q-SPIN Lab, Republic of Korea</div>
@@ -348,7 +351,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     </article>
 
     <article class="xp-item">
-      <div class="xp-when">2025.12 – 2026.02<img class="xp-logo" src="img/logo-kaist.png" alt="KAIST" width="88" loading="lazy"></div>
+      <div class="xp-when"><span class="xp-role">Research Intern</span><span class="xp-date">2025.12 – 2026.02</span><img class="xp-logo" src="img/logo-kaist.png" alt="KAIST" width="88" loading="lazy"></div>
       <div class="xp-body">
         <h3>Photonic Integrated Circuit Design and Foundry Tape-Out <a class="xp-link" href="LIGENTEC%20CHIP%20TAPE%20OUT.pdf" target="_blank" rel="noopener">[Chip Layout]</a></h3>
         <div class="xp-org">KAIST, Q-SPIN Lab, Republic of Korea</div>
@@ -701,7 +704,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     </article>
 
     <article class="xp-item">
-      <div class="xp-when">2025</div>
+      <div class="xp-when">2025<span class="grade">Pass</span></div>
       <div class="xp-body">
         <h3>Device and Process Simulation of CMOS Transistors Using Silvaco TCAD <a class="pdf-btn" href="TCAD%20project.pdf" download="Chanseung_Lee_Silvaco_TCAD_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
         <div class="xp-org">Prof. Seung Hyun Lee · Kyung Hee University</div>
