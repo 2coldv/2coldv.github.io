@@ -146,7 +146,7 @@ p{margin:0;max-width:66ch}
 .tx3d-fallback{display:none;position:absolute;inset:0;place-items:center;color:var(--faint);font-size:.9rem;padding:16px;text-align:center}
 .fig3d.no3d .tx3d-fallback{display:grid}
 .fig3d.no3d .tx3d-hint{display:none}
-@media (max-width:640px){.fig3d{aspect-ratio:1.45/1}.tx3d-lab{font-size:10.5px}.tx3d-lab.p2{display:none}.tx3d-title{font-size:10px}}
+@media (max-width:640px){.fig3d{aspect-ratio:1/1}.tx3d-lab{font-size:10.5px}.tx3d-title{font-size:9.5px;left:14px;top:12px}}
 .list{display:grid;gap:16px;margin-top:40px}
 .c-center{display:grid;justify-items:center;text-align:center;gap:20px;padding-block:72px 40px}
 .c-eye{color:var(--accent);font-weight:500}
@@ -900,15 +900,15 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
 
     // ---------------- labels ----------------
     var labs=[
-      {p:[r1[0],YG,r1[1]-ra],t:"Si₃N₄ microresonators",o:[-95,-110]},
-      {p:[-1.0,0.57,-0.42],t:"Generated comb",o:[-40,-110],cls:"p2"},
-      {p:[cx0+0.72,0.06,0],t:"C.W. pump laser",o:[40,95],cls:"p2"},
-      {p:[-1.2,0.06,0.1],t:"Optical fiber",o:[50,105],cls:"p2"},
-      {p:[4.6,RH,-ZW],t:"Silicon photonic transmitter chip",o:[-30,-105],cls:"p2"},
-      {p:[4.3,YW,1.0],t:"De-multiplexer",o:[30,125]},
-      {p:[8.5,YW,1.26],t:"Resonant modulators",o:[60,110]},
-      {p:[13.0,YW,1.0],t:"Multiplexer",o:[60,95],cls:"p2"},
-      {p:[L+1.35,0.06,0],t:"Output fiber",o:[-20,-75]}
+      {p:[r1[0],YG,r1[1]-ra],t:"Si₃N₄ microresonators",o:[-95,-110],om:[-6,-62]},
+      {p:[-1.0,0.57,-0.42],t:"Generated comb",o:[-40,-110],om:[-22,-112]},
+      {p:[cx0+0.72,0.06,0],t:"C.W. pump laser",o:[40,95],om:[4,64]},
+      {p:[-1.2,0.06,0.1],t:"Optical fiber",o:[50,105],om:[46,104]},
+      {p:[4.6,RH,-ZW],t:"Silicon photonic transmitter chip",o:[-30,-105],om:[62,-60]},
+      {p:[4.3,YW,1.0],t:"De-multiplexer",o:[30,125],om:[26,144]},
+      {p:[8.5,YW,1.26],t:"Resonant modulators",o:[60,110],om:[20,96]},
+      {p:[13.0,YW,1.0],t:"Multiplexer",o:[60,95],om:[18,62]},
+      {p:[L+1.35,0.06,0],t:"Output fiber",o:[-20,-75],om:[-24,-58]}
     ];
     var NS2="http://www.w3.org/2000/svg";
     labs.forEach(function(l){
@@ -922,10 +922,10 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       var small=Wd<640, k=Math.max(.55,Math.min(1.15,Wd/1000));
       world.updateMatrixWorld();
       labs.forEach(function(l){
-        var hide=small&&l.cls==="p2";
+        var hide=false, off=(small&&l.om)?l.om:[l.o[0]*k,l.o[1]*k];
         var q=l.v.clone(); world.localToWorld(q); q.project(camera);
         var ax=(q.x+1)/2*Wd, ay=(1-q.y)/2*Hd;
-        var hw=(l.el.offsetWidth||120)/2+8, tx=Math.max(hw,Math.min(Wd-hw,ax+l.o[0]*k)), ty=Math.max(36,Math.min(Hd-16,ay+l.o[1]*k));
+        var hw=(l.el.offsetWidth||120)/2+8, tx=Math.max(hw,Math.min(Wd-hw,ax+off[0])), ty=Math.max(small?30:36,Math.min(Hd-14,ay+off[1]));
         l.el.style.left=tx+"px"; l.el.style.top=ty+"px"; l.el.style.display=hide?"none":"";
         var dx=tx-ax, dy=ty-ay, dl=Math.hypot(dx,dy)||1, stop=Math.max(0,dl-11);
         l.ln.setAttribute("x1",ax.toFixed(1)); l.ln.setAttribute("y1",ay.toFixed(1));
