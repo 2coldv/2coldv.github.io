@@ -137,6 +137,12 @@ p{margin:0;max-width:66ch}
 .qo-lbl rect{fill:#0b0d11;fill-opacity:.82}
 .fig3d{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 40%,#151922 0%,var(--surface) 70%)}
 .tx3d-stage{position:relative;aspect-ratio:2.1/1}
+.sf-fig{position:relative}
+.ls3d-over{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none}
+.ls3d-over canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fig .ls3d-over svg.tx3d-lines{position:absolute;inset:0;width:100%;height:100%;min-width:0}
+.ls3d-over.no3d .tx3d-fallback{display:grid}
+.fig .ls3d-over .tx3d-lab{font-size:inherit}
 .fig3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .fig3d svg.tx3d-lines{position:absolute;inset:0;width:100%;height:100%;min-width:0;pointer-events:none}
 .tx3d-labels{position:absolute;inset:0;pointer-events:none}
@@ -277,6 +283,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
 </style>
 </head>
 <body>
+
 <header class="bar" id="bar">
   <div class="bar-in">
     <a class="name" href="#home" data-route="home">Chanseung Lee</a>
@@ -427,8 +434,8 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       <h3>Quantum light sources</h3>
       <span class="eyebrow">Photon pairs · squeezed light</span>
     </div>
-    <div class="fig">
-      <svg id="sfx" viewBox="0 0 960 520" role="img" aria-label="A microring resonator pumped through a bus waveguide generates signal and idler photon pairs by spontaneous four-wave mixing. An inset shows the ring resonances with the pump in the middle and signal and idler placed symmetrically. A second inset shows the Wigner function of squeezed vacuum, narrow along X and stretched along P, compared with the vacuum circle.">
+    <div class="fig sf-fig">
+      <svg id="sfx" viewBox="0 0 960 520" role="img" aria-label="Two photon-pair source chips, one above the other. Top: a silicon nitride microring with a micro-heater, pumped through a bus waveguide, makes signal and idler photons by spontaneous four-wave mixing. Bottom: a periodically poled thin-film lithium niobate waveguide, pumped at twice the frequency, makes signal and idler photons by spontaneous parametric down-conversion. An inset shows the ring resonances with the pump in the middle and signal and idler placed symmetrically. A second inset shows the Wigner function of squeezed vacuum, narrow along X and stretched along P, compared with the vacuum circle.">
         <defs>
           <linearGradient id="die2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#151920"/><stop offset="1" stop-color="#0e1116"/></linearGradient>
           <pattern id="grid2" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#1a1e25" stroke-width=".7"/></pattern>
@@ -437,37 +444,11 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
         </defs>
 
         <g id="sf-main">
-        <rect x="30" y="30" width="560" height="460" rx="8" fill="url(#die2)" stroke="#2a2f38"/>
+        <rect id="sf-panel" x="30" y="30" width="560" height="460" rx="8" fill="url(#die2)" stroke="#2a2f38"/>
         <rect x="30" y="30" width="560" height="460" rx="8" fill="url(#grid2)" opacity=".7"/>
-        <text class="t2" x="46" y="52">χ⁽³⁾ photonic chip</text>
-
-        <!-- heater -->
-        <path d="M234 236 A 88 88 0 0 1 386 236" fill="none" stroke="#b8924a" stroke-width="4" opacity=".7"/>
-        <rect x="220" y="230" width="18" height="12" fill="#b8924a"/>
-        <rect x="382" y="230" width="18" height="12" fill="#b8924a"/>
-
-        <!-- ring -->
-        <circle cx="310" cy="276" r="72" fill="none" stroke="#3a414c" stroke-width="6"/>
-        <circle cx="310" cy="276" r="73.4" fill="none" stroke="#ff5d6c" stroke-width="1.2" opacity=".55" filter="url(#glow2)"/>
-        <circle cx="310" cy="276" r="70.6" fill="none" stroke="#5cb8ff" stroke-width="1.2" opacity=".55" filter="url(#glow2)"/>
-        <circle cx="310" cy="276" r="72" fill="none" stroke="#ffa94d" stroke-width="2" filter="url(#glow2)"/>
-        <text class="tl" x="310" y="150" text-anchor="middle">spontaneous four-wave mixing</text>
-        <text class="t2" x="310" y="170" data-my="180" text-anchor="middle">2 pump photons → signal + idler</text>
-
-        <!-- bus -->
-        <line x1="30" y1="360" x2="590" y2="360" stroke="#3a414c" stroke-width="7"/>
-        <line x1="30" y1="360" x2="590" y2="360" stroke="#ffa94d" stroke-width="2" filter="url(#glow2)"/>
-        <line x1="310" y1="360" x2="590" y2="360" stroke="#0e1116" stroke-width="1" opacity=".5"/>
-        <text class="t" x="48" y="384">pump in</text>
-
-        <!-- photon packets -->
-        <path class="wave" data-w="440,360,70,7,11" fill="none" stroke="#5cb8ff" stroke-width="1.8" filter="url(#glow2)"/>
-        <path class="wave" data-w="508,360,74,11,11" fill="none" stroke="#ff5d6c" stroke-width="1.8" filter="url(#glow2)"/>
-        <text class="t" x="475" y="402" text-anchor="middle" style="fill:#5cb8ff">signal</text>
-        <text class="t" x="545" y="402" text-anchor="middle" style="fill:#ff5d6c">idler</text>
-        <path d="M475 420 C 490 440, 530 440, 545 420" fill="none" stroke="#5d636e" stroke-dasharray="3 3"/>
-        <text class="t2" x="510" y="454" data-mx="492" data-my="462" text-anchor="middle">time-correlated pair</text>
-
+        <line x1="30" y1="260" x2="590" y2="260" stroke="#2a2f38"/>
+        <text class="t2" x="46" y="52">χ⁽³⁾ · spontaneous four-wave mixing</text>
+        <text class="t2" x="46" y="282">χ⁽²⁾ · spontaneous parametric down-conversion</text>
         </g>
         <g id="sf-a">
         <!-- inset A: resonances -->
@@ -500,10 +481,16 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
         <text class="t2" x="636" y="465" data-mx="806" data-my="460">below vacuum</text>
         </g>
       </svg>
+      <div class="ls3d-over" id="ls3d-wrap" aria-hidden="true">
+      <canvas id="ls3d"></canvas>
+      <svg class="tx3d-lines" id="ls3d-lines"></svg>
+      <div class="tx3d-labels" id="ls3d-labels"></div>
+      <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
+      </div>
     </div>
     <div class="cap">
-      <p>Inside a high-Q microring, two pump photons can annihilate and create a signal–idler pair on neighbouring resonances, set by energy conservation. Detecting one photon heralds the other, which makes the ring a compact single-photon source.</p>
-      <p>Driven harder, the same nonlinear process produces squeezed light: one quadrature's noise falls below the vacuum level. How far below depends on loss, so source purity and low-loss design decide what is usable.</p>
+      <p>In a high-Q Si₃N₄ microring, a χ⁽³⁾ material, two pump photons can annihilate and create a signal–idler pair on neighbouring resonances (spontaneous four-wave mixing). In a periodically poled lithium niobate waveguide, a χ⁽²⁾ material, one pump photon at twice the frequency splits into a pair (spontaneous parametric down-conversion), and the poling period Λ sets the phase matching. In both, detecting one photon heralds the other.</p>
+      <p>Driven harder, the same nonlinear processes produce squeezed light: one quadrature's noise falls below the vacuum level. How far below depends on loss, so source purity and low-loss design decide what is usable.</p>
     </div>
   </article>
 
@@ -1185,6 +1172,233 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     requestAnimationFrame(loop);
   })();
 
+  // 3D photon-pair sources drawn into the SFWM panel: top half chi(3) Si3N4 microring (SFWM), bottom half chi(2) PPLN waveguide (SPDC)
+  (function(){
+    var wrap=document.getElementById("ls3d-wrap"), panel=document.getElementById("sf-panel"); if(!wrap||!panel) return;
+    var fig=wrap.parentNode, svgEl=document.getElementById("sfx");
+    var canvas=document.getElementById("ls3d"), linesEl=document.getElementById("ls3d-lines"), labsEl=document.getElementById("ls3d-labels");
+    var mqS=window.matchMedia?matchMedia("(max-width:640px)"):{matches:false};
+    // keep the overlay exactly on the panel rectangle (the phone layout moves and scales it)
+    function over(){
+      var fr=fig.getBoundingClientRect(), pr=panel.getBoundingClientRect(); if(!pr.width||!pr.height) return false;
+      wrap.style.left=(pr.left-fr.left-fig.clientLeft+fig.scrollLeft)+"px"; wrap.style.top=(pr.top-fr.top-fig.clientTop)+"px";
+      wrap.style.width=pr.width+"px"; wrap.style.height=pr.height+"px"; return true;
+    }
+    over();
+    if(!window.THREE){wrap.classList.add("no3d");return;}
+    var renderer;
+    try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});}catch(e){wrap.classList.add("no3d");return;}
+    if(!renderer.getContext()){wrap.classList.add("no3d");return;}
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    renderer.outputEncoding=THREE.sRGBEncoding;
+    renderer.toneMapping=THREE.NoToneMapping;
+    renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap; renderer.shadowMap.autoUpdate=false;
+    renderer.setScissorTest(true);
+
+    var M={
+      sub:new THREE.MeshStandardMaterial({color:0x5c6169,roughness:.7,metalness:.05}),
+      floor:new THREE.MeshStandardMaterial({color:0x666b73,roughness:.55,metalness:.05}),
+      rim:new THREE.MeshStandardMaterial({color:0x878c94,roughness:.5,metalness:.05}),
+      ln:new THREE.MeshStandardMaterial({color:0x6e6c86,roughness:.45,metalness:.05}),
+      dom:new THREE.MeshStandardMaterial({color:0x9d9abb,roughness:.5,metalness:.05}),
+      gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5}),
+      edge:new THREE.LineBasicMaterial({color:0xd4dbe6,transparent:true,opacity:.32}),
+      glass:new THREE.MeshPhysicalMaterial({color:0xe6eeff,roughness:.05,metalness:0,clearcoat:1,transparent:true,opacity:.3,depthWrite:false}),
+      cap:new THREE.MeshBasicMaterial({color:0xf2f6ff,transparent:true,opacity:.6})
+    };
+    var COL={pump:0xffa94d,pump2:0xa98bff,sig:0x5cb8ff,idl:0xff5d6c};
+    var core={},glow={},glows=[];
+    Object.keys(COL).forEach(function(k){
+      core[k]=new THREE.MeshBasicMaterial({color:COL[k]});
+      glow[k]=new THREE.MeshBasicMaterial({color:COL[k],transparent:true,opacity:.3,depthWrite:false}); glows.push(glow[k]);
+    });
+
+    // one scene per half, same lighting and camera angle as the transmitter view
+    function view(){
+      var v={scene:new THREE.Scene(),world:new THREE.Group(),cam:new THREE.OrthographicCamera(-10,10,5,-5,0.1,200),labs:[]};
+      v.scene.add(v.world);
+      v.scene.add(new THREE.HemisphereLight(0xdfe7f5,0x101318,0.3));
+      var key=new THREE.DirectionalLight(0xffffff,0.6); key.position.set(-6,14,9); key.castShadow=true;
+      key.shadow.mapSize.set(2048,2048);
+      var sc=key.shadow.camera; sc.left=-10; sc.right=10; sc.top=8; sc.bottom=-8; sc.near=1; sc.far=60;
+      key.shadow.bias=-0.0004; key.shadow.radius=4; v.scene.add(key); v.scene.add(key.target);
+      var fill=new THREE.DirectionalLight(0xbcd0ff,0.22); fill.position.set(10,6,12); v.scene.add(fill);
+      var ground=new THREE.Mesh(new THREE.PlaneGeometry(60,40),new THREE.ShadowMaterial({opacity:.45}));
+      ground.rotation.x=-Math.PI/2; ground.position.y=-0.6; ground.receiveShadow=true; v.scene.add(ground);
+      return v;
+    }
+
+    var R0=0.022, par;
+    function edges(mesh){var e=new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry),M.edge); e.position.copy(mesh.position); par.add(e);}
+    function v3(p,y){return new THREE.Vector3(p[0],y,p[1]);}
+    class PolyCurve extends THREE.Curve{
+      constructor(pts){super();this.p=pts;var Ls=[0];for(var i=1;i<pts.length;i++)Ls.push(Ls[i-1]+pts[i].distanceTo(pts[i-1]));this.Ls=Ls;this.T=Ls[Ls.length-1]||1;}
+      getPoint(t,o){o=o||new THREE.Vector3();var d=t*this.T,Ls=this.Ls,i=1;while(i<Ls.length-1&&Ls[i]<d)i++;var f=(d-Ls[i-1])/((Ls[i]-Ls[i-1])||1);return o.copy(this.p[i-1]).lerp(this.p[i],Math.max(0,Math.min(1,f)));}
+    }
+    function tube(pts,y,k,r,gr){
+      r=r||R0;
+      var curve=new PolyCurve(pts.map(function(p){return v3(p,y);}));
+      var seg=Math.max(8,Math.round(curve.T*60));
+      par.add(new THREE.Mesh(new THREE.TubeGeometry(curve,seg,r,8,false),core[k]));
+      par.add(new THREE.Mesh(new THREE.TubeGeometry(curve,seg,gr||r*3.4,8,false),glow[k]));
+    }
+    function ring(x,z,r,y,k,w){
+      var t=new THREE.Mesh(new THREE.TorusGeometry(r,w||R0,8,96),core[k]); t.rotation.x=-Math.PI/2; t.position.set(x,y,z); par.add(t);
+      var g=new THREE.Mesh(new THREE.TorusGeometry(r,(w||R0)*3.4,8,96),glow[k]); g.rotation.x=-Math.PI/2; g.position.copy(t.position); par.add(g);
+    }
+    function box(w,h,d,x,y,z,mat,withEdges){var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat); m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true; par.add(m); if(withEdges)edges(m); return m;}
+    function fiber(x0,x1,z,y,k){
+      var len=x1-x0;
+      var f=new THREE.Mesh(new THREE.CylinderGeometry(0.15,0.15,len,40,1,true),M.glass); f.rotation.z=Math.PI/2; f.position.set((x0+x1)/2,y,z); f.renderOrder=3; par.add(f);
+      var c=new THREE.Mesh(new THREE.CylinderGeometry(0.024,0.024,len,12),core[k]); c.rotation.z=Math.PI/2; c.position.copy(f.position); par.add(c);
+      var cg=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.06,len,12,1,true),glow[k]); cg.rotation.z=Math.PI/2; cg.position.copy(f.position); par.add(cg);
+      [x0,x1].forEach(function(x){var r=new THREE.Mesh(new THREE.TorusGeometry(0.15,0.008,6,40),M.cap); r.rotation.y=Math.PI/2; r.position.set(x,y,z); par.add(r);});
+    }
+    function bar(x,z,h,k){var b=new THREE.Mesh(new THREE.BoxGeometry(0.06,h,0.03),core[k]); b.position.set(x,0.02+h/2,z); par.add(b);}
+
+    // ---------- top half: chi(3) Si3N4 microring (tray chip, like the transmitter) ----------
+    var A=view(); par=A.world;
+    var AX0=0, AX1=5.6, AZ0=-1.5, AZ1=1.5, RIM=0.22, RH=0.075, YW=R0+0.004;
+    box(AX1-AX0,0.55,AZ1-AZ0,(AX0+AX1)/2,-0.275,(AZ0+AZ1)/2,M.sub,true);
+    var fl=new THREE.Mesh(new THREE.PlaneGeometry(AX1-AX0-2*RIM,AZ1-AZ0-2*RIM),M.floor); fl.rotation.x=-Math.PI/2; fl.position.set((AX0+AX1)/2,0.001,(AZ0+AZ1)/2); fl.receiveShadow=true; par.add(fl);
+    [[(AX0+AX1)/2,AZ0+RIM/2,AX1-AX0,RIM],[(AX0+AX1)/2,AZ1-RIM/2,AX1-AX0,RIM],[AX0+RIM/2,(AZ0+AZ1)/2,RIM,AZ1-AZ0-2*RIM],[AX1-RIM/2,(AZ0+AZ1)/2,RIM,AZ1-AZ0-2*RIM]].forEach(function(r){box(r[2],RH,r[3],r[0],RH/2,r[1],M.rim,true);});
+    var BZ=0.75, RR=0.92, RX=2.8, RZ=BZ-RR-0.05;
+    tube([[AX0,BZ],[AX1,BZ]],YW,"pump");
+    tube([[RX,BZ-0.06],[AX1,BZ-0.06]],YW,"sig",0.016);
+    tube([[RX,BZ+0.06],[AX1,BZ+0.06]],YW,"idl",0.016);
+    ring(RX,RZ,RR,YW,"pump");
+    ring(RX,RZ,RR+0.045,YW,"idl",0.012);
+    ring(RX,RZ,RR-0.045,YW,"sig",0.012);
+    // micro-heater: gold arc over the back half of the ring, with two pads
+    (function(){var a=[],r=RR+0.17,i,t;for(i=0;i<=40;i++){t=Math.PI*(0.62+0.76*i/40);a.push(new THREE.Vector3(RX+r*Math.sin(t),0.016,RZ+r*Math.cos(t)));}
+      var m=new THREE.Mesh(new THREE.TubeGeometry(new PolyCurve(a),60,0.03,6,false),M.gold); m.castShadow=true; par.add(m);
+      [a[0],a[a.length-1]].forEach(function(p){box(0.26,0.03,0.2,p.x,0.015,p.z-0.06,M.gold,false);});})();
+    fiber(-1.3,AX0,BZ,YW,"pump"); fiber(AX1,AX1+1.3,BZ,YW,"pump");
+    [[-0.12,0.42,"idl"],[0,0.62,"pump"],[0.12,0.42,"sig"]].forEach(function(b){bar(AX1+0.55+b[0],BZ-0.42,b[1],b[2]);});
+    A.labs=[
+      {p:[RX-RR,YW,RZ],t:"Si₃N₄ microring",o:[-170,-34],os:[-84,-30]},
+      {p:[RX+0.55,0.03,RZ-RR-0.12],t:"micro-heater",o:[55,-42],os:[26,-24]},
+      {p:[-0.9,YW,BZ],t:"pump in",o:[-10,42],os:[-4,22]},
+      {p:[AX1+0.55,0.5,BZ-0.42],t:"signal + idler",o:[62,-14],os:[30,-10]}
+    ];
+
+    // ---------- bottom half: chi(2) PPLN waveguide on thin-film LN ----------
+    var B=view(); par=B.world;
+    var BX0=-3.8, BX1=3.8, CZ=0, BW=1.25;
+    box(BX1-BX0,0.48,2*BW,0,-0.3,CZ,M.sub,true);
+    box(BX1-BX0,0.06,2*BW,0,-0.03,CZ,M.ln,true);
+    var P0=-2.4, P1=2.4, LAM=0.2;
+    for(var x=P0;x<P1-1e-6;x+=LAM){box(LAM/2,0.006,0.7,x+LAM/4,0.003,CZ,M.dom,false);}
+    box(P1-P0,0.03,0.08,(P0+P1)/2,0.015,CZ-0.62,M.gold,false);
+    box(P1-P0,0.03,0.08,(P0+P1)/2,0.015,CZ+0.62,M.gold,false);
+    for(var x2=P0;x2<P1-1e-6;x2+=LAM){box(0.05,0.025,0.2,x2+LAM/4,0.012,CZ-0.48,M.gold,false);}
+    var YB=0.03;
+    tube([[BX0,CZ],[BX1,CZ]],YB,"pump2",0.02);
+    tube([[P0,CZ-0.055],[BX1,CZ-0.055]],YB,"sig",0.016);
+    tube([[P0,CZ+0.055],[BX1,CZ+0.055]],YB,"idl",0.016);
+    fiber(BX0-1.3,BX0,CZ,YB,"pump2"); fiber(BX1,BX1+1.3,CZ,YB,"sig");
+    [[-0.08,0.5,"idl"],[0.08,0.5,"sig"]].forEach(function(b){bar(BX1+0.55+b[0],CZ-0.42,b[1],b[2]);});
+    B.labs=[
+      {p:[-1.6,YB,CZ],t:"PPLN waveguide (thin-film LN)",o:[-60,-58],os:[-22,-44]},
+      {p:[0.5,0.01,CZ+0.3],t:"poled domains (Λ)",o:[40,52],os:[16,28]},
+      {p:[0.3,0.03,CZ-0.62],t:"poling electrodes",o:[0,-62],os:[0,-30],pc:true},
+      {p:[BX0-0.9,YB,CZ],t:"pump (2ω) in",o:[-10,42],os:[-4,22]},
+      {p:[BX1+0.55,0.45,CZ-0.42],t:"signal + idler",o:[62,-14],os:[30,-10]}
+    ];
+
+    var NS2="http://www.w3.org/2000/svg", VIEWS=[A,B];
+    VIEWS.forEach(function(v){
+      v.labs.forEach(function(l){
+        l.el=document.createElement("div"); l.el.className="tx3d-lab"; l.el.textContent=l.t; labsEl.appendChild(l.el);
+        l.ln=document.createElementNS(NS2,"line"); l.ln.setAttribute("stroke","#7a828f"); l.ln.setAttribute("stroke-width","1"); linesEl.appendChild(l.ln);
+        l.dot=document.createElementNS(NS2,"circle"); l.dot.setAttribute("fill","#a3abb8"); linesEl.appendChild(l.dot);
+        l.v=new THREE.Vector3(l.p[0],l.p[1],l.p[2]);
+      });
+      // centre the chip, aim the camera, and measure the projected extent of the real geometry
+      var bb=new THREE.Box3().setFromObject(v.world), ctr=bb.getCenter(new THREE.Vector3());
+      v.world.position.set(-ctr.x,0,-ctr.z);
+      var AZ=THREE.MathUtils.degToRad(36), EL=THREE.MathUtils.degToRad(29), d=40;
+      v.cam.position.set(-Math.sin(AZ)*Math.cos(EL)*d, Math.sin(EL)*d, Math.cos(AZ)*Math.cos(EL)*d);
+      v.cam.lookAt(0,0,0); v.cam.updateMatrixWorld(); v.world.updateMatrixWorld();
+      var ext={x0:1e9,x1:-1e9,y0:1e9,y1:-1e9}, vv=new THREE.Vector3(), mv=new THREE.Matrix4();
+      v.world.traverse(function(o){
+        if(!o.isMesh||!o.geometry||!o.geometry.attributes.position) return;
+        var pa=o.geometry.attributes.position, st=pa.count>400?3:1;
+        mv.multiplyMatrices(v.cam.matrixWorldInverse,o.matrixWorld);
+        for(var i=0;i<pa.count;i+=st){vv.fromBufferAttribute(pa,i).applyMatrix4(mv);
+          if(vv.x<ext.x0)ext.x0=vv.x; if(vv.x>ext.x1)ext.x1=vv.x; if(vv.y<ext.y0)ext.y0=vv.y; if(vv.y>ext.y1)ext.y1=vv.y;}
+      });
+      v.ext=ext;
+    });
+
+    var Wd=0,Hd=0,hT=0,hB=0,dirty=true;
+    function halfBox(i){return i===0?{y:0,h:hT}:{y:hT,h:hB};}
+    function place(){
+      var small=mqS.matches, k=small?Math.max(1,Math.min(1.5,Wd/330)):Math.max(.55,Math.min(1.15,Wd/600));
+      VIEWS.forEach(function(v,i){
+        var hb=halfBox(i);
+        v.labs.forEach(function(l){
+          var hide=small&&l.pc, o=small?l.os:l.o, off=[o[0]*k,o[1]*k];
+          var q=l.v.clone(); v.world.localToWorld(q); q.project(v.cam);
+          var ax=(q.x+1)/2*Wd, ay=hb.y+(1-q.y)/2*hb.h;
+          var hw=(l.el.offsetWidth||120)/2+(small?4:8), hh=(l.el.offsetHeight||14)/2+2;
+          var tx=Math.max(hw,Math.min(Wd-hw,ax+off[0])), ty=Math.max(hb.y+hh+(small?14:26),Math.min(hb.y+hb.h-hh-2,ay+off[1]));
+          l.el.style.left=tx+"px"; l.el.style.top=ty+"px"; l.el.style.display=hide?"none":"";
+          var dx=tx-ax, dy=ty-ay, dl=Math.hypot(dx,dy)||1, stop=Math.max(0,dl-(small?7:11));
+          l.ln.setAttribute("x1",ax.toFixed(1)); l.ln.setAttribute("y1",ay.toFixed(1));
+          l.ln.setAttribute("x2",(ax+dx/dl*stop).toFixed(1)); l.ln.setAttribute("y2",(ay+dy/dl*stop).toFixed(1));
+          l.dot.setAttribute("cx",ax.toFixed(1)); l.dot.setAttribute("cy",ay.toFixed(1)); l.dot.setAttribute("r",small?"1.4":"2");
+          l.ln.style.display=l.dot.style.display=hide?"none":"";
+        });
+      });
+    }
+    function size(){
+      if(!over()) return false;
+      var w=wrap.clientWidth,h=wrap.clientHeight; if(!w||!h) return false;
+      if(w===Wd&&h===Hd) return true;
+      Wd=w;Hd=h;hT=Math.floor(h/2);hB=h-hT; renderer.setSize(w,h,false);
+      var small=mqS.matches, top=small?16:30, fx=small?0.84:0.8, fy=small?0.8:0.8;
+      // one common scale so both chips are drawn at the same size
+      var s=1e9; VIEWS.forEach(function(v,i){var hb=halfBox(i),e=v.ext; s=Math.min(s,w*fx/(e.x1-e.x0),(hb.h-top)*fy/(e.y1-e.y0));});
+      VIEWS.forEach(function(v,i){
+        var hb=halfBox(i),e=v.ext, hw=w/2/s, hh=hb.h/2/s;
+        var cx=(e.x0+e.x1)/2, cy=(e.y0+e.y1)/2 + (top/2)/s; // shift the chip below the half's title line
+        v.cam.left=cx-hw; v.cam.right=cx+hw; v.cam.top=cy+hh; v.cam.bottom=cy-hh; v.cam.updateProjectionMatrix();
+      });
+      linesEl.setAttribute("viewBox","0 0 "+w+" "+h);
+      // label size follows the panel width (tablet widths shrink the panel, wide phones grow it)
+      labsEl.style.fontSize=small?(9*Math.max(1,Math.min(1.4,w/330))).toFixed(2)+"px":Math.max(9.5,Math.min(12.5,w/55)).toFixed(2)+"px";
+      dirty=true;
+      return true;
+    }
+    function render(){
+      VIEWS.forEach(function(v,i){
+        var hb=halfBox(i), y=Hd-hb.y-hb.h; // WebGL viewport origin is bottom-left
+        renderer.setViewport(0,y,Wd,hb.h); renderer.setScissor(0,y,Wd,hb.h);
+        if(dirty) renderer.shadowMap.needsUpdate=true;
+        renderer.render(v.scene,v.cam);
+      });
+      dirty=false; place();
+    }
+    function refresh(){if(size())render();}
+    var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches, visible=true;
+    if(window.ResizeObserver){var ro=new ResizeObserver(refresh); ro.observe(fig); if(svgEl) ro.observe(svgEl);}
+    window.addEventListener("resize",refresh);
+    if(mqS.addEventListener) mqS.addEventListener("change",function(){setTimeout(refresh,0);});
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(refresh);
+    refresh();
+    if(still) return;
+    if(window.IntersectionObserver){new IntersectionObserver(function(en){visible=en[0].isIntersecting;}).observe(fig);}
+    function loop(now){
+      requestAnimationFrame(loop);
+      if(!visible||!fig.getBoundingClientRect().width) return;
+      if(!size()) return;
+      var t=now/1000; glows.forEach(function(g){g.opacity=.26+.08*Math.sin(t*1.3);});
+      render();
+    }
+    requestAnimationFrame(loop);
+  })();
+
   // phone layout for the SFWM and QFC figures: swap in data-m* positions/texts, rearrange insets, crop viewBox
   (function(){
     var mq=window.matchMedia?matchMedia("(max-width:640px)"):null; if(!mq) return;
@@ -1197,9 +1411,10 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       Object.keys(cfg).forEach(function(id){
         var svg=document.getElementById(id); if(!svg) return; var c=cfg[id];
         svg.setAttribute("viewBox",mob?c.m:c.pc);
-        Object.keys(c.tf).forEach(function(gid){var g=document.getElementById(gid); if(!g)return; if(mob)g.setAttribute("transform",c.tf[gid]); else g.removeAttribute("transform");});
-        svg.querySelectorAll("[data-mx],[data-my],[data-mt],[data-md]").forEach(function(el){
-          [["data-mx","x"],["data-my","y"],["data-md","d"]].forEach(function(pr){
+        var ids={};Object.keys(c.tf).concat(Object.keys(c.tfpc||{})).forEach(function(k){ids[k]=1;});
+        Object.keys(ids).forEach(function(gid){var g=document.getElementById(gid); if(!g)return; var v=mob?c.tf[gid]:(c.tfpc||{})[gid]; if(v)g.setAttribute("transform",v); else g.removeAttribute("transform");});
+        svg.querySelectorAll("[data-mx],[data-my],[data-mt],[data-md],[data-mw]").forEach(function(el){
+          [["data-mx","x"],["data-my","y"],["data-md","d"],["data-mw","width"]].forEach(function(pr){
             if(!el.hasAttribute(pr[0])) return;
             if(!el.hasAttribute("data-pc-"+pr[1])) el.setAttribute("data-pc-"+pr[1],el.getAttribute(pr[1]));
             el.setAttribute(pr[1],mob?el.getAttribute(pr[0]):el.getAttribute("data-pc-"+pr[1]));
