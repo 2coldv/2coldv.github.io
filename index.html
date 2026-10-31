@@ -355,6 +355,10 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
 }
 
 #qfx .wsub,#sfx .wsub{font-size:72%}
+/* Projects section headings: tinted band with a blue bar */
+#v-projects>h2{background:#f3f5f8;border-left:4px solid var(--accent);border-radius:6px;padding:18px 22px;font-size:clamp(1.5rem,2.6vw,2rem);font-weight:600;line-height:1.2}
+#v-projects>h2+.xp{margin-top:8px;border-top:none}
+@media (max-width:640px){#v-projects>h2{font-size:1.15rem;padding:13px 16px;border-left-width:3px}.rp-item h3{font-size:.95rem}}
 /* review fixes */
 .fig-icx{position:relative}
 .rp-pr{padding:0 16px}
@@ -390,7 +394,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
     <div class="stack">
       <div class="eyebrow">Integrated Photonics · Quantum Computing · Nonlinear Optics</div>
       <h1>Chanseung Lee</h1>
-      <p class="intro">I'm a senior at Kyung Hee University, South Korea, interested in integrated photonics, photonic quantum computing, and co-packaged optics. I started my research at KAIST and am continuing it at Seoul National University, in the <a class="inl" style="white-space:nowrap" href="https://donguknam.com/" target="_blank" rel="noopener">Q-SPIN Lab</a>.</p>
+      <p class="intro">I'm a senior at Kyung Hee University, South Korea, interested in integrated photonics, photonic quantum computing, and co-packaged optics. I started my research at KAIST and am continuing it at Seoul National University, in Prof.&nbsp;Donguk&nbsp;Nam's <a class="inl" style="white-space:nowrap" href="https://donguknam.com/" target="_blank" rel="noopener">Q-SPIN Lab</a>.</p>
       <span class="seek"><i></i>Seeking Ph.D. opportunities in the U.S. for Fall 2027</span>
       <div class="actions">
         <a class="btn" href="CV.pdf" target="_blank" rel="noopener">Download CV</a>
@@ -420,7 +424,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
   <div class="xp">
 
     <article class="xp-item">
-      <div class="xp-when"><span class="xp-role">Research Intern</span><span class="xp-date">2026.05 – Present</span><img class="xp-logo sq" src="img/logo-snu.png" alt="Seoul National University" width="80" loading="lazy"></div>
+      <div class="xp-when"><span class="xp-role">Research Intern</span><span class="xp-date">2026.06 – Present</span><img class="xp-logo sq" src="img/logo-snu.png" alt="Seoul National University" width="80" loading="lazy"></div>
       <div class="xp-body">
         <h3>On-Chip Quantum Frequency Conversion in LN-on-SiN Waveguides</h3>
         <div class="xp-org">Seoul National University (SNU), Q-SPIN Lab, Republic of Korea</div>
@@ -455,6 +459,19 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
           <li>Contributed SiN microring designs for SFWM photon-pair sources to a LIGENTEC MPW tape-out.</li>
           <li>Performed coupling-gap sweeps to evaluate bus–ring coupling for the foundry design.</li>
           <li>Determined the critical-coupling condition by matching bus–ring power coupling to round-trip internal loss estimated from LIGENTEC-provided propagation loss.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="xp-item">
+      <div class="xp-when"><span class="xp-role">Undergraduate Graduation Research</span><span class="xp-date">2026.09 – Present</span><img class="xp-logo" src="img/logo-khu.png" alt="Kyung Hee University" width="88" loading="lazy"></div>
+      <div class="xp-body">
+        <h3>High-k HfO₂/Al₂O₃ Gate-Stack FinFET Simulation for Space Applications</h3>
+        <div class="xp-org">Kyung Hee University (KHU), Republic of Korea</div>
+        <ul>
+          <li>Investigating HfO₂/Al₂O₃ gate-stack FinFETs using Sentaurus TCAD and Sentaurus Device.</li>
+          <li>Planning total ionizing dose (TID) simulations over 100–800 krad(Si) to evaluate threshold-voltage shifts and leakage current.</li>
+          <li>Planning comparisons of SS, DIBL, and I<sub>on</sub>/I<sub>off</sub> across gate-stack compositions to assess radiation tolerance.</li>
         </ul>
       </div>
     </article>
@@ -928,7 +945,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
 <section class="view" id="v-contact" data-view="contact" hidden>
   <div class="c-center">
     <div class="eyebrow c-eye">Contact</div>
-    <h2 class="c-title">Let's talk.</h2>
+    <h2 class="c-title">Open to collaboration.</h2>
     <p class="c-lede">I'm always happy to talk about integrated photonics, quantum light, and optical interconnects. Feel free to reach out anytime.</p>
     <div class="c-links">
       <a href="mailto:cslee20a@gmail.com">Email <span aria-hidden="true">↗</span></a>
