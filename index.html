@@ -956,7 +956,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
 
 </main>
 
-<footer><div class="foot-in">© 2026 Chanseung Lee</div></footer>
+<footer><div class="foot-in">© 2026 Chanseung Lee<span id="visits" hidden> · <span id="visits-n"></span> visitors</span></div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -2087,6 +2087,20 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
     });}
     apply();
     if(mq.addEventListener) mq.addEventListener("change",apply); else if(mq.addListener) mq.addListener(apply);
+  })();
+
+  // visitor counter (GoatCounter): set GC_CODE to the site code to turn it on; empty = off, nothing loads
+  (function(){
+    var GC_CODE="chanseunglee";
+    if(!GC_CODE) return;
+    var base="https://"+GC_CODE+".goatcounter.com";
+    var s=document.createElement("script"); s.async=true; s.src="https://gc.zgo.at/count.js"; s.setAttribute("data-goatcounter",base+"/count"); document.head.appendChild(s);
+    if(!window.fetch) return;
+    fetch(base+"/counter/TOTAL.json").then(function(r){return r.ok?r.json():null;}).then(function(d){
+      if(!d||d.count==null) return;
+      document.getElementById("visits-n").textContent=d.count;
+      document.getElementById("visits").hidden=false;
+    }).catch(function(){});
   })();
 
   // routing
