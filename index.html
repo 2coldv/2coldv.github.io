@@ -232,7 +232,8 @@ svg.mj{display:inline-block;overflow:visible}
 .flow{animation:flow 1.6s linear infinite}
 @keyframes flow{to{stroke-dashoffset:-32}}
 
-footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));color:var(--faint);font-size:.85rem;border-top:1px solid var(--line)}
+footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));color:var(--faint);font-size:.85rem}
+.foot-in{border-top:1px solid var(--line);padding-top:28px}
 
 @media (min-width:821px){
   .rp-item{position:relative}
@@ -352,6 +353,17 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
   .edu .deg-m{display:inline}
   .edu .course p{max-width:none}
 }
+
+/* review fixes */
+.fig-icx{position:relative}
+.rp-pr{padding:0 16px}
+@media (max-width:820px){.cap p{max-width:none}}
+@media (max-width:640px){
+  .icx-title{display:none}
+  .rp-pr{padding:0 12px}
+  .topic-h{flex-direction:column;align-items:flex-start;gap:4px}
+  #qfx .wl{font-size:16px}
+}
 </style>
 </head>
 <body>
@@ -377,7 +389,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     <div class="stack">
       <div class="eyebrow">Integrated Photonics · Quantum Computing · Nonlinear Optics</div>
       <h1>Chanseung Lee</h1>
-      <p class="intro">I'm a senior at Kyung Hee University, South Korea, interested in integrated photonics, photonic quantum computing, and co-packaged optics. I started my research at KAIST and am continuing it at Seoul National University, in the <a class="inl" href="https://donguknam.com/" target="_blank" rel="noopener">Q-SPIN Lab</a>.</p>
+      <p class="intro">I'm a senior at Kyung Hee University, South Korea, interested in integrated photonics, photonic quantum computing, and co-packaged optics. I started my research at KAIST and am continuing it at Seoul National University, in the <a class="inl" style="white-space:nowrap" href="https://donguknam.com/" target="_blank" rel="noopener">Q-SPIN Lab</a>.</p>
       <span class="seek"><i></i>Seeking Ph.D. opportunities in the U.S. for Fall 2027</span>
       <div class="actions">
         <a class="btn" href="CV.pdf" target="_blank" rel="noopener">Download CV</a>
@@ -471,7 +483,8 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
       </div>
     </div>
-    <div class="fig">
+    <div class="fig fig-icx">
+      <div class="tx3d-title icx-title">Link · 4 channels</div>
       <svg id="icx" viewBox="0 0 960 400" role="img" aria-label="Animated optical link with four channels. Comb light enters a silicon photonic transmitter from the left, where four ring modulators write the bit words 1110, 1100, 0111 and 1010 onto their own colors. A fiber carries the light to a silicon photonic receiver, where four ring filters each drop one color into its own germanium photodetector and the same words are read back.">
         <defs>
           <filter id="glow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -651,9 +664,9 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
         <line x1="518" y1="444" x2="518" y2="350" stroke="#ff4d5e" stroke-width="2" marker-end="url(#ah)"/>
         <line x1="560" y1="346" x2="560" y2="380" stroke="#ffc078" stroke-width="2" marker-end="url(#ah)"/>
         <line x1="602" y1="384" x2="602" y2="440" stroke="#74c0fc" stroke-width="2" marker-end="url(#ah)"/>
-        <text class="t2" x="518" y="458" text-anchor="middle" style="fill:#ff4d5e">ωᵢₙ</text>
-        <text class="t2" x="560" y="458" text-anchor="middle" style="fill:#ffc078">ωₚ</text>
-        <text class="t2" x="602" y="458" text-anchor="middle" style="fill:#74c0fc">ωₒᵤₜ</text>
+        <text class="t2 wl" x="518" y="458" text-anchor="middle" style="fill:#ff4d5e">ωᵢₙ</text>
+        <text class="t2 wl" x="560" y="458" text-anchor="middle" style="fill:#ffc078">ωₚ</text>
+        <text class="t2 wl" x="602" y="458" text-anchor="middle" style="fill:#74c0fc">ωₒᵤₜ</text>
 
         <!-- inset: fiber loss -->
         <rect x="660" y="306" width="270" height="156" rx="6" fill="#0b0d11" stroke="#23262d"/>
@@ -696,7 +709,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
         </div>
         <div class="rp-panel rp-pr">
           <div class="rp-title">Principle · laterally split-poled domains</div>
-          <svg id="qfcp" viewBox="0 -10 560 474" role="img" aria-label="Principle of the chip. (a) Cross-sections of the waveguide: a silicon nitride strip under a lithium niobate layer whose left half has positive and right half negative second-order nonlinearity. The 1950 nanometre pump and 1300 nanometre signal sit in the fundamental TM00 mode, and the 780 nanometre light in the TM10 mode, which has a positive lobe on the left and a negative lobe on the right. (b) Across the width, the nonlinearity is an odd step and the product of the three fields is odd, so their product is even and both lobes add.">
+          <svg id="qfcp" viewBox="14 -10 532 474" role="img" aria-label="Principle of the chip. (a) Cross-sections of the waveguide: a silicon nitride strip under a lithium niobate layer whose left half has positive and right half negative second-order nonlinearity. The 1950 nanometre pump and 1300 nanometre signal sit in the fundamental TM00 mode, and the 780 nanometre light in the TM10 mode, which has a positive lobe on the left and a negative lobe on the right. (b) Across the width, the nonlinearity is an odd step and the product of the three fields is odd, so their product is even and both lobes add.">
             <defs>
               <radialGradient id="qgP"><stop offset="0" stop-color="#cbb8ff" stop-opacity=".95"/><stop offset=".45" stop-color="#a98bff" stop-opacity=".7"/><stop offset="1" stop-color="#a98bff" stop-opacity="0"/></radialGradient>
               <radialGradient id="qgS"><stop offset="0" stop-color="#ffe3a3" stop-opacity=".95"/><stop offset=".45" stop-color="#ffc857" stop-opacity=".7"/><stop offset="1" stop-color="#ffc857" stop-opacity="0"/></radialGradient>
@@ -797,7 +810,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       </ul>
     </article>
 
-    <article class="rp-item rp-empty" aria-hidden="true"></article>
+    <article class="rp-item rp-empty" aria-hidden="true" hidden></article>
 
   </div>
 
@@ -922,7 +935,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
 
 </main>
 
-<footer>© 2026 Chanseung Lee</footer>
+<footer><div class="foot-in">© 2026 Chanseung Lee</div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -1196,7 +1209,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       var halfW=w<640?11.6:12.6, halfH=halfW*h/w;
       camera.left=-halfW; camera.right=halfW; camera.top=halfH; camera.bottom=-halfH;
       var d=40; camera.position.set(-Math.sin(AZ)*Math.cos(EL)*d, Math.sin(EL)*d, Math.cos(AZ)*Math.cos(EL)*d);
-      camera.lookAt(0,w<640?-0.35:-0.4,0); camera.updateProjectionMatrix();
+      camera.lookAt(0,w<640?0.75:-0.4,0); camera.updateProjectionMatrix();
       linesEl.setAttribute("viewBox","0 0 "+w+" "+h);
       renderer.shadowMap.needsUpdate=true;
       return true;
@@ -1325,7 +1338,6 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       var b=P(530,W,0); txt(b[0],b[1]+dy,"Receiver","ich","middle");
       var f=P(340,YB+26,T-4.5); leader([f[0],f[1]+8],[f[0],f[1]+34]); txt(f[0],f[1]+(mob?60:48),"fiber","icl","middle");
       var s0=P(-58,YB,T-2.5); leader([s0[0]+4,s0[1]+8],[s0[0]+4,s0[1]+18]); txt(s0[0]-2,s0[1]+(mob?42:30),mob?"from the comb":"from the comb above","icl","start");
-      if(!mob) txt(18,26,"Link · 4 channels","icm");
       var w=mob?58:50,h=mob?30:22,lift=mob?52:46;
       function tag(cx,cy,word,col){
         var g=mk("g",{},G.lb);
@@ -1495,7 +1507,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     [[-0.08,0.5,"idl"],[0.08,0.5,"sig"]].forEach(function(b){bar(BX1+0.55+b[0],CZ-0.42,b[1],b[2]);});
     B.labs=[
       {p:[-1.6,YB,CZ],t:"PPLN waveguide (thin-film LN)",o:[-60,-58],os:[-22,-44]},
-      {p:[0.5,0.01,CZ+0.3],t:"poled domains (Λ)",o:[40,52],os:[16,28]},
+      {p:[0.5,0.01,CZ+0.3],t:"poled domains (Λ)",o:[40,52],os:[62,46]},
       {p:[0.3,0.03,CZ-0.62],t:"poling electrodes",o:[0,-62],os:[0,-30],pc:true},
       {p:[BX0-0.9,YB,CZ],t:"pump (2ω) in",o:[-10,42],os:[-4,22]},
       {p:[BX1+0.55,0.45,CZ-0.42],t:"signal + idler",o:[62,-14],os:[30,-10]}
@@ -1599,7 +1611,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
     var mq=window.matchMedia?matchMedia("(max-width:640px)"):null; if(!mq) return;
     var cfg={
       sfx:{pc:"0 0 960 520",m:"20 20 650 777",tf:{"sf-main":"translate(30 30) scale(1.125) translate(-30 -30)","sf-a":"translate(-590 537)","sf-b":"translate(-270 297)"}},
-      qfx:{pc:"0 0 960 480",m:"20 88 930 382",tf:{}}
+      qfx:{pc:"0 0 960 480",m:"20 78 930 402",tf:{}}
     };
     function apply(){
       var mob=mq.matches;
