@@ -354,6 +354,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
   .edu .course p{max-width:none}
 }
 
+#qfx .wsub,#sfx .wsub{font-size:72%}
 /* review fixes */
 .fig-icx{position:relative}
 .rp-pr{padding:0 16px}
@@ -544,7 +545,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
         <g id="lor"></g>
         <path d="M770 98 C 770 78, 690 78, 690 108" fill="none" stroke="#ff5d6c" stroke-width="1.2"/>
         <path d="M770 98 C 770 78, 850 78, 850 108" fill="none" stroke="#5cb8ff" stroke-width="1.2"/>
-        <text class="t2" x="770" y="70" data-my="76" text-anchor="middle">2ωₚ = ωₛ + ωᵢ</text>
+        <text class="t2" x="770" y="70" data-my="76" text-anchor="middle">2ω<tspan class="wsub" dy="2">p</tspan><tspan dy="-2"> = ω</tspan><tspan class="wsub" dy="2">s</tspan><tspan dy="-2"> + ω</tspan><tspan class="wsub" dy="2">i</tspan></text>
         <text class="t2" x="690" y="240" text-anchor="middle" style="fill:#ff5d6c">idler</text>
         <text class="t2" x="770" y="240" text-anchor="middle" style="fill:#ffa94d">pump</text>
         <text class="t2" x="850" y="240" text-anchor="middle" style="fill:#5cb8ff">signal</text>
@@ -595,7 +596,6 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
           <radialGradient id="mode" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe8a3"/><stop offset=".35" stop-color="#ff9f43" stop-opacity=".8"/><stop offset="1" stop-color="#ff6b3d" stop-opacity="0"/></radialGradient>
           <filter id="qfGlow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="480"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           <filter id="qfBlur" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="480"><feGaussianBlur stdDeviation="4"/></filter>
-          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="context-stroke"/></marker>
         </defs>
 
         <!-- node A -->
@@ -658,15 +658,19 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
         <!-- inset: energy diagram -->
         <rect x="476" y="306" width="164" height="156" rx="6" fill="#0b0d11" stroke="#23262d"/>
         <text class="t" x="490" y="326" data-my="330">energy</text>
-        <line x1="494" y1="444" x2="626" y2="444" stroke="#3a404b"/>
+        <line x1="494" y1="440" x2="626" y2="440" stroke="#3a404b"/>
         <line x1="494" y1="346" x2="626" y2="346" stroke="#3a404b" stroke-dasharray="3 3"/>
         <line x1="494" y1="384" x2="626" y2="384" stroke="#3a404b" stroke-dasharray="3 3"/>
-        <line x1="518" y1="444" x2="518" y2="350" stroke="#ff4d5e" stroke-width="2" marker-end="url(#ah)"/>
-        <line x1="560" y1="346" x2="560" y2="380" stroke="#ffc078" stroke-width="2" marker-end="url(#ah)"/>
-        <line x1="602" y1="384" x2="602" y2="440" stroke="#74c0fc" stroke-width="2" marker-end="url(#ah)"/>
-        <text class="t2 wl" x="518" y="458" text-anchor="middle" style="fill:#ff4d5e">ωᵢₙ</text>
-        <text class="t2 wl" x="560" y="458" text-anchor="middle" style="fill:#ffc078">ωₚ</text>
-        <text class="t2 wl" x="602" y="458" text-anchor="middle" style="fill:#74c0fc">ωₒᵤₜ</text>
+        <!-- arrows: shafts plus explicit heads so the heads keep their colour in every browser -->
+        <line x1="518" y1="440" x2="518" y2="357" stroke="#ff4d5e" stroke-width="2"/>
+        <polygon points="512.5,358 523.5,358 518,347" fill="#ff4d5e"/>
+        <line x1="560" y1="346" x2="560" y2="373" stroke="#ffc078" stroke-width="2"/>
+        <polygon points="554.5,372 565.5,372 560,383" fill="#ffc078"/>
+        <line x1="602" y1="384" x2="602" y2="429" stroke="#74c0fc" stroke-width="2"/>
+        <polygon points="596.5,428 607.5,428 602,439" fill="#74c0fc"/>
+        <text class="t2 wl" x="518" y="455" text-anchor="middle" style="fill:#ff4d5e">ω<tspan class="wsub" dy="3">in</tspan></text>
+        <text class="t2 wl" x="560" y="455" text-anchor="middle" style="fill:#ffc078">ω<tspan class="wsub" dy="3">p</tspan></text>
+        <text class="t2 wl" x="602" y="455" text-anchor="middle" style="fill:#74c0fc">ω<tspan class="wsub" dy="3">out</tspan></text>
 
         <!-- inset: fiber loss -->
         <rect x="660" y="306" width="270" height="156" rx="6" fill="#0b0d11" stroke="#23262d"/>
