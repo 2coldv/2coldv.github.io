@@ -121,6 +121,37 @@ p{margin:0;max-width:66ch}
 .pdf-btn{display:inline-flex;align-items:center;gap:5px;margin-left:8px;vertical-align:3px;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.04em;color:var(--accent);text-decoration:none;border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:4px;padding:3px 8px 3px 9px;white-space:nowrap;transition:background .15s}
 .pdf-btn:hover{background:color-mix(in srgb,var(--accent) 14%,transparent)}
 .pj-fig{margin:22px 0 0;display:grid;gap:12px}
+.pj-h2{margin-top:88px}
+.rp-item{padding-block:36px;border-bottom:1px solid var(--line);display:grid;gap:6px;min-width:0}
+.rp-item h3{font-size:1.3rem;margin-bottom:4px}
+.rp-empty{min-height:72px}
+.rp-figs{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);gap:14px;margin-top:16px}
+.rp-panel{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0}
+.rp-3d{background:radial-gradient(120% 90% at 50% 45%,#151922 0%,var(--surface) 70%)}
+.rp-3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.rp-3d svg.tx3d-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.rp-3d .tx3d-lab{font-size:inherit}
+.rp-3d.no3d .tx3d-fallback{display:grid}
+.rp-title{position:absolute;left:16px;top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);pointer-events:none;z-index:1}
+.rp-pr > svg{display:block;width:100%;height:auto}
+#qfcp text{font-family:var(--body);fill:var(--muted)}
+#qfcp .qh{font-size:14px;font-weight:500;fill:var(--fg)}
+#qfcp .qk{font-family:var(--mono);fill:var(--accent)}
+#qfcp .qcap{font-size:13.5px;font-weight:500}
+#qfcp .qsub{font-size:12px;fill:var(--faint)}
+#qfcp .qpt{font-size:13.5px;fill:var(--fg)}
+#qfcp .qd{font-size:10.5px}
+#qfcp .ql{font-size:10.5px;fill:#8a919d}
+#qfcp .qsg{font-size:13px;font-weight:600;fill:#fff}
+#qfcp .qv{font-size:11px;fill:var(--faint)}
+#qfcp .qop{font-size:22px;fill:var(--muted)}
+#qfcp .qf{font-size:14px;fill:#d5d9e0}
+#qfcp .qm{font-family:var(--mono);font-size:11px;fill:var(--faint)}
+#qfcp .sb{font-size:.7em;baseline-shift:sub}
+#qfcp .sp{font-size:.7em;baseline-shift:super}
+svg.mj{display:inline-block;overflow:visible}
+.mj-in{font-size:1.15em;color:var(--fg)}
+@media (max-width:820px){.rp-figs{grid-template-columns:minmax(0,1fr)}.rp-3d{aspect-ratio:1.3/1}}
 .pj-scroll{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow-x:auto}
 .pj-scroll svg{display:block;width:100%;min-width:620px;height:auto}
 .pj-fig figcaption,.pj-photos figcaption{font-size:.85rem;color:var(--faint);line-height:1.6}
@@ -203,6 +234,16 @@ p{margin:0;max-width:66ch}
 
 footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));color:var(--faint);font-size:.85rem;border-top:1px solid var(--line)}
 
+@media (min-width:821px){
+  .rp-item{position:relative}
+  .rp-item > .rp-when{position:absolute;right:0;top:38px;padding-top:0}
+  .rp-item > h3{padding-right:90px}
+  #v-projects .xp ul{max-width:none}
+  #v-projects .xp-item{grid-template-columns:minmax(0,1fr);position:relative}
+  #v-projects .xp-item > .xp-when{position:absolute;right:0;top:38px;flex-direction:row;align-items:center;gap:12px;padding-top:0}
+  #v-projects .xp-item > .xp-when .grade{margin-top:0}
+  #v-projects .xp-item .xp-body h3{padding-right:190px}
+}
 @media (max-width:820px){
   .bar-in{flex-direction:column;align-items:flex-start;gap:12px;padding-block:16px}
   nav{gap:22px;width:100%}
@@ -260,6 +301,10 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
   #v-experience .xp-when,.edu-logo{display:grid;grid-template-columns:46px minmax(0,1fr);grid-template-rows:auto auto;column-gap:12px;row-gap:3px;align-items:center;justify-items:start;text-align:left;white-space:nowrap;padding:0}
   #v-experience .xp-when .xp-logo,.edu-logo img{grid-column:1;grid-row:1/3;width:46px;height:46px;max-width:none;object-fit:contain;padding:4px;margin:0;background:#11141a;border:1px solid var(--line);border-radius:11px;box-sizing:border-box}
   #v-experience .xp-when .xp-logo.sq{padding:5px}
+  .pj-h2{margin-top:56px}
+  .rp-item{padding-block:22px}
+  #qfcp .qh{font-size:17px} #qfcp .qcap{font-size:16px} #qfcp .qsub{font-size:14.5px} #qfcp .qpt{font-size:16px} #qfcp .qd,#qfcp .ql{font-size:12px} #qfcp .qv{font-size:13px} #qfcp .qop{font-size:26px}
+  .rp-title{font-size:8.5px;left:12px;top:10px}
   .xp-role{display:block;grid-column:2;grid-row:1;align-self:end;font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
   .xp-date,.edu-when{display:block;grid-column:2;grid-row:2;align-self:start;font-family:var(--mono);font-size:.74rem;color:var(--muted);padding:0}
   .deg-pc{display:none}
@@ -606,7 +651,130 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
 <!-- ============ PROJECTS ============ -->
 <section class="view" id="v-projects" data-view="projects" hidden>
   <div class="eyebrow">Projects</div>
-  <h2 style="margin-top:12px">Selected academic projects</h2>
+  <h2 style="margin-top:12px">Research projects</h2>
+  <div class="xp rp">
+
+    <article class="rp-item">
+      <div class="xp-when rp-when">2026</div>
+      <h3>Modal Phase Matching with Laterally Split-Poled Domains for On-Chip Quantum Frequency Conversion</h3>
+      <div class="xp-org">Seoul National University (SNU), Q-SPIN Lab, Republic of Korea</div>
+      <div class="xp-sub">Project with Samsung Advanced Institute of Technology (SAIT)</div>
+      <div class="rp-figs">
+        <div class="rp-panel rp-3d" id="qfc3d-wrap">
+          <canvas id="qfc3d" role="img" aria-label="3D view of the quantum frequency conversion chip. A 780 nanometre single photon from rubidium-87 atoms in a magneto-optical trap and a 1950 nanometre pump are combined off the chip in a fiber wavelength-division multiplexer and enter through one fiber. Both travel along a single straight silicon nitride strip under a z-cut thin-film lithium niobate layer. In the conversion section the lithium niobate has laterally split-poled domains: two domains of opposite sign, split along the waveguide centre. The photon leaves as a 1300 nanometre telecom photon, and an inline filter after the chip removes the leftover pump."></canvas>
+          <svg class="tx3d-lines" id="qfc3d-lines" aria-hidden="true"></svg>
+          <div class="tx3d-labels" id="qfc3d-labels" aria-hidden="true"></div>
+          <div class="rp-title">QFC chip · ⁸⁷Rb 780 nm → telecom 1300 nm</div>
+          <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
+        </div>
+        <div class="rp-panel rp-pr">
+          <div class="rp-title">Principle · laterally split-poled domains</div>
+          <svg id="qfcp" viewBox="0 -10 560 474" role="img" aria-label="Principle of the chip. (a) Cross-sections of the waveguide: a silicon nitride strip under a lithium niobate layer whose left half has positive and right half negative second-order nonlinearity. The 1950 nanometre pump and 1300 nanometre signal sit in the fundamental TM00 mode, and the 780 nanometre light in the TM10 mode, which has a positive lobe on the left and a negative lobe on the right. (b) Across the width, the nonlinearity is an odd step and the product of the three fields is odd, so their product is even and both lobes add.">
+            <defs>
+              <radialGradient id="qgP"><stop offset="0" stop-color="#cbb8ff" stop-opacity=".95"/><stop offset=".45" stop-color="#a98bff" stop-opacity=".7"/><stop offset="1" stop-color="#a98bff" stop-opacity="0"/></radialGradient>
+              <radialGradient id="qgS"><stop offset="0" stop-color="#ffe3a3" stop-opacity=".95"/><stop offset=".45" stop-color="#ffc857" stop-opacity=".7"/><stop offset="1" stop-color="#ffc857" stop-opacity="0"/></radialGradient>
+              <radialGradient id="qgR"><stop offset="0" stop-color="#ffb3bb" stop-opacity=".95"/><stop offset=".45" stop-color="#ff5d6c" stop-opacity=".72"/><stop offset="1" stop-color="#ff5d6c" stop-opacity="0"/></radialGradient>
+              <clipPath id="qc0"><rect x="14" y="66" width="168" height="150" rx="5"/></clipPath>
+              <clipPath id="qc1"><rect x="196" y="66" width="168" height="150" rx="5"/></clipPath>
+              <clipPath id="qc2"><rect x="378" y="66" width="168" height="150" rx="5"/></clipPath>
+            </defs>
+
+            <!-- (a) guided modes -->
+            <text class="qh" x="14" y="52"><tspan class="qk">(a)</tspan> Guided modes in the waveguide cross-section</text>
+            <g id="qtiles">
+<g clip-path="url(#qc0)">
+<rect x="14" y="66" width="168" height="26" fill="#161a21"/>
+<rect x="14" y="92" width="84" height="22" fill="#4a2430"/><rect x="98" y="92" width="84" height="22" fill="#1d2e50"/>
+<rect x="14" y="114" width="168" height="78" fill="#161a21"/>
+<rect x="14" y="192" width="168" height="24" fill="#25282e"/>
+<rect x="73" y="114" width="50" height="16" fill="#3567c9"/>
+<g stroke="#2c313b" stroke-width="1"><line x1="14" y1="92" x2="182" y2="92"/><line x1="14" y1="114" x2="182" y2="114"/><line x1="14" y1="192" x2="182" y2="192"/></g>
+<ellipse cx="98" cy="116" rx="46" ry="28" fill="url(#qgP)"/>
+<line x1="98" y1="92" x2="98" y2="114" stroke="#e3e7ee" stroke-opacity=".55" stroke-dasharray="2 2"/>
+<text class="qd" x="21" y="107" style="fill:#ff9aa8">↑ +χ⁽²⁾</text><text class="qd" x="175" y="107" text-anchor="end" style="fill:#93b8ff">−χ⁽²⁾ ↓</text>
+<text class="ql" x="21" y="84">SiO₂</text><text class="ql" x="21" y="184">SiO₂ (BOX)</text><text class="ql" x="21" y="208">Si</text>
+<text class="ql" x="98" y="146" text-anchor="middle" style="fill:#8fb2f5">Si₃N₄</text>
+</g>
+<rect x="14" y="66" width="168" height="150" rx="5" fill="none" stroke="#2a2f38"/>
+<text class="qcap" x="98" y="238" text-anchor="middle" style="fill:#cbb8ff">1950 nm · TM<tspan class="sb">00</tspan></text>
+<text class="qsub" x="98" y="259" text-anchor="middle">pump</text>
+<g clip-path="url(#qc1)">
+<rect x="196" y="66" width="168" height="26" fill="#161a21"/>
+<rect x="196" y="92" width="84" height="22" fill="#4a2430"/><rect x="280" y="92" width="84" height="22" fill="#1d2e50"/>
+<rect x="196" y="114" width="168" height="78" fill="#161a21"/>
+<rect x="196" y="192" width="168" height="24" fill="#25282e"/>
+<rect x="255" y="114" width="50" height="16" fill="#3567c9"/>
+<g stroke="#2c313b" stroke-width="1"><line x1="196" y1="92" x2="364" y2="92"/><line x1="196" y1="114" x2="364" y2="114"/><line x1="196" y1="192" x2="364" y2="192"/></g>
+<ellipse cx="280" cy="116" rx="36" ry="22" fill="url(#qgS)"/>
+<line x1="280" y1="92" x2="280" y2="114" stroke="#e3e7ee" stroke-opacity=".55" stroke-dasharray="2 2"/>
+<text class="qd" x="203" y="107" style="fill:#ff9aa8">↑ +χ⁽²⁾</text><text class="qd" x="357" y="107" text-anchor="end" style="fill:#93b8ff">−χ⁽²⁾ ↓</text>
+<text class="ql" x="280" y="146" text-anchor="middle" style="fill:#8fb2f5">Si₃N₄</text>
+</g>
+<rect x="196" y="66" width="168" height="150" rx="5" fill="none" stroke="#2a2f38"/>
+<text class="qcap" x="280" y="238" text-anchor="middle" style="fill:#ffd27a">1300 nm · TM<tspan class="sb">00</tspan></text>
+<text class="qsub" x="280" y="259" text-anchor="middle">telecom signal</text>
+<g clip-path="url(#qc2)">
+<rect x="378" y="66" width="168" height="26" fill="#161a21"/>
+<rect x="378" y="92" width="84" height="22" fill="#4a2430"/><rect x="462" y="92" width="84" height="22" fill="#1d2e50"/>
+<rect x="378" y="114" width="168" height="78" fill="#161a21"/>
+<rect x="378" y="192" width="168" height="24" fill="#25282e"/>
+<rect x="437" y="114" width="50" height="16" fill="#3567c9"/>
+<g stroke="#2c313b" stroke-width="1"><line x1="378" y1="92" x2="546" y2="92"/><line x1="378" y1="114" x2="546" y2="114"/><line x1="378" y1="192" x2="546" y2="192"/></g>
+<ellipse cx="445" cy="116" rx="16" ry="20" fill="url(#qgR)"/><ellipse cx="479" cy="116" rx="16" ry="20" fill="url(#qgR)"/>
+<text class="qsg" x="445" y="120" text-anchor="middle">+</text><text class="qsg" x="479" y="120" text-anchor="middle">−</text>
+<line x1="462" y1="92" x2="462" y2="114" stroke="#e3e7ee" stroke-opacity=".55" stroke-dasharray="2 2"/>
+<text class="qd" x="385" y="107" style="fill:#ff9aa8">↑ +χ⁽²⁾</text><text class="qd" x="539" y="107" text-anchor="end" style="fill:#93b8ff">−χ⁽²⁾ ↓</text>
+<text class="ql" x="462" y="146" text-anchor="middle" style="fill:#8fb2f5">Si₃N₄</text>
+</g>
+<rect x="378" y="66" width="168" height="150" rx="5" fill="none" stroke="#2a2f38"/>
+<text class="qcap" x="462" y="238" text-anchor="middle" style="fill:#ff8a97">780 nm · TM<tspan class="sb">10</tspan></text>
+<text class="qsub" x="462" y="259" text-anchor="middle">Rb photon</text>
+</g>
+
+            <!-- (b) overlap -->
+            <text class="qh" x="14" y="286"><tspan class="qk">(b)</tspan> Nonlinear overlap across the width x</text>
+            <g id="qplots">
+<svg xmlns="http://www.w3.org/2000/svg" x="65.3" y="301.7" width="47.4" height="18.3" style="color:#e9ecf1;overflow:visible" aria-hidden="true" focusable="false" viewBox="0 -893.3 2962.7 1143.3"><defs><path id="MJX-5-TEX-I-1D712" d="M576 -125Q576 -147 547 -175T487 -204H476Q394 -204 363 -157Q334 -114 293 26L284 59Q283 58 248 19T170 -66T92 -151T53 -191Q49 -194 43 -194Q36 -194 31 -189T25 -177T38 -154T151 -30L272 102L265 131Q189 405 135 405Q104 405 87 358Q86 351 68 351Q48 351 48 361Q48 369 56 386T89 423T148 442Q224 442 258 400Q276 375 297 320T330 222L341 180Q344 180 455 303T573 429Q579 431 582 431Q600 431 600 414Q600 407 587 392T477 270Q356 138 353 134L362 102Q392 -10 428 -89T490 -168Q504 -168 517 -156T536 -126Q539 -116 543 -115T557 -114T571 -115Q576 -118 576 -125Z"></path><path id="MJX-5-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-5-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-5-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path id="MJX-5-TEX-I-1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><use data-c="1D712" xlink:href="#MJX-5-TEX-I-1D712"></use></g><g data-mml-node="TeXAtom" transform="translate(659,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-5-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-5-TEX-N-32"></use></g><g data-mml-node="mo" transform="translate(889,0)"><use data-c="29" xlink:href="#MJX-5-TEX-N-29"></use></g></g></g><g data-mml-node="mo" transform="translate(1612.7,0)"><use data-c="28" xlink:href="#MJX-5-TEX-N-28"></use></g><g data-mml-node="mi" transform="translate(2001.7,0)"><use data-c="1D465" xlink:href="#MJX-5-TEX-I-1D465"></use></g><g data-mml-node="mo" transform="translate(2573.7,0)"><use data-c="29" xlink:href="#MJX-5-TEX-N-29"></use></g></g></g></svg>
+<line x1="14" y1="372" x2="164" y2="372" stroke="#3a404b"/>
+<line x1="89" y1="326" x2="89" y2="420" stroke="#5d636e" stroke-dasharray="3 3"/>
+<rect x="14" y="334" width="75" height="38" fill="#ff5d6c" fill-opacity=".2"/><rect x="89" y="372" width="75" height="38" fill="#4d8dff" fill-opacity=".2"/>
+<path d="M14 334 H89" stroke="#ff8a97" stroke-width="1.8" fill="none"/><path d="M89 410 H164" stroke="#7fb0ff" stroke-width="1.8" fill="none"/>
+<path d="M89 334 V410" stroke="#9aa1ad" stroke-width="1" fill="none"/>
+<text class="qv" x="20" y="328" style="fill:#ff9aa8">+1</text><text class="qv" x="158" y="424" text-anchor="end" style="fill:#93b8ff">−1</text>
+<text class="qsub" x="89" y="442" text-anchor="middle">split at the centre</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="233.0" y="308.9" width="93.9" height="9.7" style="color:#e9ecf1;overflow:visible" aria-hidden="true" focusable="false" viewBox="0 -442 5870.1 607.6"><defs><path id="MJX-6-TEX-I-1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path><path id="MJX-6-TEX-N-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path id="MJX-6-TEX-N-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path><path id="MJX-6-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-6-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-6-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-6-TEX-N-39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z"></path><path id="MJX-6-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D452" xlink:href="#MJX-6-TEX-I-1D452"></use></g><g data-mml-node="TeXAtom" transform="translate(499,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="37" xlink:href="#MJX-6-TEX-N-37"></use><use data-c="38" xlink:href="#MJX-6-TEX-N-38" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-6-TEX-N-30" transform="translate(1000,0)"></use></g></g></g><g data-mml-node="mstyle" transform="translate(1609.7,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="msub" transform="translate(1776.7,0)"><g data-mml-node="mi"><use data-c="1D452" xlink:href="#MJX-6-TEX-I-1D452"></use></g><g data-mml-node="TeXAtom" transform="translate(499,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-6-TEX-N-31"></use><use data-c="33" xlink:href="#MJX-6-TEX-N-33" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-6-TEX-N-30" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-6-TEX-N-30" transform="translate(1500,0)"></use></g></g></g><g data-mml-node="mstyle" transform="translate(3739.9,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="msub" transform="translate(3906.9,0)"><g data-mml-node="mi"><use data-c="1D452" xlink:href="#MJX-6-TEX-I-1D452"></use></g><g data-mml-node="TeXAtom" transform="translate(499,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-6-TEX-N-31"></use><use data-c="39" xlink:href="#MJX-6-TEX-N-39" transform="translate(500,0)"></use><use data-c="35" xlink:href="#MJX-6-TEX-N-35" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-6-TEX-N-30" transform="translate(1500,0)"></use></g></g></g></g></g></svg>
+<line x1="205" y1="372" x2="355" y2="372" stroke="#3a404b"/>
+<line x1="280" y1="326" x2="280" y2="420" stroke="#5d636e" stroke-dasharray="3 3"/>
+<path d="M205.0 371.0 L206.2 370.8 L207.5 370.6 L208.8 370.4 L210.0 370.1 L211.2 369.8 L212.5 369.5 L213.8 369.1 L215.0 368.7 L216.2 368.2 L217.5 367.7 L218.8 367.1 L220.0 366.5 L221.2 365.8 L222.5 365.0 L223.8 364.2 L225.0 363.3 L226.2 362.4 L227.5 361.3 L228.8 360.2 L230.0 359.1 L231.2 357.8 L232.5 356.5 L233.8 355.2 L235.0 353.8 L236.2 352.4 L237.5 350.9 L238.8 349.4 L240.0 347.9 L241.2 346.3 L242.5 344.8 L243.8 343.4 L245.0 341.9 L246.2 340.6 L247.5 339.3 L248.8 338.1 L250.0 337.0 L251.2 336.1 L252.5 335.3 L253.8 334.7 L255.0 334.3 L256.2 334.0 L257.5 334.0 L258.8 334.2 L260.0 334.7 L261.2 335.4 L262.5 336.3 L263.8 337.6 L265.0 339.0 L266.2 340.7 L267.5 342.7 L268.8 344.9 L270.0 347.3 L271.2 349.9 L272.5 352.7 L273.8 355.6 L275.0 358.7 L276.2 361.9 L277.5 365.2 L278.8 368.6 L280.0 372.0 L280.0 372 Z" fill="#3fc1b0" fill-opacity=".22"/><path d="M280.0 372.0 L281.2 375.4 L282.5 378.8 L283.8 382.1 L285.0 385.3 L286.2 388.4 L287.5 391.3 L288.8 394.1 L290.0 396.7 L291.2 399.1 L292.5 401.3 L293.8 403.3 L295.0 405.0 L296.2 406.4 L297.5 407.7 L298.8 408.6 L300.0 409.3 L301.2 409.8 L302.5 410.0 L303.8 410.0 L305.0 409.7 L306.2 409.3 L307.5 408.7 L308.8 407.9 L310.0 407.0 L311.2 405.9 L312.5 404.7 L313.8 403.4 L315.0 402.1 L316.2 400.6 L317.5 399.2 L318.8 397.7 L320.0 396.1 L321.2 394.6 L322.5 393.1 L323.8 391.6 L325.0 390.2 L326.2 388.8 L327.5 387.5 L328.8 386.2 L330.0 384.9 L331.2 383.8 L332.5 382.7 L333.8 381.6 L335.0 380.7 L336.2 379.8 L337.5 379.0 L338.8 378.2 L340.0 377.5 L341.2 376.9 L342.5 376.3 L343.8 375.8 L345.0 375.3 L346.2 374.9 L347.5 374.5 L348.8 374.2 L350.0 373.9 L351.2 373.6 L352.5 373.4 L353.8 373.2 L355.0 373.0 L355.0 372 Z" fill="#ff5d6c" fill-opacity=".22"/>
+<path d="M205.0 371.0 L206.2 370.8 L207.5 370.6 L208.8 370.4 L210.0 370.1 L211.2 369.8 L212.5 369.5 L213.8 369.1 L215.0 368.7 L216.2 368.2 L217.5 367.7 L218.8 367.1 L220.0 366.5 L221.2 365.8 L222.5 365.0 L223.8 364.2 L225.0 363.3 L226.2 362.4 L227.5 361.3 L228.8 360.2 L230.0 359.1 L231.2 357.8 L232.5 356.5 L233.8 355.2 L235.0 353.8 L236.2 352.4 L237.5 350.9 L238.8 349.4 L240.0 347.9 L241.2 346.3 L242.5 344.8 L243.8 343.4 L245.0 341.9 L246.2 340.6 L247.5 339.3 L248.8 338.1 L250.0 337.0 L251.2 336.1 L252.5 335.3 L253.8 334.7 L255.0 334.3 L256.2 334.0 L257.5 334.0 L258.8 334.2 L260.0 334.7 L261.2 335.4 L262.5 336.3 L263.8 337.6 L265.0 339.0 L266.2 340.7 L267.5 342.7 L268.8 344.9 L270.0 347.3 L271.2 349.9 L272.5 352.7 L273.8 355.6 L275.0 358.7 L276.2 361.9 L277.5 365.2 L278.8 368.6 L280.0 372.0" stroke="#4fd1bf" stroke-width="1.8" fill="none"/><path d="M280.0 372.0 L281.2 375.4 L282.5 378.8 L283.8 382.1 L285.0 385.3 L286.2 388.4 L287.5 391.3 L288.8 394.1 L290.0 396.7 L291.2 399.1 L292.5 401.3 L293.8 403.3 L295.0 405.0 L296.2 406.4 L297.5 407.7 L298.8 408.6 L300.0 409.3 L301.2 409.8 L302.5 410.0 L303.8 410.0 L305.0 409.7 L306.2 409.3 L307.5 408.7 L308.8 407.9 L310.0 407.0 L311.2 405.9 L312.5 404.7 L313.8 403.4 L315.0 402.1 L316.2 400.6 L317.5 399.2 L318.8 397.7 L320.0 396.1 L321.2 394.6 L322.5 393.1 L323.8 391.6 L325.0 390.2 L326.2 388.8 L327.5 387.5 L328.8 386.2 L330.0 384.9 L331.2 383.8 L332.5 382.7 L333.8 381.6 L335.0 380.7 L336.2 379.8 L337.5 379.0 L338.8 378.2 L340.0 377.5 L341.2 376.9 L342.5 376.3 L343.8 375.8 L345.0 375.3 L346.2 374.9 L347.5 374.5 L348.8 374.2 L350.0 373.9 L351.2 373.6 L352.5 373.4 L353.8 373.2 L355.0 373.0" stroke="#ff7a87" stroke-width="1.8" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" x="212.0" y="395.5" width="31.8" height="14.4" style="color:#7d848f;overflow:visible" aria-hidden="true" focusable="false" viewBox="0 -805.5 2443.6 1111"><defs><path id="MJX-8-TEX-SO-222B" d="M113 -244Q113 -246 119 -251T139 -263T167 -269Q186 -269 199 -260Q220 -247 232 -218T251 -133T262 -15T276 155T297 367Q300 390 305 438T314 512T325 580T340 647T361 703T390 751T428 784T479 804Q481 804 488 804T501 805Q552 802 581 769T610 695Q610 669 594 657T561 645Q542 645 527 658T512 694Q512 705 516 714T526 729T538 737T548 742L552 743Q552 745 545 751T525 762T498 768Q475 768 460 756T434 716T418 652T407 559T398 444T387 300T369 133Q349 -38 337 -102T303 -207Q256 -306 169 -306Q119 -306 87 -272T55 -196Q55 -170 71 -158T104 -146Q123 -146 138 -159T153 -195Q153 -206 149 -215T139 -230T127 -238T117 -242L113 -244Z"></path><path id="MJX-8-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-8-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo" transform="translate(0 0.5)"><use data-c="222B" xlink:href="#MJX-8-TEX-SO-222B"></use></g><g data-mml-node="mo" transform="translate(887.8,0)"><use data-c="3D" xlink:href="#MJX-8-TEX-N-3D"></use></g><g data-mml-node="mn" transform="translate(1943.6,0)"><use data-c="30" xlink:href="#MJX-8-TEX-N-30"></use></g></g></g></svg>
+<text class="qsub" x="280" y="442" text-anchor="middle">odd: cancels alone</text>
+<svg xmlns="http://www.w3.org/2000/svg" x="409.8" y="301.7" width="122.4" height="17.6" style="color:#e9ecf1;overflow:visible" aria-hidden="true" focusable="false" viewBox="0 -893.3 7649.8 1097.3"><defs><path id="MJX-7-TEX-I-1D712" d="M576 -125Q576 -147 547 -175T487 -204H476Q394 -204 363 -157Q334 -114 293 26L284 59Q283 58 248 19T170 -66T92 -151T53 -191Q49 -194 43 -194Q36 -194 31 -189T25 -177T38 -154T151 -30L272 102L265 131Q189 405 135 405Q104 405 87 358Q86 351 68 351Q48 351 48 361Q48 369 56 386T89 423T148 442Q224 442 258 400Q276 375 297 320T330 222L341 180Q344 180 455 303T573 429Q579 431 582 431Q600 431 600 414Q600 407 587 392T477 270Q356 138 353 134L362 102Q392 -10 428 -89T490 -168Q504 -168 517 -156T536 -126Q539 -116 543 -115T557 -114T571 -115Q576 -118 576 -125Z"></path><path id="MJX-7-TEX-N-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path id="MJX-7-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-7-TEX-N-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path id="MJX-7-TEX-I-1D452" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path><path id="MJX-7-TEX-N-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path id="MJX-7-TEX-N-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path><path id="MJX-7-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-7-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-7-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path id="MJX-7-TEX-N-39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z"></path><path id="MJX-7-TEX-N-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><use data-c="1D712" xlink:href="#MJX-7-TEX-I-1D712"></use></g><g data-mml-node="TeXAtom" transform="translate(659,363) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="28" xlink:href="#MJX-7-TEX-N-28"></use></g><g data-mml-node="mn" transform="translate(389,0)"><use data-c="32" xlink:href="#MJX-7-TEX-N-32"></use></g><g data-mml-node="mo" transform="translate(889,0)"><use data-c="29" xlink:href="#MJX-7-TEX-N-29"></use></g></g></g><g data-mml-node="mstyle" transform="translate(1612.7,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="msub" transform="translate(1779.7,0)"><g data-mml-node="mi"><use data-c="1D452" xlink:href="#MJX-7-TEX-I-1D452"></use></g><g data-mml-node="TeXAtom" transform="translate(499,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="37" xlink:href="#MJX-7-TEX-N-37"></use><use data-c="38" xlink:href="#MJX-7-TEX-N-38" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-7-TEX-N-30" transform="translate(1000,0)"></use></g></g></g><g data-mml-node="mstyle" transform="translate(3389.3,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="msub" transform="translate(3556.3,0)"><g data-mml-node="mi"><use data-c="1D452" xlink:href="#MJX-7-TEX-I-1D452"></use></g><g data-mml-node="TeXAtom" transform="translate(499,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-7-TEX-N-31"></use><use data-c="33" xlink:href="#MJX-7-TEX-N-33" transform="translate(500,0)"></use><use data-c="30" xlink:href="#MJX-7-TEX-N-30" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-7-TEX-N-30" transform="translate(1500,0)"></use></g></g></g><g data-mml-node="mstyle" transform="translate(5519.6,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="msub" transform="translate(5686.6,0)"><g data-mml-node="mi"><use data-c="1D452" xlink:href="#MJX-7-TEX-I-1D452"></use></g><g data-mml-node="TeXAtom" transform="translate(499,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-7-TEX-N-31"></use><use data-c="39" xlink:href="#MJX-7-TEX-N-39" transform="translate(500,0)"></use><use data-c="35" xlink:href="#MJX-7-TEX-N-35" transform="translate(1000,0)"></use><use data-c="30" xlink:href="#MJX-7-TEX-N-30" transform="translate(1500,0)"></use></g></g></g></g></g></svg>
+<line x1="396" y1="372" x2="546" y2="372" stroke="#3a404b"/>
+<line x1="471" y1="326" x2="471" y2="420" stroke="#5d636e" stroke-dasharray="3 3"/>
+<path d="M396.0 371.0 L397.2 370.8 L398.5 370.6 L399.8 370.4 L401.0 370.1 L402.2 369.8 L403.5 369.5 L404.8 369.1 L406.0 368.7 L407.2 368.2 L408.5 367.7 L409.8 367.1 L411.0 366.5 L412.2 365.8 L413.5 365.0 L414.8 364.2 L416.0 363.3 L417.2 362.4 L418.5 361.3 L419.8 360.2 L421.0 359.1 L422.2 357.8 L423.5 356.5 L424.8 355.2 L426.0 353.8 L427.2 352.4 L428.5 350.9 L429.8 349.4 L431.0 347.9 L432.2 346.3 L433.5 344.8 L434.8 343.4 L436.0 341.9 L437.2 340.6 L438.5 339.3 L439.8 338.1 L441.0 337.0 L442.2 336.1 L443.5 335.3 L444.8 334.7 L446.0 334.3 L447.2 334.0 L448.5 334.0 L449.8 334.2 L451.0 334.7 L452.2 335.4 L453.5 336.3 L454.8 337.6 L456.0 339.0 L457.2 340.7 L458.5 342.7 L459.8 344.9 L461.0 347.3 L462.2 349.9 L463.5 352.7 L464.8 355.6 L466.0 358.7 L467.2 361.9 L468.5 365.2 L469.8 368.6 L471.0 372.0 L472.2 368.6 L473.5 365.2 L474.8 361.9 L476.0 358.7 L477.2 355.6 L478.5 352.7 L479.8 349.9 L481.0 347.3 L482.2 344.9 L483.5 342.7 L484.8 340.7 L486.0 339.0 L487.2 337.6 L488.5 336.3 L489.8 335.4 L491.0 334.7 L492.2 334.2 L493.5 334.0 L494.8 334.0 L496.0 334.3 L497.2 334.7 L498.5 335.3 L499.8 336.1 L501.0 337.0 L502.2 338.1 L503.5 339.3 L504.8 340.6 L506.0 341.9 L507.2 343.4 L508.5 344.8 L509.8 346.3 L511.0 347.9 L512.2 349.4 L513.5 350.9 L514.8 352.4 L516.0 353.8 L517.2 355.2 L518.5 356.5 L519.8 357.8 L521.0 359.1 L522.2 360.2 L523.5 361.3 L524.8 362.4 L526.0 363.3 L527.2 364.2 L528.5 365.0 L529.8 365.8 L531.0 366.5 L532.2 367.1 L533.5 367.7 L534.8 368.2 L536.0 368.7 L537.2 369.1 L538.5 369.5 L539.8 369.8 L541.0 370.1 L542.2 370.4 L543.5 370.6 L544.8 370.8 L546.0 371.0 Z" fill="#b48cff" fill-opacity=".26"/><path d="M396.0 371.0 L397.2 370.8 L398.5 370.6 L399.8 370.4 L401.0 370.1 L402.2 369.8 L403.5 369.5 L404.8 369.1 L406.0 368.7 L407.2 368.2 L408.5 367.7 L409.8 367.1 L411.0 366.5 L412.2 365.8 L413.5 365.0 L414.8 364.2 L416.0 363.3 L417.2 362.4 L418.5 361.3 L419.8 360.2 L421.0 359.1 L422.2 357.8 L423.5 356.5 L424.8 355.2 L426.0 353.8 L427.2 352.4 L428.5 350.9 L429.8 349.4 L431.0 347.9 L432.2 346.3 L433.5 344.8 L434.8 343.4 L436.0 341.9 L437.2 340.6 L438.5 339.3 L439.8 338.1 L441.0 337.0 L442.2 336.1 L443.5 335.3 L444.8 334.7 L446.0 334.3 L447.2 334.0 L448.5 334.0 L449.8 334.2 L451.0 334.7 L452.2 335.4 L453.5 336.3 L454.8 337.6 L456.0 339.0 L457.2 340.7 L458.5 342.7 L459.8 344.9 L461.0 347.3 L462.2 349.9 L463.5 352.7 L464.8 355.6 L466.0 358.7 L467.2 361.9 L468.5 365.2 L469.8 368.6 L471.0 372.0 L472.2 368.6 L473.5 365.2 L474.8 361.9 L476.0 358.7 L477.2 355.6 L478.5 352.7 L479.8 349.9 L481.0 347.3 L482.2 344.9 L483.5 342.7 L484.8 340.7 L486.0 339.0 L487.2 337.6 L488.5 336.3 L489.8 335.4 L491.0 334.7 L492.2 334.2 L493.5 334.0 L494.8 334.0 L496.0 334.3 L497.2 334.7 L498.5 335.3 L499.8 336.1 L501.0 337.0 L502.2 338.1 L503.5 339.3 L504.8 340.6 L506.0 341.9 L507.2 343.4 L508.5 344.8 L509.8 346.3 L511.0 347.9 L512.2 349.4 L513.5 350.9 L514.8 352.4 L516.0 353.8 L517.2 355.2 L518.5 356.5 L519.8 357.8 L521.0 359.1 L522.2 360.2 L523.5 361.3 L524.8 362.4 L526.0 363.3 L527.2 364.2 L528.5 365.0 L529.8 365.8 L531.0 366.5 L532.2 367.1 L533.5 367.7 L534.8 368.2 L536.0 368.7 L537.2 369.1 L538.5 369.5 L539.8 369.8 L541.0 370.1 L542.2 370.4 L543.5 370.6 L544.8 370.8 L546.0 371.0" stroke="#c9adff" stroke-width="1.8" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" x="482.0" y="393.5" width="31.8" height="14.4" style="color:#c9adff;overflow:visible" aria-hidden="true" focusable="false" viewBox="0 -805.5 2443.6 1111"><defs><path id="MJX-9-TEX-SO-222B" d="M113 -244Q113 -246 119 -251T139 -263T167 -269Q186 -269 199 -260Q220 -247 232 -218T251 -133T262 -15T276 155T297 367Q300 390 305 438T314 512T325 580T340 647T361 703T390 751T428 784T479 804Q481 804 488 804T501 805Q552 802 581 769T610 695Q610 669 594 657T561 645Q542 645 527 658T512 694Q512 705 516 714T526 729T538 737T548 742L552 743Q552 745 545 751T525 762T498 768Q475 768 460 756T434 716T418 652T407 559T398 444T387 300T369 133Q349 -38 337 -102T303 -207Q256 -306 169 -306Q119 -306 87 -272T55 -196Q55 -170 71 -158T104 -146Q123 -146 138 -159T153 -195Q153 -206 149 -215T139 -230T127 -238T117 -242L113 -244Z"></path><path id="MJX-9-TEX-N-2260" d="M166 -215T159 -215T147 -212T141 -204T139 -197Q139 -190 144 -183L306 133H70Q56 140 56 153Q56 168 72 173H327L406 327H72Q56 332 56 347Q56 360 70 367H426Q597 702 602 707Q605 716 618 716Q625 716 630 712T636 703T638 696Q638 692 471 367H707Q722 359 722 347Q722 336 708 328L451 327L371 173H708Q722 163 722 153Q722 140 707 133H351Q175 -210 170 -212Q166 -215 159 -215Z"></path><path id="MJX-9-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo" transform="translate(0 0.5)"><use data-c="222B" xlink:href="#MJX-9-TEX-SO-222B"></use></g><g data-mml-node="mo" transform="translate(887.8,0)"><use data-c="2260" xlink:href="#MJX-9-TEX-N-2260"></use></g><g data-mml-node="mn" transform="translate(1943.6,0)"><use data-c="30" xlink:href="#MJX-9-TEX-N-30"></use></g></g></g></svg>
+<text class="qsub" x="471" y="442" text-anchor="middle">even: lobes add</text>
+<text class="qop" x="184.5" y="380" text-anchor="middle">×</text>
+<text class="qop" x="375.5" y="380" text-anchor="middle">=</text>
+</g>
+
+          </svg>
+        </div>
+      </div>
+      <ul>
+        <li>Designed an on-chip quantum frequency conversion (QFC) device that shifts 780 nm single photons from ⁸⁷Rb atoms to the 1300 nm telecom band by difference-frequency generation with a 1950 nm pump, so the photons can travel through low-loss optical fiber. The photon and the pump are combined in a fiber WDM before the chip and the leftover pump is filtered after it, so the chip itself needs only one straight waveguide.</li>
+        <li>Light is guided by a Si₃N₄ strip under a bonded z-cut thin-film lithium niobate (TFLN) layer. Modal phase matching places the 780 nm light in the TM<sub>10</sub> mode and the 1300 nm and 1950 nm light in TM<sub>00</sub>, so momentum is conserved without periodic poling.</li>
+        <li>Because TM<sub>10</sub> is odd across the waveguide, a uniform χ⁽²⁾ makes the nonlinear overlap cancel. Laterally split-poled domains, two LN domains of opposite sign split at the waveguide centre, make the integrand even, so both lobes add and the coupling κ becomes nonzero.</li>
+        <li>The internal conversion efficiency follows <svg class="mj mj-in" style="vertical-align:-0.649em" xmlns="http://www.w3.org/2000/svg" width="14.521em" height="1.799em" aria-hidden="true" focusable="false" viewBox="0 -1149.5 14521 1799"><defs><path id="MJX-10-TEX-I-1D702" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q156 442 175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336V326Q503 302 439 53Q381 -182 377 -189Q364 -216 332 -216Q319 -216 310 -208T299 -186Q299 -177 358 57L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-10-TEX-N-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"></path><path id="MJX-10-TEX-N-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path id="MJX-10-TEX-N-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"></path><path id="MJX-10-TEX-N-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path id="MJX-10-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-10-TEX-N-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path id="MJX-10-TEX-N-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path id="MJX-10-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path><path id="MJX-10-TEX-I-1D43F" d="M228 637Q194 637 192 641Q191 643 191 649Q191 673 202 682Q204 683 217 683Q271 680 344 680Q485 680 506 683H518Q524 677 524 674T522 656Q517 641 513 637H475Q406 636 394 628Q387 624 380 600T313 336Q297 271 279 198T252 88L243 52Q243 48 252 48T311 46H328Q360 46 379 47T428 54T478 72T522 106T564 161Q580 191 594 228T611 270Q616 273 628 273H641Q647 264 647 262T627 203T583 83T557 9Q555 4 553 3T537 0T494 -1Q483 -1 418 -1T294 0H116Q32 0 32 10Q32 17 34 24Q39 43 44 45Q48 46 59 46H65Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Q285 635 228 637Z"></path><path id="MJX-10-TEX-N-2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path><path id="MJX-10-TEX-N-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path><path id="MJX-10-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-10-TEX-LO-28" d="M180 96T180 250T205 541T266 770T353 944T444 1069T527 1150H555Q561 1144 561 1141Q561 1137 545 1120T504 1072T447 995T386 878T330 721T288 513T272 251Q272 133 280 56Q293 -87 326 -209T399 -405T475 -531T536 -609T561 -640Q561 -643 555 -649H527Q483 -612 443 -568T353 -443T266 -270T205 -41Z"></path><path id="MJX-10-TEX-SO-221A" d="M263 249Q264 249 315 130T417 -108T470 -228L725 302Q981 837 982 839Q989 850 1001 850Q1008 850 1013 844T1020 832V826L741 243Q645 43 540 -176Q479 -303 469 -324T453 -348Q449 -350 436 -350L424 -349L315 -96Q206 156 205 156L171 130Q138 104 137 104L111 130L263 249Z"></path><path id="MJX-10-TEX-N-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path><path id="MJX-10-TEX-N-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path><path id="MJX-10-TEX-N-6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path id="MJX-10-TEX-I-1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path><path id="MJX-10-TEX-LO-29" d="M35 1138Q35 1150 51 1150H56H69Q113 1113 153 1069T243 944T330 771T391 541T416 250T391 -40T330 -270T243 -443T152 -568T69 -649H56Q43 -649 39 -647T35 -637Q65 -607 110 -548Q283 -316 316 56Q324 133 324 251Q324 368 316 445Q278 877 48 1123Q36 1137 35 1138Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D702" xlink:href="#MJX-10-TEX-I-1D702"></use></g><g data-mml-node="TeXAtom" transform="translate(530,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="69" xlink:href="#MJX-10-TEX-N-69"></use><use data-c="6E" xlink:href="#MJX-10-TEX-N-6E" transform="translate(278,0)"></use><use data-c="74" xlink:href="#MJX-10-TEX-N-74" transform="translate(834,0)"></use></g></g></g></g><g data-mml-node="mo" transform="translate(1722.6,0)"><use data-c="3D" xlink:href="#MJX-10-TEX-N-3D"></use></g><g data-mml-node="msup" transform="translate(2778.3,0)"><g data-mml-node="mn"><use data-c="31" xlink:href="#MJX-10-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-10-TEX-N-30" transform="translate(500,0)"></use></g><g data-mml-node="TeXAtom" transform="translate(1033,393.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mo"><use data-c="2212" xlink:href="#MJX-10-TEX-N-2212"></use></g><g data-mml-node="mi" transform="translate(778,0)"><use data-c="1D6FC" xlink:href="#MJX-10-TEX-I-1D6FC"></use></g><g data-mml-node="mi" transform="translate(1418,0)"><use data-c="1D43F" xlink:href="#MJX-10-TEX-I-1D43F"></use></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(2099,0)"><g data-mml-node="mo"><use data-c="2F" xlink:href="#MJX-10-TEX-N-2F"></use></g></g><g data-mml-node="mn" transform="translate(2599,0)"><use data-c="31" xlink:href="#MJX-10-TEX-N-31"></use><use data-c="30" xlink:href="#MJX-10-TEX-N-30" transform="translate(500,0)"></use></g></g></g><g data-mml-node="mstyle" transform="translate(6406.2,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="msup" transform="translate(6739.9,0)"><g data-mml-node="mi"><use data-c="73" xlink:href="#MJX-10-TEX-N-73"></use><use data-c="69" xlink:href="#MJX-10-TEX-N-69" transform="translate(394,0)"></use><use data-c="6E" xlink:href="#MJX-10-TEX-N-6E" transform="translate(672,0)"></use></g><g data-mml-node="TeXAtom" transform="translate(1261,396.1) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><use data-c="32" xlink:href="#MJX-10-TEX-N-32"></use></g></g></g><g data-mml-node="mstyle" transform="translate(8404.4,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mrow" transform="translate(8404.1,0)"><g data-mml-node="mo" transform="translate(0 -0.5)"><use data-c="28" xlink:href="#MJX-10-TEX-LO-28"></use></g><g data-mml-node="msqrt" transform="translate(597,0)"><g transform="translate(1020,0)"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D702" xlink:href="#MJX-10-TEX-I-1D702"></use></g><g data-mml-node="TeXAtom" transform="translate(530,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="6E" xlink:href="#MJX-10-TEX-N-6E"></use><use data-c="6F" xlink:href="#MJX-10-TEX-N-6F" transform="translate(556,0)"></use><use data-c="72" xlink:href="#MJX-10-TEX-N-72" transform="translate(1056,0)"></use><use data-c="6D" xlink:href="#MJX-10-TEX-N-6D" transform="translate(1448,0)"></use></g></g></g></g><g data-mml-node="mi" transform="translate(2192.9,0)"><use data-c="1D443" xlink:href="#MJX-10-TEX-I-1D443"></use></g></g><g data-mml-node="mo" transform="translate(0,51)"><use data-c="221A" xlink:href="#MJX-10-TEX-SO-221A"></use></g><rect width="2943.9" height="60" x="1020" y="841"></rect></g><g data-mml-node="mstyle" transform="translate(4560.9,0)"><g data-mml-node="mspace"></g></g><g data-mml-node="mi" transform="translate(4838.9,0)"><use data-c="1D43F" xlink:href="#MJX-10-TEX-I-1D43F"></use></g><g data-mml-node="mo" transform="translate(5519.9,0) translate(0 -0.5)"><use data-c="29" xlink:href="#MJX-10-TEX-LO-29"></use></g></g></g></g></svg>, so the design raises <svg class="mj mj-in" style="vertical-align:-0.216em" xmlns="http://www.w3.org/2000/svg" width="2.193em" height="0.658em" aria-hidden="true" focusable="false" viewBox="0 -442 2192.9 658"><defs><path id="MJX-11-TEX-I-1D702" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q156 442 175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336V326Q503 302 439 53Q381 -182 377 -189Q364 -216 332 -216Q319 -216 310 -208T299 -186Q299 -177 358 57L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path id="MJX-11-TEX-N-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path id="MJX-11-TEX-N-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path><path id="MJX-11-TEX-N-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path><path id="MJX-11-TEX-N-6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D702" xlink:href="#MJX-11-TEX-I-1D702"></use></g><g data-mml-node="TeXAtom" transform="translate(530,-150) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="mi"><use data-c="6E" xlink:href="#MJX-11-TEX-N-6E"></use><use data-c="6F" xlink:href="#MJX-11-TEX-N-6F" transform="translate(556,0)"></use><use data-c="72" xlink:href="#MJX-11-TEX-N-72" transform="translate(1056,0)"></use><use data-c="6D" xlink:href="#MJX-11-TEX-N-6D" transform="translate(1448,0)"></use></g></g></g></g></g></g></svg> through the mode overlap while keeping the propagation loss <svg class="mj mj-in" style="vertical-align:-0.011em" xmlns="http://www.w3.org/2000/svg" width="0.640em" height="0.453em" aria-hidden="true" focusable="false" viewBox="0 -442 640 453"><defs><path id="MJX-12-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><use data-c="1D6FC" xlink:href="#MJX-12-TEX-I-1D6FC"></use></g></g></g></svg> low.</li>
+      </ul>
+    </article>
+
+    <article class="rp-item rp-empty" aria-hidden="true"></article>
+
+  </div>
+
+  <h2 class="pj-h2">Selected academic projects</h2>
   <div class="xp">
 
     <article class="xp-item">
@@ -1608,6 +1776,241 @@ footer{max-width:1180px;margin:0 auto;padding-block:28px 40px;padding-left:max(1
       if(!measured) buildLabels();
       if(now-last>1250){spawn(now);last=now;}
       events=events.filter(function(o){var alive=draw(o,(now-o.t0)/1000);if(!alive)o.g.remove();return alive;});
+    }
+    requestAnimationFrame(loop);
+  })();
+
+  // Research project: QFC chip (three.js, fixed view). A 780 nm photon from 87Rb atoms and a 1950 nm pump are combined off-chip in a fiber WDM,
+  // share one Si3N4-strip waveguide under z-cut TFLN, the photon turns into a 1300 nm telecom photon in the split-poled section, and an off-chip filter removes the pump.
+  (function(){
+    var wrap=document.getElementById("qfc3d-wrap"); if(!wrap) return;
+    var canvas=document.getElementById("qfc3d"), linesEl=document.getElementById("qfc3d-lines"), labsEl=document.getElementById("qfc3d-labels");
+    var mqS=window.matchMedia?matchMedia("(max-width:640px)"):{matches:false};
+    if(!window.THREE){wrap.classList.add("no3d");return;}
+    var renderer;
+    try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});}catch(e){wrap.classList.add("no3d");return;}
+    if(!renderer.getContext()){wrap.classList.add("no3d");return;}
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+    renderer.outputEncoding=THREE.sRGBEncoding;
+    renderer.toneMapping=THREE.NoToneMapping;
+    renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap; renderer.shadowMap.autoUpdate=false;
+
+    var scene=new THREE.Scene(), camera=new THREE.OrthographicCamera(-10,10,5,-5,0.1,200), world=new THREE.Group(); scene.add(world);
+    scene.add(new THREE.HemisphereLight(0xdfe7f5,0x101318,0.32));
+    var key=new THREE.DirectionalLight(0xffffff,0.62); key.position.set(-6,14,9); key.castShadow=true; key.shadow.mapSize.set(2048,2048);
+    var sc=key.shadow.camera; sc.left=-12; sc.right=12; sc.top=9; sc.bottom=-9; sc.near=1; sc.far=60;
+    key.shadow.bias=-0.0004; key.shadow.radius=4; scene.add(key); scene.add(key.target);
+    var fill=new THREE.DirectionalLight(0xbcd0ff,0.24); fill.position.set(10,6,12); scene.add(fill);
+    var ground=new THREE.Mesh(new THREE.PlaneGeometry(80,50),new THREE.ShadowMaterial({opacity:.45}));
+    ground.rotation.x=-Math.PI/2; ground.position.y=-0.95; ground.receiveShadow=true; scene.add(ground);
+
+    var M={
+      si:new THREE.MeshStandardMaterial({color:0x101114,roughness:.7,metalness:.1}),
+      box:new THREE.MeshStandardMaterial({color:0x8d929c,roughness:.5,metalness:0}),
+      ln:new THREE.MeshPhysicalMaterial({color:0x15131f,roughness:.36,metalness:.08,clearcoat:.5,clearcoatRoughness:.35}),
+      dp:new THREE.MeshPhysicalMaterial({color:0x3e1019,roughness:.35,metalness:.05,clearcoat:.6,clearcoatRoughness:.3}),
+      dm:new THREE.MeshPhysicalMaterial({color:0x0f2147,roughness:.35,metalness:.05,clearcoat:.6,clearcoatRoughness:.3}),
+      sin:new THREE.MeshStandardMaterial({color:0x3f78e6,roughness:.4,emissive:0x0d2a66,emissiveIntensity:.8}),
+      wg:new THREE.MeshStandardMaterial({color:0x2c2944,roughness:.4,metalness:.05}),
+      dump:new THREE.MeshStandardMaterial({color:0x15171b,roughness:.35,metalness:.3}),
+      arrow:new THREE.MeshStandardMaterial({color:0xeef1f6,roughness:.4,emissive:0x333740,emissiveIntensity:.6}),
+      edge:new THREE.LineBasicMaterial({color:0xd4dbe6,transparent:true,opacity:.3}),
+      dim:new THREE.LineBasicMaterial({color:0xd4dbe6,transparent:true,opacity:.55}),
+      glass:new THREE.MeshPhysicalMaterial({color:0xe6eeff,roughness:.05,metalness:0,clearcoat:1,transparent:true,opacity:.3,depthWrite:false}),
+      cap:new THREE.MeshBasicMaterial({color:0xf2f6ff,transparent:true,opacity:.6})
+    };
+    var COL={r:0xff5d6c,p:0xa98bff,g:0xffc857};
+    var core={},glow={},glows=[];
+    Object.keys(COL).forEach(function(k){
+      core[k]=new THREE.MeshBasicMaterial({color:COL[k]});
+      glow[k]=new THREE.MeshBasicMaterial({color:COL[k],transparent:true,opacity:.3,depthWrite:false}); glows.push(glow[k]);
+    });
+    var vcore=new THREE.MeshBasicMaterial({vertexColors:true}), vglow=new THREE.MeshBasicMaterial({vertexColors:true,transparent:true,opacity:.3,depthWrite:false}); glows.push(vglow);
+
+    function edges(m,mat){var e=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),mat||M.edge); e.position.copy(m.position); e.rotation.copy(m.rotation); world.add(e);}
+    function box(w,h,d,x,y,z,mat,withEdges,noShadow){var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat); m.position.set(x,y,z); if(!noShadow){m.castShadow=true; m.receiveShadow=true;} world.add(m); if(withEdges)edges(m); return m;}
+    class PolyCurve extends THREE.Curve{
+      constructor(pts){super();this.p=pts;var Ls=[0];for(var i=1;i<pts.length;i++)Ls.push(Ls[i-1]+pts[i].distanceTo(pts[i-1]));this.Ls=Ls;this.T=Ls[Ls.length-1]||1;}
+      getPoint(t,o){o=o||new THREE.Vector3();var d=t*this.T,Ls=this.Ls,i=1;while(i<Ls.length-1&&Ls[i]<d)i++;var f=(d-Ls[i-1])/((Ls[i]-Ls[i-1])||1);return o.copy(this.p[i-1]).lerp(this.p[i],Math.max(0,Math.min(1,f)));}
+    }
+    function sb(x0,z0,x1,z1,n){var p=[];n=n||16;for(var i=1;i<=n;i++){var t=i/n;p.push([x0+(x1-x0)*t,z0+(z1-z0)*(1-Math.cos(Math.PI*t))/2]);}return p;}
+    function cat(){var o=[];for(var i=0;i<arguments.length;i++)o=o.concat(arguments[i]);return o;}
+    function tubeGeo(pts,y,r){var c=new PolyCurve(pts.map(function(p){return new THREE.Vector3(p[0],y,p[1]);}));return new THREE.TubeGeometry(c,Math.max(8,Math.round(c.T*50)),r,8,false);}
+    function light(pts,y,k,r){r=r||0.026; world.add(new THREE.Mesh(tubeGeo(pts,y,r),core[k])); world.add(new THREE.Mesh(tubeGeo(pts,y,r*2.6),glow[k]));}
+    function guide(pts){var m=new THREE.Mesh(tubeGeo(pts,YG,0.034),M.wg); m.castShadow=true; world.add(m);}
+    // signal lane whose colour turns from 780 nm red to 1300 nm gold across the conversion section
+    function convLight(pts,y,x0,x1){
+      var a=new THREE.Color(COL.r), b=new THREE.Color(COL.g);
+      [[0.027,vcore],[0.07,vglow]].forEach(function(s){
+        var g=tubeGeo(pts,y,s[0]), pa=g.attributes.position, col=new Float32Array(pa.count*3), c=new THREE.Color();
+        for(var i=0;i<pa.count;i++){var t=Math.max(0,Math.min(1,(pa.getX(i)-x0)/(x1-x0))); t=t*t*(3-2*t); c.copy(a).lerp(b,t); col[3*i]=c.r;col[3*i+1]=c.g;col[3*i+2]=c.b;}
+        g.setAttribute("color",new THREE.BufferAttribute(col,3)); world.add(new THREE.Mesh(g,s[1]));
+      });
+    }
+    function fiber(x0,x1,z,y,k){
+      var len=x1-x0, f=new THREE.Mesh(new THREE.CylinderGeometry(0.14,0.14,len,40,1,true),M.glass); f.rotation.z=Math.PI/2; f.position.set((x0+x1)/2,y,z); f.renderOrder=3; world.add(f);
+      var c=new THREE.Mesh(new THREE.CylinderGeometry(0.022,0.022,len,12),core[k]); c.rotation.z=Math.PI/2; c.position.copy(f.position); world.add(c);
+      var cg=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.06,len,12,1,true),glow[k]); cg.rotation.z=Math.PI/2; cg.position.copy(f.position); world.add(cg);
+      [x0,x1].forEach(function(x){var r=new THREE.Mesh(new THREE.TorusGeometry(0.14,0.008,6,40),M.cap); r.rotation.y=Math.PI/2; r.position.set(x,y,z); world.add(r);});
+    }
+    function arrow(x,z,up){
+      var g=new THREE.Group(), sh=new THREE.Mesh(new THREE.CylinderGeometry(0.022,0.022,0.3,10),M.arrow), hd=new THREE.Mesh(new THREE.ConeGeometry(0.07,0.13,16),M.arrow);
+      if(up){sh.position.y=0.15; hd.position.y=0.365;} else {sh.position.y=0.28; hd.position.y=0.065; hd.rotation.x=Math.PI;}
+      sh.castShadow=hd.castShadow=true; g.add(sh); g.add(hd); g.position.set(x,TOP,z); world.add(g);
+    }
+
+    // ---------------- chip: Si / SiO2 BOX / z-cut TFLN, one straight Si3N4 strip ----------------
+    var L=9, ZW=1.9, TSI=0.45, TBOX=0.24, TLN=0.09, TOP=0.008;
+    box(L,TSI,2*ZW,L/2,-TLN-TBOX-TSI/2,0,M.si,true);
+    box(L,TBOX,2*ZW,L/2,-TLN-TBOX/2,0,M.box,true);
+    box(L,TLN,2*ZW,L/2,-TLN/2,0,M.ln,true);
+    var YG=TOP+0.012, YL=TOP+0.05, XC0=1.7, XC1=7.3, ZD=1.45;
+    // laterally split-poled region: +chi(2) behind the waveguide, -chi(2) in front; wall along the waveguide centre
+    box(XC1-XC0,TOP,ZD,(XC0+XC1)/2,TOP/2,-ZD/2,M.dp,false,true);
+    box(XC1-XC0,TOP,ZD,(XC0+XC1)/2,TOP/2,ZD/2,M.dm,false,true);
+    (function(){var g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(XC0,TOP+0.002,-ZD),new THREE.Vector3(XC1,TOP+0.002,-ZD),new THREE.Vector3(XC1,TOP+0.002,ZD),new THREE.Vector3(XC0,TOP+0.002,ZD),new THREE.Vector3(XC0,TOP+0.002,-ZD)]);world.add(new THREE.Line(g,M.dim));})();
+    for(var ax=XC0+0.45;ax<XC1-0.2;ax+=0.8){arrow(ax,-0.82,true); arrow(ax,0.82,false);}
+    // conversion length marker along the back edge
+    (function(){var z=-ZD-0.18,y=TOP+0.003,t=0.09;
+      var g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(XC0,y,z),new THREE.Vector3(XC1,y,z),new THREE.Vector3(XC0,y,z-t),new THREE.Vector3(XC0,y,z+t),new THREE.Vector3(XC1,y,z-t),new THREE.Vector3(XC1,y,z+t)]);
+      world.add(new THREE.LineSegments(g,M.dim));})();
+    // the strip, the photon lane (780 nm red turning 1300 nm gold) and the co-propagating 1950 nm pump
+    guide([[0,0],[L,0]]);
+    convLight([[0,-0.045],[L,-0.045]],YL,XC0,XC1);
+    light([[0,0.045],[L,0.045]],YL,"p",0.023);
+    box(0.012,0.07,0.16,-0.006,-TLN-0.035,0,M.sin,false,true); // strip cross-section on the input facet
+
+    // ---------------- off-chip: Rb MOT -> lens -> fiber WDM (780 + 1950 combined) -> chip -> pump filter ----------------
+    var YF=YL, MX=-4.05, MZ=-0.62, PZ=0.62;
+    var metal=new THREE.MeshStandardMaterial({color:0x9aa3b0,roughness:.32,metalness:.65});
+    function fiber2(x0,x1,ks){ // one fiber, its light drawn as thin parallel lanes
+      var len=x1-x0, f=new THREE.Mesh(new THREE.CylinderGeometry(0.14,0.14,len,40,1,true),M.glass); f.rotation.z=Math.PI/2; f.position.set((x0+x1)/2,YF,0); f.renderOrder=3; world.add(f);
+      ks.forEach(function(k){light([[x0,k[1]],[x1,k[1]]],YF,k[0],0.02);});
+      [x0,x1].forEach(function(x){var r=new THREE.Mesh(new THREE.TorusGeometry(0.14,0.008,6,40),M.cap); r.rotation.y=Math.PI/2; r.position.set(x,YF,0); world.add(r);});
+    }
+    function bent(pts,k){var g=new THREE.Mesh(tubeGeo(pts,YF,0.1),M.glass); g.renderOrder=3; world.add(g); light(pts,YF,k,0.02);}
+    function pkg(x0,x1,r){ // fused-fiber WDM / inline filter housing
+      var c=new THREE.Mesh(new THREE.CylinderGeometry(r,r,x1-x0,40),metal); c.rotation.z=Math.PI/2; c.position.set((x0+x1)/2,YF,0); c.castShadow=true; world.add(c);
+      [x0,x1].forEach(function(x){var e=new THREE.Mesh(new THREE.CylinderGeometry(r*0.62,r*0.62,0.08,24),metal); e.rotation.z=Math.PI/2; e.position.set(x+(x===x0?-0.04:0.04),YF,0); world.add(e);});
+    }
+    // MOT
+    var mo=new THREE.Mesh(new THREE.SphereGeometry(0.62,32,20),new THREE.MeshBasicMaterial({color:0xff5d6c,transparent:true,opacity:.1,depthWrite:false})); mo.position.set(MX,YF,MZ); world.add(mo);
+    var cl=new THREE.Mesh(new THREE.SphereGeometry(0.36,32,20),new THREE.MeshBasicMaterial({color:0xff7a87,transparent:true,opacity:.16,depthWrite:false})); cl.position.set(MX,YF,MZ); world.add(cl);
+    var seed=7; function rnd(){seed=(seed*16807)%2147483647; return seed/2147483647;}
+    var atomM=new THREE.MeshBasicMaterial({color:0xff6b78});
+    for(var i=0;i<22;i++){var r=0.42*Math.cbrt(rnd()),th=Math.acos(2*rnd()-1),ph=2*Math.PI*rnd();var a=new THREE.Mesh(new THREE.SphereGeometry(0.045,12,8),atomM);a.position.set(MX+r*Math.sin(th)*Math.cos(ph),YF+r*Math.cos(th),MZ+r*Math.sin(th)*Math.sin(ph));world.add(a);}
+    var LX=-3.3, lens=new THREE.Mesh(new THREE.CylinderGeometry(0.26,0.26,0.05,40),M.glass); lens.rotation.z=Math.PI/2; lens.position.set(LX,YF,MZ); world.add(lens);
+    var lr=new THREE.Mesh(new THREE.TorusGeometry(0.26,0.012,6,40),M.cap); lr.rotation.y=Math.PI/2; lr.position.set(LX,YF,MZ); world.add(lr);
+    light([[MX+0.3,MZ],[LX,MZ]],YF,"r",0.016);
+    // two input fibers fan into the WDM, one fiber leaves it carrying both wavelengths
+    var W0=-2.2, W1=-1.3;
+    var p780=cat([[LX+0.1,MZ],[-2.95,MZ]],sb(-2.95,MZ,W0,-0.05,18)), pPump=cat([[-3.75,PZ],[-2.95,PZ]],sb(-2.95,PZ,W0,0.05,18));
+    bent(p780,"r"); bent(pPump,"p");
+    (function(){var r=new THREE.Mesh(new THREE.TorusGeometry(0.1,0.008,6,30),M.cap); r.rotation.y=Math.PI/2; r.position.set(-3.75,YF,PZ); world.add(r);})();
+    pkg(W0,W1,0.17);
+    fiber2(W1,0,[["r",-0.045],["p",0.045]]);
+    // output: shared fiber -> inline pump filter -> telecom photon only
+    var F0=L+1.15, F1=L+1.75;
+    fiber2(L,F0,[["g",-0.045],["p",0.045]]);
+    pkg(F0,F1,0.16);
+    fiber2(F1,L+3.0,[["g",-0.045]]);
+
+    // travelling photon: red until the split-poled section, gold after it
+    var phPath=new PolyCurve(cat([[MX+0.32,MZ]],p780,[[W1,-0.045],[L+3.0,-0.045]]).map(function(p){return new THREE.Vector3(p[0],YL,p[1]);}));
+    var ph=new THREE.Mesh(new THREE.SphereGeometry(0.05,16,10),new THREE.MeshBasicMaterial({color:0xffffff}));
+    var phg=new THREE.Mesh(new THREE.SphereGeometry(0.15,16,10),new THREE.MeshBasicMaterial({color:COL.r,transparent:true,opacity:.55,depthWrite:false}));
+    ph.visible=phg.visible=false; world.add(ph); world.add(phg);
+
+    // ---------------- labels ----------------
+    var labs=[
+      {p:[MX,YF+0.62,MZ],t:"⁸⁷Rb atoms (MOT)",o:[-10,-56],os:[0,-34]},
+      {p:[-2.75,YF,-0.5],t:"780 nm single photon",o:[20,-96],os:[34,-62]},
+      {p:[-3.45,YF,PZ],t:"1950 nm pump",o:[-24,56],os:[-8,32]},
+      {p:[-1.75,YF-0.17,0],t:"fiber WDM (photon + pump)",o:[40,124],os:[0,0],pc:true},
+      {p:[-0.006,-TLN-0.035,0],t:"Si₃N₄ strip under TFLN",o:[70,96],os:[40,72]},
+      {p:[(XC0+XC1)/2-0.6,TOP,-1.0],t:"+χ⁽²⁾ domain (P ↑)",o:[-60,-92],os:[-34,-46]},
+      {p:[(XC0+XC1)/2+0.5,TOP,1.0],t:"−χ⁽²⁾ domain (P ↓)",o:[-20,96],os:[-20,60]},
+      {p:[XC1-0.8,TOP,-ZD-0.18],t:"conversion length L",o:[40,-72],os:[0,0],pc:true},
+      {p:[(F0+F1)/2,YF-0.16,0],t:"pump filter (off-chip)",o:[24,104],os:[-6,74]},
+      {p:[L+2.7,YF,-0.045],t:"1300 nm telecom photon",o:[-30,-60],os:[-20,-34]},
+      {p:[L*0.66,-TLN-TBOX/2,ZW],t:"z-cut TFLN · SiO₂ · Si",o:[40,70],os:[0,0],pc:true}
+    ];
+    var NS2="http://www.w3.org/2000/svg";
+    labs.forEach(function(l){
+      l.el=document.createElement("div"); l.el.className="tx3d-lab"; l.el.textContent=l.t; labsEl.appendChild(l.el);
+      l.ln=document.createElementNS(NS2,"line"); l.ln.setAttribute("stroke","#7a828f"); l.ln.setAttribute("stroke-width","1"); linesEl.appendChild(l.ln);
+      l.dot=document.createElementNS(NS2,"circle"); l.dot.setAttribute("fill","#a3abb8"); linesEl.appendChild(l.dot);
+      l.v=new THREE.Vector3(l.p[0],l.p[1],l.p[2]);
+    });
+
+    // centre the scene, aim the camera, measure the projected extent of the real geometry
+    var bb=new THREE.Box3().setFromObject(world), ctr=bb.getCenter(new THREE.Vector3());
+    world.position.set(-ctr.x,0,-ctr.z);
+    var AZ=THREE.MathUtils.degToRad(36), EL=THREE.MathUtils.degToRad(31), d=40;
+    camera.position.set(-Math.sin(AZ)*Math.cos(EL)*d, Math.sin(EL)*d, Math.cos(AZ)*Math.cos(EL)*d);
+    camera.lookAt(0,0,0); camera.updateMatrixWorld(); world.updateMatrixWorld();
+    var ext={x0:1e9,x1:-1e9,y0:1e9,y1:-1e9}, vv=new THREE.Vector3(), mv=new THREE.Matrix4();
+    world.traverse(function(o){
+      if(!o.isMesh||!o.geometry||!o.geometry.attributes.position||o===ph||o===phg) return;
+      var pa=o.geometry.attributes.position, st=pa.count>400?3:1;
+      mv.multiplyMatrices(camera.matrixWorldInverse,o.matrixWorld);
+      for(var i=0;i<pa.count;i+=st){vv.fromBufferAttribute(pa,i).applyMatrix4(mv);
+        if(vv.x<ext.x0)ext.x0=vv.x; if(vv.x>ext.x1)ext.x1=vv.x; if(vv.y<ext.y0)ext.y0=vv.y; if(vv.y>ext.y1)ext.y1=vv.y;}
+    });
+
+    var Wd=0,Hd=0,dirty=true;
+    function place(){
+      var small=mqS.matches, k=small?Math.max(1,Math.min(1.5,Wd/340)):Math.max(.6,Math.min(1.15,Wd/620));
+      world.updateMatrixWorld();
+      labs.forEach(function(l){
+        var hide=small&&l.pc, o=small?l.os:l.o, off=[o[0]*k,o[1]*k];
+        var q=l.v.clone(); world.localToWorld(q); q.project(camera);
+        var ax=(q.x+1)/2*Wd, ay=(1-q.y)/2*Hd;
+        var hw=(l.el.offsetWidth||120)/2+(small?4:8), hh=(l.el.offsetHeight||14)/2+2;
+        var tx=Math.max(hw,Math.min(Wd-hw,ax+off[0])), ty=Math.max(hh+(small?16:30),Math.min(Hd-hh-4,ay+off[1]));
+        l.el.style.left=tx+"px"; l.el.style.top=ty+"px"; l.el.style.display=hide?"none":"";
+        var dx=tx-ax, dy=ty-ay, dl=Math.hypot(dx,dy)||1, stop=Math.max(0,dl-(small?7:11));
+        l.ln.setAttribute("x1",ax.toFixed(1)); l.ln.setAttribute("y1",ay.toFixed(1));
+        l.ln.setAttribute("x2",(ax+dx/dl*stop).toFixed(1)); l.ln.setAttribute("y2",(ay+dy/dl*stop).toFixed(1));
+        l.dot.setAttribute("cx",ax.toFixed(1)); l.dot.setAttribute("cy",ay.toFixed(1)); l.dot.setAttribute("r",small?"1.4":"2");
+        l.ln.style.display=l.dot.style.display=hide?"none":"";
+      });
+    }
+    function size(){
+      var w=wrap.clientWidth,h=wrap.clientHeight; if(!w||!h) return false;
+      if(w===Wd&&h===Hd) return true;
+      Wd=w;Hd=h; renderer.setSize(w,h,false);
+      var small=mqS.matches, top=small?18:34, fx=small?0.92:0.94, fy=small?0.66:0.66;
+      var s=Math.min(w*fx/(ext.x1-ext.x0),(h-top)*fy/(ext.y1-ext.y0));
+      var hw=w/2/s, hh=h/2/s, cx=(ext.x0+ext.x1)/2, cy=(ext.y0+ext.y1)/2+(top/2)/s;
+      camera.left=cx-hw; camera.right=cx+hw; camera.top=cy+hh; camera.bottom=cy-hh; camera.updateProjectionMatrix();
+      linesEl.setAttribute("viewBox","0 0 "+w+" "+h);
+      labsEl.style.fontSize=small?(9*Math.max(1,Math.min(1.4,w/340))).toFixed(2)+"px":Math.max(9.5,Math.min(12.5,w/50)).toFixed(2)+"px";
+      dirty=true; return true;
+    }
+    function render(){if(dirty){renderer.shadowMap.needsUpdate=true;dirty=false;} renderer.render(scene,camera); place();}
+    function refresh(){if(size())render();}
+    var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches, visible=true;
+    if(window.ResizeObserver){new ResizeObserver(refresh).observe(wrap);}
+    window.addEventListener("resize",refresh);
+    if(mqS.addEventListener) mqS.addEventListener("change",function(){setTimeout(refresh,0);});
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(refresh);
+    refresh();
+    if(still) return;
+    if(window.IntersectionObserver){new IntersectionObserver(function(en){visible=en[0].isIntersecting;}).observe(wrap);}
+    var cR=new THREE.Color(COL.r), cG=new THREE.Color(COL.g);
+    function loop(now){
+      requestAnimationFrame(loop);
+      if(!visible||!wrap.getBoundingClientRect().width) return;
+      if(!size()) return;
+      var t=now/1000; glows.forEach(function(g){g.opacity=.26+.08*Math.sin(t*1.3);});
+      var u=(t%4.6)/4.0;
+      if(u<1){
+        phPath.getPoint(u,ph.position); var f=Math.max(0,Math.min(1,(ph.position.x-XC0)/(XC1-XC0))); f=f*f*(3-2*f);
+        phg.position.copy(ph.position); phg.material.color.copy(cR).lerp(cG,f);
+        ph.visible=phg.visible=true;
+      } else ph.visible=phg.visible=false;
+      render();
     }
     requestAnimationFrame(loop);
   })();
