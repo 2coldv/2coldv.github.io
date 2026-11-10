@@ -456,8 +456,8 @@ svg.rr text{font-family:var(--body)}
 .sk-row h3{font-size:1rem;font-weight:500}
 .chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .chips li{font-size:.9rem;color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:4px 13px;background:#f6f8fb}
-.off p{font-size:1.1rem;line-height:1.7;color:var(--fg);max-width:58ch}
-#cpo3d-wrap .tx3d-lab{font-size:inherit}
+.off p{font-size:1.1rem;line-height:1.7;color:var(--fg);max-width:none}
+#cpo3d-wrap .tx3d-lab,#qfi3d-wrap .tx3d-lab{font-size:inherit}
 @media (max-width:820px){.skills,.off{gap:14px;margin-top:32px;padding-top:26px}}
 @media (max-width:640px){.sk-row{grid-template-columns:1fr;gap:8px}.sk-row h3{font-size:.9rem}.chips{gap:6px}.chips li{font-size:.78rem;padding:3px 10px}.off p{font-size:.95rem}}
 </style>
@@ -518,7 +518,7 @@ svg.rr text{font-family:var(--body)}
   </div>
   <div class="off">
     <div class="eyebrow">Outside the lab</div>
-    <p>Away from the lab I like to keep moving: I swim, go for runs, and play basketball with friends. I like a slow afternoon just as much, so I'm always looking for a good café to stay in for a while.</p>
+    <p>Away from the lab, I love to keep moving! I swim, go for runs, and play basketball with friends whenever I can. I'm also a big café person, so if you know a good spot, I'd love to hear about it!</p>
   </div>
 </section>
 
@@ -663,104 +663,14 @@ svg.rr text{font-family:var(--body)}
       <h3>Quantum frequency conversion</h3>
       <span class="eyebrow">Quantum interconnect</span>
     </div>
-    <div class="fig">
-      <svg id="qfx" viewBox="0 0 960 480" role="img" aria-label="Animated: a quantum memory emits a short-wavelength photon into a χ(2) waveguide chip, where a strong pump converts it to a telecom photon by difference-frequency generation. The telecom photon travels through low-loss fiber to a remote node. Insets show the waveguide cross-section with the optical mode, the energy diagram, and relative fiber attenuation across bands.">
-        <defs>
-          <linearGradient id="die3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#151920"/><stop offset="1" stop-color="#0e1116"/></linearGradient>
-          <pattern id="grid3" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#1a1e25" stroke-width=".7"/></pattern>
-          <filter id="glow3" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <linearGradient id="conv" x1="390" y1="0" x2="610" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff4d5e"/><stop offset="1" stop-color="#74c0fc"/></linearGradient>
-          <radialGradient id="mode" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffe8a3"/><stop offset=".35" stop-color="#ff9f43" stop-opacity=".8"/><stop offset="1" stop-color="#ff6b3d" stop-opacity="0"/></radialGradient>
-          <filter id="qfGlow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="480"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="qfBlur" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="480"><feGaussianBlur stdDeviation="4"/></filter>
-        </defs>
-
-        <!-- node A -->
-        <g transform="translate(92 180)">
-          <ellipse rx="36" ry="12" fill="none" stroke="#5d636e"/>
-          <ellipse rx="36" ry="12" fill="none" stroke="#5d636e" transform="rotate(60)"/>
-          <ellipse rx="36" ry="12" fill="none" stroke="#5d636e" transform="rotate(120)"/>
-          <circle r="6" fill="#ff4d5e" filter="url(#glow3)"/>
-        </g>
-        <text class="tl" x="92" y="244" data-mx="96" data-my="242" data-mt="quantum" text-anchor="middle">quantum memory</text>
-        <text class="tl mshow" x="96" y="268" text-anchor="middle">memory</text>
-        <text class="t2" x="92" y="260" data-mx="96" data-my="292" data-mt="atom/ion/dot" text-anchor="middle">atom / ion / dot</text>
-        <path class="wave" data-w="140,180,80,6,10" fill="none" stroke="#ff4d5e" stroke-width="1.8" filter="url(#glow3)"/>
-        <text class="t2" x="164" y="152" data-mx="150" data-my="134" data-mt="visible–NIR" text-anchor="middle" style="fill:#ff4d5e">visible–NIR photon</text>
-
-        <!-- chip -->
-        <rect x="230" y="96" width="410" height="180" rx="8" fill="url(#die3)" stroke="#2a2f38"/>
-        <rect x="230" y="96" width="410" height="180" rx="8" fill="url(#grid3)" opacity=".7"/>
-        <text class="t2" x="244" y="116">χ⁽²⁾ photonic chip</text>
-        <!-- waveguides -->
-        <path d="M230 240 C 300 240, 300 180, 370 180" fill="none" stroke="#3a414c" stroke-width="6"/>
-        <line x1="230" y1="180" x2="640" y2="180" stroke="#3a414c" stroke-width="6"/>
-        <path d="M230 240 C 300 240, 300 180, 370 180 L 640 180" fill="none" stroke="#ffc078" stroke-width="1.6" opacity=".75" filter="url(#glow3)"/>
-        <text class="t" x="244" y="262" style="fill:#ffc078">pump</text>
-        <!-- conversion region -->
-        <rect id="qf-conv" x="390" y="156" width="220" height="48" rx="3" fill="#b197fc" fill-opacity=".07" stroke="#b197fc" stroke-opacity=".4" stroke-dasharray="4 4"/>
-        <text class="t2" x="500" y="148" text-anchor="middle">conversion region</text>
-        <line x1="230" y1="180" x2="390" y2="180" stroke="#ff4d5e" stroke-width="2" filter="url(#glow3)"/>
-        <line x1="390" y1="180" x2="610" y2="180" stroke="url(#conv)" stroke-width="2.4" filter="url(#glow3)"/>
-        <line x1="610" y1="180" x2="640" y2="180" stroke="#74c0fc" stroke-width="2" filter="url(#glow3)"/>
-
-        <!-- telecom photon + fiber -->
-        <path class="wave" data-w="642,180,74,14,10" fill="none" stroke="#74c0fc" stroke-width="1.8" filter="url(#glow3)"/>
-        <text class="t2" x="679" y="152" data-mx="700" data-my="138" data-mt="telecom" text-anchor="middle" style="fill:#74c0fc">telecom photon</text>
-        <line x1="716" y1="180" x2="740" y2="180" stroke="#74c0fc" stroke-width="1.6" opacity=".7"/>
-        <g fill="none" stroke="#3a404b" stroke-width="2.5">
-          <circle cx="782" cy="186" r="42"/><circle cx="782" cy="186" r="34"/><circle cx="782" cy="186" r="26"/>
-        </g>
-        <circle cx="782" cy="186" r="38" fill="none" stroke="#74c0fc" stroke-width="1" opacity=".5" stroke-dasharray="20 14" class="flow"/>
-        <circle cx="782" cy="186" r="12" fill="#1c2028" stroke="#3a404b"/>
-        <text class="t2" x="782" y="248" data-mx="770" data-my="252" data-mt="fiber · km" text-anchor="middle">low-loss fiber · km</text>
-        <line x1="824" y1="186" x2="868" y2="186" stroke="#74c0fc" stroke-width="1.6" opacity=".7"/>
-        <rect x="868" y="164" width="60" height="44" rx="4" fill="#191d24" stroke="#3a404b"/>
-        <circle cx="898" cy="186" r="5" fill="#74c0fc" filter="url(#glow3)"/>
-        <text class="tl" x="898" y="232" data-my="234" data-mt="remote" text-anchor="middle">remote node</text>
-        <text class="tl mshow" x="898" y="258" text-anchor="middle">node</text>
-        <g id="qf-dyn"></g>
-
-        <!-- inset: cross-section -->
-        <rect x="230" y="306" width="230" height="156" rx="6" fill="#0b0d11" stroke="#23262d"/>
-        <text class="t" x="244" y="326" data-my="330" data-mt="cross-section">waveguide cross-section</text>
-        <rect x="246" y="398" width="198" height="50" fill="#1f2a36"/>
-        <rect x="246" y="380" width="198" height="18" fill="#3b3350"/>
-        <rect x="320" y="398" width="50" height="16" fill="#7d8896"/>
-        <ellipse cx="345" cy="396" rx="44" ry="17" fill="url(#mode)" opacity=".85"/>
-        <text class="t2" x="438" y="374" text-anchor="end">χ⁽²⁾ thin film</text>
-        <text class="t2" x="438" y="442" text-anchor="end">SiO₂</text>
-        <text class="t2" x="314" y="428" text-anchor="end">core</text>
-
-        <!-- inset: energy diagram -->
-        <rect x="476" y="306" width="164" height="156" rx="6" fill="#0b0d11" stroke="#23262d"/>
-        <text class="t" x="490" y="326" data-my="330">energy</text>
-        <line x1="494" y1="440" x2="626" y2="440" stroke="#3a404b"/>
-        <line x1="494" y1="346" x2="626" y2="346" stroke="#3a404b" stroke-dasharray="3 3"/>
-        <line x1="494" y1="384" x2="626" y2="384" stroke="#3a404b" stroke-dasharray="3 3"/>
-        <!-- arrows: shafts plus explicit heads so the heads keep their colour in every browser -->
-        <line x1="518" y1="440" x2="518" y2="357" stroke="#ff4d5e" stroke-width="2"/>
-        <polygon points="512.5,358 523.5,358 518,347" fill="#ff4d5e"/>
-        <line x1="560" y1="346" x2="560" y2="373" stroke="#ffc078" stroke-width="2"/>
-        <polygon points="554.5,372 565.5,372 560,383" fill="#ffc078"/>
-        <line x1="602" y1="384" x2="602" y2="429" stroke="#74c0fc" stroke-width="2"/>
-        <polygon points="596.5,428 607.5,428 602,439" fill="#74c0fc"/>
-        <text class="t2 wl" x="518" y="455" text-anchor="middle" style="fill:#ff4d5e">ω<tspan class="wsub" dy="3">in</tspan></text>
-        <text class="t2 wl" x="560" y="455" text-anchor="middle" style="fill:#ffc078">ω<tspan class="wsub" dy="3">p</tspan></text>
-        <text class="t2 wl" x="602" y="455" text-anchor="middle" style="fill:#74c0fc">ω<tspan class="wsub" dy="3">out</tspan></text>
-
-        <!-- inset: fiber loss -->
-        <rect x="660" y="306" width="270" height="156" rx="6" fill="#0b0d11" stroke="#23262d"/>
-        <text class="t" x="674" y="326" data-my="330" data-mt="fiber loss">fiber attenuation (relative)</text>
-        <g>
-          <rect x="676" y="346" width="200" height="12" rx="2" fill="#ff4d5e" opacity=".85"/>
-          <text class="t2" x="676" y="372" data-my="376">visible–NIR</text>
-          <rect x="676" y="386" width="34" height="12" rx="2" fill="#8fd0ff" opacity=".85"/>
-          <text class="t2" x="676" y="412" data-my="416">O-band 1310 nm</text>
-          <rect x="676" y="426" width="20" height="12" rx="2" fill="#74c0fc" opacity=".85"/>
-          <text class="t2" x="676" y="452" data-my="456">C-band 1550 nm</text>
-        </g>
-      </svg>
+    <div class="fig fig3d">
+      <div class="tx3d-stage" id="qfi3d-wrap">
+      <canvas role="img" aria-label="3D view of quantum frequency conversion. A quantum memory emits a visible or near-infrared photon into a fiber that feeds a chi-2 chip. On the chip the photon and a strong pump from a pump laser merge into one periodically poled waveguide, where the photon gradually changes color to a telecom wavelength. It leaves through an output fiber into a spool of low-loss fiber toward a remote node."></canvas>
+      <svg class="tx3d-lines" aria-hidden="true"></svg>
+      <div class="tx3d-labels" aria-hidden="true"></div>
+      <div class="tx3d-title">Converter · memory photon to telecom</div>
+      <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
+      </div>
     </div>
     <div class="cap">
       <p>Most quantum memories emit photons at visible or near-infrared wavelengths, where optical fiber is lossy. Quantum frequency conversion shifts a single photon to a telecom wavelength while keeping its quantum state, so it can travel kilometers of fiber.</p>
@@ -775,15 +685,6 @@ svg.rr text{font-family:var(--body)}
       <span class="eyebrow">Classical links</span>
     </div>
     <div class="fig fig3d">
-      <div class="tx3d-stage" id="tx3d-wrap">
-      <canvas id="tx3d" role="img" aria-label="3D view of a comb-driven silicon photonic transmitter. A continuous-wave pump laser feeds two series-coupled Si3N4 microresonators that generate a frequency comb. An optical fiber carries the comb to a silicon photonic transmitter chip, where a de-multiplexer tree of MZI filters with delay lines splits the comb lines into four lanes, ten resonant ring modulators per lane encode data, and a mirrored multiplexer combines everything onto one output fiber."></canvas>
-      <svg class="tx3d-lines" id="tx3d-lines" aria-hidden="true"></svg>
-      <div class="tx3d-labels" id="tx3d-labels" aria-hidden="true"></div>
-      <div class="tx3d-title">Transmitter · one comb, many channels</div>
-      <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
-      </div>
-    </div>
-    <div class="fig fig3d">
       <div class="tx3d-stage" id="cpo3d-wrap">
       <canvas role="img" aria-label="3D view of an optical link between two co-packaged modules. On the transmitter package, an ASIC sits next to a silicon photonic die that carries its driver chip; comb light enters through a glass fiber array and four ring modulators each write data onto one color. A single fiber carries all four colors to the receiver package, where four ring filters each drop one color into its own germanium photodetector, read out by a transimpedance amplifier chip next to the receiving ASIC."></canvas>
       <svg class="tx3d-lines" aria-hidden="true"></svg>
@@ -793,8 +694,8 @@ svg.rr text{font-family:var(--body)}
       </div>
     </div>
     <div class="cap">
-      <p>One continuous-wave laser pumps a Si₃N₄ microresonator that turns it into a comb of evenly spaced wavelengths. On the silicon transmitter, a tree of ring-assisted and asymmetric MZI filters sorts the comb lines into lanes, a ring modulator tuned to each line writes its data, and a mirrored tree folds every channel back onto one output fiber.</p>
-      <p>The scene below follows four of those channels between two co-packaged modules. Each ring modulator writes its color's bits, and at the receiver a matching ring filter drops that color into its own photodetector. Packaging these chiplets next to the driver and receiver electronics keeps the electrical path short, which is what sets energy per bit in chip-to-chip and memory links.</p>
+      <p>One comb source supplies many evenly spaced wavelengths on a single fiber. In the scene above, four of them link two co-packaged modules: each ring modulator writes data onto its own color, and at the receiver a matching ring filter drops that color into its own photodetector.</p>
+      <p>Packaging these photonic chiplets next to the driver and receiver electronics keeps the electrical path short, which is what sets energy per bit in chip-to-chip and memory links.</p>
     </div>
   </article>
 </section>
@@ -837,7 +738,7 @@ svg.rr text{font-family:var(--body)}
           <div class="rp-title">Principle · laterally split-poled domains</div>
           <svg id="qfcp" viewBox="0 -2 532 478" role="img" aria-label="Principle of the chip. (a) Cross-sections of the waveguide: a silicon nitride strip under a z-cut lithium niobate layer whose two halves are poled in opposite directions, split at the waveguide centre. Contour lines show the 1950 nanometre pump and 1300 nanometre signal in the fundamental TM00 mode and the 780 nanometre light in the TM10 mode, which has a positive lobe on the left and a negative lobe on the right. (b) Across the width, the nonlinearity is an odd step and the product of the three fields is odd, so their product is even and the overlap integral is nonzero.">
 <text class="qh" x="0" y="60"><tspan class="qk">a</tspan><tspan dx="9">Mode profiles in the waveguide cross-section</tspan></text>
-<defs><clipPath id="qc0"><rect x="0" y="76" width="168" height="150"/></clipPath><clipPath id="qc1"><rect x="182" y="76" width="168" height="150"/></clipPath><clipPath id="qc2"><rect x="364" y="76" width="168" height="150"/></clipPath></defs>
+<defs><radialGradient id="qgP"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".12" stop-color="#a98bff" stop-opacity=".8"/><stop offset=".42" stop-color="#a98bff" stop-opacity=".34"/><stop offset=".75" stop-color="#a98bff" stop-opacity=".1"/><stop offset="1" stop-color="#a98bff" stop-opacity="0"/></radialGradient><radialGradient id="qgT"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".12" stop-color="#ffc857" stop-opacity=".8"/><stop offset=".42" stop-color="#ffc857" stop-opacity=".34"/><stop offset=".75" stop-color="#ffc857" stop-opacity=".1"/><stop offset="1" stop-color="#ffc857" stop-opacity="0"/></radialGradient><radialGradient id="qgR"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".12" stop-color="#ff6b78" stop-opacity=".8"/><stop offset=".42" stop-color="#ff6b78" stop-opacity=".34"/><stop offset=".75" stop-color="#ff6b78" stop-opacity=".1"/><stop offset="1" stop-color="#ff6b78" stop-opacity="0"/></radialGradient><clipPath id="qc0"><rect x="0" y="76" width="168" height="150"/></clipPath><clipPath id="qc1"><rect x="182" y="76" width="168" height="150"/></clipPath><clipPath id="qc2"><rect x="364" y="76" width="168" height="150"/></clipPath></defs>
 <g clip-path="url(#qc0)">
 <rect x="0" y="76" width="168" height="150" fill="#14171d"/>
 <rect x="0" y="128" width="168" height="22" fill="#252a33"/>
@@ -848,10 +749,10 @@ svg.rr text{font-family:var(--body)}
 <path class="qar" d="M46 146V135M43 138L46 133L49 138"/>
 <path class="qar" d="M122 132V143M119 140L122 145L125 140"/>
 <path class="qar" d="M150 132V143M147 140L150 145L153 140"/>
-<ellipse cx="84.0" cy="148" rx="21.0" ry="12.6" fill="#a98bff" fill-opacity=".22"/>
-<ellipse cx="84.0" cy="148" rx="50.0" ry="30.0" fill="none" stroke="#a98bff" stroke-opacity="0.38" stroke-width="1.1"/>
-<ellipse cx="84.0" cy="148" rx="35.0" ry="21.0" fill="none" stroke="#a98bff" stroke-opacity="0.62" stroke-width="1.1"/>
-<ellipse cx="84.0" cy="148" rx="21.0" ry="12.6" fill="none" stroke="#a98bff" stroke-opacity="0.95" stroke-width="1.1"/>
+<ellipse cx="84.0" cy="148" rx="57.8" ry="34.6" fill="url(#qgP)"/>
+<ellipse cx="84.0" cy="148" rx="50.0" ry="30.0" fill="none" stroke="#a98bff" stroke-opacity="0.38" stroke-width=".8"/>
+<ellipse cx="84.0" cy="148" rx="35.0" ry="21.0" fill="none" stroke="#a98bff" stroke-opacity="0.62" stroke-width=".8"/>
+<ellipse cx="84.0" cy="148" rx="21.0" ry="12.6" fill="none" stroke="#a98bff" stroke-opacity="0.95" stroke-width=".8"/>
 </g>
 <rect x="0.5" y="76.5" width="167" height="149" fill="none" stroke="#262a32"/>
 <text class="ql" x="8" y="92">SiO₂</text>
@@ -871,10 +772,10 @@ svg.rr text{font-family:var(--body)}
 <path class="qar" d="M228 146V135M225 138L228 133L231 138"/>
 <path class="qar" d="M304 132V143M301 140L304 145L307 140"/>
 <path class="qar" d="M332 132V143M329 140L332 145L335 140"/>
-<ellipse cx="266.0" cy="148" rx="16.0" ry="9.7" fill="#ffc857" fill-opacity=".22"/>
-<ellipse cx="266.0" cy="148" rx="38.0" ry="23.0" fill="none" stroke="#ffc857" stroke-opacity="0.38" stroke-width="1.1"/>
-<ellipse cx="266.0" cy="148" rx="26.6" ry="16.1" fill="none" stroke="#ffc857" stroke-opacity="0.62" stroke-width="1.1"/>
-<ellipse cx="266.0" cy="148" rx="16.0" ry="9.7" fill="none" stroke="#ffc857" stroke-opacity="0.95" stroke-width="1.1"/>
+<ellipse cx="266.0" cy="148" rx="44.0" ry="26.7" fill="url(#qgT)"/>
+<ellipse cx="266.0" cy="148" rx="38.0" ry="23.0" fill="none" stroke="#ffc857" stroke-opacity="0.38" stroke-width=".8"/>
+<ellipse cx="266.0" cy="148" rx="26.6" ry="16.1" fill="none" stroke="#ffc857" stroke-opacity="0.62" stroke-width=".8"/>
+<ellipse cx="266.0" cy="148" rx="16.0" ry="9.7" fill="none" stroke="#ffc857" stroke-opacity="0.95" stroke-width=".8"/>
 </g>
 <rect x="182.5" y="76.5" width="167" height="149" fill="none" stroke="#262a32"/>
 <line x1="182" y1="245" x2="194" y2="245" stroke="#ffc857" stroke-width="2.4"/>
@@ -890,15 +791,15 @@ svg.rr text{font-family:var(--body)}
 <path class="qar" d="M410 146V135M407 138L410 133L413 138"/>
 <path class="qar" d="M486 132V143M483 140L486 145L489 140"/>
 <path class="qar" d="M514 132V143M511 140L514 145L517 140"/>
-<ellipse cx="431.0" cy="148" rx="6.3" ry="7.6" fill="#ff6b78" fill-opacity=".22"/>
-<ellipse cx="431.0" cy="148" rx="15.0" ry="18.0" fill="none" stroke="#ff6b78" stroke-opacity="0.38" stroke-width="1.1"/>
-<ellipse cx="431.0" cy="148" rx="10.5" ry="12.6" fill="none" stroke="#ff6b78" stroke-opacity="0.62" stroke-width="1.1"/>
-<ellipse cx="431.0" cy="148" rx="6.3" ry="7.6" fill="none" stroke="#ff6b78" stroke-opacity="0.95" stroke-width="1.1"/>
+<ellipse cx="431.0" cy="148" rx="17.3" ry="20.9" fill="url(#qgR)"/>
+<ellipse cx="431.0" cy="148" rx="15.0" ry="18.0" fill="none" stroke="#ff6b78" stroke-opacity="0.38" stroke-width=".8"/>
+<ellipse cx="431.0" cy="148" rx="10.5" ry="12.6" fill="none" stroke="#ff6b78" stroke-opacity="0.62" stroke-width=".8"/>
+<ellipse cx="431.0" cy="148" rx="6.3" ry="7.6" fill="none" stroke="#ff6b78" stroke-opacity="0.95" stroke-width=".8"/>
 <text class="qsg" x="431.0" y="152" text-anchor="middle">+</text>
-<ellipse cx="465.0" cy="148" rx="6.3" ry="7.6" fill="#ff6b78" fill-opacity=".22"/>
-<ellipse cx="465.0" cy="148" rx="15.0" ry="18.0" fill="none" stroke="#ff6b78" stroke-opacity="0.38" stroke-width="1.1"/>
-<ellipse cx="465.0" cy="148" rx="10.5" ry="12.6" fill="none" stroke="#ff6b78" stroke-opacity="0.62" stroke-width="1.1"/>
-<ellipse cx="465.0" cy="148" rx="6.3" ry="7.6" fill="none" stroke="#ff6b78" stroke-opacity="0.95" stroke-width="1.1"/>
+<ellipse cx="465.0" cy="148" rx="17.3" ry="20.9" fill="url(#qgR)"/>
+<ellipse cx="465.0" cy="148" rx="15.0" ry="18.0" fill="none" stroke="#ff6b78" stroke-opacity="0.38" stroke-width=".8"/>
+<ellipse cx="465.0" cy="148" rx="10.5" ry="12.6" fill="none" stroke="#ff6b78" stroke-opacity="0.62" stroke-width=".8"/>
+<ellipse cx="465.0" cy="148" rx="6.3" ry="7.6" fill="none" stroke="#ff6b78" stroke-opacity="0.95" stroke-width=".8"/>
 <text class="qsg" x="465.0" y="152" text-anchor="middle">−</text>
 </g>
 <rect x="364.5" y="76.5" width="167" height="149" fill="none" stroke="#262a32"/>
@@ -2297,7 +2198,12 @@ svg.rr text{font-family:var(--body)}
     (function(){var g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(XC0,TOP+0.002,-ZD),new THREE.Vector3(XC1,TOP+0.002,-ZD),new THREE.Vector3(XC1,TOP+0.002,ZD),new THREE.Vector3(XC0,TOP+0.002,ZD),new THREE.Vector3(XC0,TOP+0.002,-ZD)]);world.add(new THREE.Line(g,M.dim));})();
     for(var ax=XC0+0.45;ax<XC1-0.2;ax+=1.2){arrow(ax,-0.82,true); arrow(ax,0.82,false);}
     // the strip, the photon lane (780 nm red turning 1300 nm gold) and the co-propagating 1950 nm pump
-    guide([[0,0],[L,0]]);
+    box(L,0.03,0.2,L/2,TOP+0.015,0,M.wg,false);   // the bonded film rides up over the buried strip, leaving a shallow rib
+    box(0.012,0.07,0.16,L+0.006,-TLN-0.035,0,M.sin,false,true);
+    (function(){var mk=new THREE.MeshBasicMaterial({color:0x4d5564});   // lithography alignment marks
+      [[0.32,-ZW+0.32],[L-0.32,-ZW+0.32],[0.32,ZW-0.32],[L-0.32,ZW-0.32]].forEach(function(q){
+        [[0.2,0.028],[0.028,0.2]].forEach(function(d){var m=new THREE.Mesh(new THREE.BoxGeometry(d[0],0.004,d[1]),mk); m.position.set(q[0],TOP,q[1]); world.add(m);});
+        [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(e){var m=new THREE.Mesh(new THREE.BoxGeometry(0.045,0.004,0.045),mk); m.position.set(q[0]+e[0]*0.075,TOP,q[1]+e[1]*0.075); world.add(m);});});})();
     convLight([[0,-0.045],[L,-0.045]],YL,XC0,XC1);
     light([[0,0.045],[L,0.045]],YL,"p",0.023);
     box(0.012,0.07,0.16,-0.006,-TLN-0.035,0,M.sin,false,true); // strip cross-section on the input facet
@@ -3365,6 +3271,198 @@ svg.rr text{font-family:var(--body)}
     if(mqS.addEventListener) mqS.addEventListener("change",function(){setTimeout(refresh,0);});
     if(document.fonts&&document.fonts.ready) document.fonts.ready.then(refresh);
     update(still?3.1:0); refresh();
+    if(still) return;
+    if(window.IntersectionObserver){new IntersectionObserver(function(en){visible=en.some(function(e){return e.isIntersecting;});}).observe(aw);}
+    function loop(now){ requestAnimationFrame(loop); if(!visible||!aw.getBoundingClientRect().width) return; if(!size(V)) return; update(now/1000); render(V); }
+    requestAnimationFrame(loop);
+  })();
+
+  // Research interests: quantum frequency conversion in a chi(2) chip (3D)
+  (function(){
+    var aw=document.getElementById("qfi3d-wrap"); if(!aw) return;
+    var mqS=window.matchMedia?matchMedia("(max-width:640px)"):{matches:false};
+    var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(!window.THREE){aw.classList.add("no3d");return;}
+    class PolyCurve extends THREE.Curve{
+      constructor(pts){super();this.p=pts;var Ls=[0];for(var i=1;i<pts.length;i++)Ls.push(Ls[i-1]+pts[i].distanceTo(pts[i-1]));this.Ls=Ls;this.T=Ls[Ls.length-1]||1;}
+      getPoint(t,o){o=o||new THREE.Vector3();var d=t*this.T,Ls=this.Ls,i=1;while(i<Ls.length-1&&Ls[i]<d)i++;var f=(d-Ls[i-1])/((Ls[i]-Ls[i-1])||1);return o.copy(this.p[i-1]).lerp(this.p[i],Math.max(0,Math.min(1,f)));}
+    }
+    function sb(x0,z0,x1,z1,n){var p=[];n=n||16;for(var i=1;i<=n;i++){var t=i/n;p.push([x0+(x1-x0)*t,z0+(z1-z0)*(1-Math.cos(Math.PI*t))/2]);}return p;}
+    function cat(){var o=[];for(var i=0;i<arguments.length;i++)o=o.concat(arguments[i]);return o;}
+    function curve(pts,y){return new PolyCurve(pts.map(function(p){return new THREE.Vector3(p[0],y,p[1]);}));}
+    function basic(c,op){return new THREE.MeshBasicMaterial(op==null?{color:c}:{color:c,transparent:true,opacity:op,depthWrite:false});}
+
+    function ribbon(c,w,h,y0,closed){ // rectangular ridge (waveguide core, heater strip) swept along a curve in the xz plane
+      var n=Math.max(24,Math.round(c.T*70)),P=[],i,p=new THREE.Vector3(),pos=[],hw=w/2,y1=y0+h;
+      for(i=0;i<=n;i++){c.getPoint(i/n,p);P.push([p.x,p.z]);}
+      function side(i){var a=P[closed?(i-1+n)%n:Math.max(i-1,0)],b=P[closed?(i+1)%n:Math.min(i+1,n)],tx=b[0]-a[0],tz=b[1]-a[1],l=Math.sqrt(tx*tx+tz*tz)||1;return [-tz/l*hw,tx/l*hw];}
+      function quad(a,b,d,e){pos.push(a[0],a[1],a[2],b[0],b[1],b[2],d[0],d[1],d[2],a[0],a[1],a[2],d[0],d[1],d[2],e[0],e[1],e[2]);}
+      for(i=0;i<n;i++){var j=closed?(i+1)%n:i+1,s0=side(i),s1=side(j),A=P[i],B=P[j];
+        var l0=[A[0]+s0[0],y0,A[1]+s0[1]],r0=[A[0]-s0[0],y0,A[1]-s0[1]],l1=[B[0]+s1[0],y0,B[1]+s1[1]],r1=[B[0]-s1[0],y0,B[1]-s1[1]];
+        var L0=[l0[0],y1,l0[2]],R0=[r0[0],y1,r0[2]],L1=[l1[0],y1,l1[2]],R1=[r1[0],y1,r1[2]];
+        quad(L0,L1,R1,R0); quad(l0,l1,L1,L0); quad(r0,R0,R1,r1);
+        if(!closed&&i===0) quad(l0,L0,R0,r0); if(!closed&&i===n-1) quad(l1,r1,R1,L1);}
+      var g=new THREE.BufferGeometry(); g.setAttribute("position",new THREE.Float32BufferAttribute(pos,3)); g.computeVertexNormals(); return g;
+    }
+    function View(wrap){
+      var canvas=wrap.querySelector("canvas"), renderer;
+      try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});}catch(e){wrap.classList.add("no3d");return null;}
+      if(!renderer.getContext()){wrap.classList.add("no3d");return null;}
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+      renderer.outputEncoding=THREE.sRGBEncoding; renderer.toneMapping=THREE.NoToneMapping;
+      renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap; renderer.shadowMap.autoUpdate=false;
+      var v={wrap:wrap,renderer:renderer,scene:new THREE.Scene(),cam:new THREE.OrthographicCamera(-10,10,5,-5,0.1,200),world:new THREE.Group(),
+        lines:wrap.querySelector(".tx3d-lines"),labsEl:wrap.querySelector(".tx3d-labels"),labs:[],Wd:0,Hd:0,dirty:true,skip:[]};
+      v.scene.add(v.world);
+      v.scene.add(new THREE.HemisphereLight(0xdfe7f5,0x101318,0.32));
+      var key=new THREE.DirectionalLight(0xffffff,0.62); key.position.set(-6,14,9); key.castShadow=true; key.shadow.mapSize.set(2048,2048);
+      var sc=key.shadow.camera; sc.left=-10; sc.right=10; sc.top=8; sc.bottom=-8; sc.near=1; sc.far=60; key.shadow.bias=-0.0004; key.shadow.radius=4;
+      v.scene.add(key); v.scene.add(key.target);
+      var fill=new THREE.DirectionalLight(0xbcd0ff,0.24); fill.position.set(10,6,12); v.scene.add(fill);
+      var ground=new THREE.Mesh(new THREE.PlaneGeometry(60,40),new THREE.ShadowMaterial({opacity:.45})); ground.rotation.x=-Math.PI/2; ground.position.y=-0.95; ground.receiveShadow=true; v.scene.add(ground);
+      v.M={
+        si:new THREE.MeshStandardMaterial({color:0x101114,roughness:.7,metalness:.1}),
+        box:new THREE.MeshStandardMaterial({color:0x8d929c,roughness:.5,metalness:0}),
+        top:new THREE.MeshStandardMaterial({color:0x06070a,roughness:.85,metalness:.05}),
+        wg:new THREE.MeshStandardMaterial({color:0x3a4466,roughness:.4,emissive:0x0c1630,emissiveIntensity:.7,side:THREE.DoubleSide}),
+        gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5,side:THREE.DoubleSide}),
+        edge:new THREE.LineBasicMaterial({color:0xd4dbe6,transparent:true,opacity:.3}),
+        glass:new THREE.MeshPhysicalMaterial({color:0xe6eeff,roughness:.05,metalness:0,clearcoat:1,transparent:true,opacity:.3,depthWrite:false}),
+        cap:new THREE.MeshBasicMaterial({color:0xf2f6ff,transparent:true,opacity:.6})
+      };
+      v.add=function(o){v.world.add(o);return o;};
+      v.box=function(w,h,d,x,y,z,mat,edges){var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat); m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true; v.add(m);
+        if(edges){var e=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),v.M.edge); e.position.copy(m.position); v.add(e);} return m;};
+      v.tube=function(pts,y,r,mat){var solid=mat===v.M.wg||mat===v.M.gold; if(!solid&&r<0.03) y+=0.02; var c=curve(pts,y), g;
+        if(mat===v.M.wg) g=ribbon(c,r*2.2,r*1.05,y-r*0.6); else if(mat===v.M.gold) g=ribbon(c,r*3.1,r*0.6,y-r*1.15); else g=new THREE.TubeGeometry(c,Math.max(8,Math.round(c.T*50)),r,8,false);
+        var m=new THREE.Mesh(g,mat); if(solid){m.castShadow=true;m.receiveShadow=true;} v.add(m); return m;};
+      v.torus=function(cx,cz,R,y,r,mat){var m;
+        if(mat===v.M.wg){var pp=[],q;for(q=0;q<=160;q++){pp.push([cx+R*Math.cos(2*Math.PI*q/160),cz+R*Math.sin(2*Math.PI*q/160)]);} m=new THREE.Mesh(ribbon(curve(pp,y),r*2.2,r*1.05,y-r*0.6,true),mat); m.castShadow=true; m.receiveShadow=true;}
+        else{m=new THREE.Mesh(new THREE.TorusGeometry(R,r,10,160),mat); m.rotation.x=-Math.PI/2; m.position.set(cx,r<0.03?y+0.02:y,cz);}
+        v.add(m); return m;};
+      v.fiber=function(x0,x1,z,y){
+        var f=new THREE.Mesh(new THREE.CylinderGeometry(0.14,0.14,x1-x0,40,1,true),v.M.glass); f.rotation.z=Math.PI/2; f.position.set((x0+x1)/2,y,z); f.renderOrder=3; v.add(f);
+        [x0,x1].forEach(function(x){var r=new THREE.Mesh(new THREE.TorusGeometry(0.14,0.008,6,40),v.M.cap); r.rotation.y=Math.PI/2; r.position.set(x,y,z); v.add(r);});
+      };
+      v.dot=function(mat,r){var m=new THREE.Mesh(new THREE.SphereGeometry(r||0.035,12,8),mat); v.add(m); v.skip.push(m); return m;};
+      v.slab=function(L,Z0,Z1){ // Si substrate, buried oxide, and a thin top layer the waveguides sit on
+        v.box(L,0.42,Z1-Z0,L/2,-0.26-0.21,(Z0+Z1)/2,v.M.si,true);
+        v.box(L,0.24,Z1-Z0,L/2,-0.14,(Z0+Z1)/2,v.M.box,true);
+        v.box(L,0.02,Z1-Z0,L/2,-0.01,(Z0+Z1)/2,v.M.top,true);
+        var mk=new THREE.MeshBasicMaterial({color:0x4d5564}); // lithography alignment marks in the corners
+        [[0.3,Z0+0.3],[L-0.3,Z0+0.3],[0.3,Z1-0.3],[L-0.3,Z1-0.3]].forEach(function(q){
+          [[0.2,0.028],[0.028,0.2]].forEach(function(d){var m=new THREE.Mesh(new THREE.BoxGeometry(d[0],0.004,d[1]),mk); m.position.set(q[0],0.003,q[1]); v.add(m); v.skip.push(m);});
+          [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(e){var m=new THREE.Mesh(new THREE.BoxGeometry(0.045,0.004,0.045),mk); m.position.set(q[0]+e[0]*0.075,0.003,q[1]+e[1]*0.075); v.add(m); v.skip.push(m);});});
+      };
+      return v;
+    }
+    function label(v,p,t,o,os,opt){
+      opt=opt||{}; var NS="http://www.w3.org/2000/svg", l={v3:new THREE.Vector3(p[0],p[1],p[2]),o:o,os:os,pc:opt.pc,vis:opt.vis};
+      l.el=document.createElement("div"); l.el.className="tx3d-lab"; l.el.textContent=t; v.labsEl.appendChild(l.el);
+      l.ln=document.createElementNS(NS,"line"); l.ln.setAttribute("stroke","#7a828f"); l.ln.setAttribute("stroke-width","1"); v.lines.appendChild(l.ln);
+      l.dot=document.createElementNS(NS,"circle"); l.dot.setAttribute("fill","#a3abb8"); v.lines.appendChild(l.dot);
+      v.labs.push(l);
+    }
+    function fit(v){
+      var bb=new THREE.Box3().setFromObject(v.world), ctr=bb.getCenter(new THREE.Vector3());
+      v.world.position.set(-ctr.x,0,-ctr.z);
+      var AZ=THREE.MathUtils.degToRad(27), EL=THREE.MathUtils.degToRad(31), d=40;
+      v.cam.position.set(-Math.sin(AZ)*Math.cos(EL)*d, Math.sin(EL)*d, Math.cos(AZ)*Math.cos(EL)*d); v.cam.lookAt(0,0,0); v.cam.updateMatrixWorld(); v.world.updateMatrixWorld();
+      var ext={x0:1e9,x1:-1e9,y0:1e9,y1:-1e9}, vv=new THREE.Vector3(), mv=new THREE.Matrix4();
+      v.world.traverse(function(o){
+        if(!o.isMesh||v.skip.indexOf(o)>=0||!o.geometry||!o.geometry.attributes.position) return;
+        var pa=o.geometry.attributes.position, st=pa.count>400?3:1; mv.multiplyMatrices(v.cam.matrixWorldInverse,o.matrixWorld);
+        for(var i=0;i<pa.count;i+=st){vv.fromBufferAttribute(pa,i).applyMatrix4(mv); if(vv.x<ext.x0)ext.x0=vv.x; if(vv.x>ext.x1)ext.x1=vv.x; if(vv.y<ext.y0)ext.y0=vv.y; if(vv.y>ext.y1)ext.y1=vv.y;}
+      });
+      v.ext=ext;
+    }
+    function size(v){
+      var w=v.wrap.clientWidth,h=v.wrap.clientHeight; if(!w||!h) return false;
+      if(w===v.Wd&&h===v.Hd) return true;
+      v.Wd=w;v.Hd=h; v.renderer.setSize(w,h,false);
+      var small=mqS.matches, e=v.ext, top=small?(v.topS||20):(v.top||40), fx=small?0.96:(v.fx||0.84), fy=small?0.8:(v.fy||0.66);
+      var s=Math.min(w*fx/(e.x1-e.x0),(h-top)*fy/(e.y1-e.y0));
+      var hw=w/2/s, hh=h/2/s, cx=(e.x0+e.x1)/2+(small?0:(v.dx||0))/s, cy=(e.y0+e.y1)/2+(top/2)/s;
+      v.cam.left=cx-hw; v.cam.right=cx+hw; v.cam.top=cy+hh; v.cam.bottom=cy-hh; v.cam.updateProjectionMatrix();
+      v.lines.setAttribute("viewBox","0 0 "+w+" "+h);
+      v.labsEl.style.fontSize=small?"8px":Math.max(9.5,Math.min(12.5,w/50)).toFixed(2)+"px";
+      v.dirty=true; return true;
+    }
+    function place(v){
+      var small=mqS.matches, k=small?1:Math.max(.6,Math.min(1.15,v.Wd/620));
+      v.world.updateMatrixWorld();
+      v.labs.forEach(function(l){
+        var hide=(small&&(l.pc||!l.os))||(l.vis&&!l.vis()), o=small?(l.os||[0,0]):l.o, off=[o[0]*k,o[1]*k];
+        var q=l.v3.clone(); v.world.localToWorld(q); q.project(v.cam);
+        var ax=(q.x+1)/2*v.Wd, ay=(1-q.y)/2*v.Hd;
+        var hw=(l.el.offsetWidth||80)/2+(small?3:8), hh=(l.el.offsetHeight||12)/2+2;
+        var tx=Math.max(hw,Math.min(v.Wd-hw,ax+off[0])), ty=Math.max(hh+(small?14:26),Math.min(v.Hd-hh-3,ay+off[1]));
+        l.el.style.left=tx+"px"; l.el.style.top=ty+"px"; l.el.style.display=hide?"none":"";
+        var dx=tx-ax, dy=ty-ay, dl=Math.hypot(dx,dy)||1, stop=Math.max(0,dl-(small?6:11));
+        l.ln.setAttribute("x1",ax.toFixed(1)); l.ln.setAttribute("y1",ay.toFixed(1)); l.ln.setAttribute("x2",(ax+dx/dl*stop).toFixed(1)); l.ln.setAttribute("y2",(ay+dy/dl*stop).toFixed(1));
+        l.dot.setAttribute("cx",ax.toFixed(1)); l.dot.setAttribute("cy",ay.toFixed(1)); l.dot.setAttribute("r",small?"1.3":"2");
+        l.ln.style.display=l.dot.style.display=hide?"none":"";
+      });
+    }
+    function render(v){ if(v.dirty){v.renderer.shadowMap.needsUpdate=true;v.dirty=false;} v.renderer.render(v.scene,v.cam); place(v); }
+
+    var RED=0xff4d5e, BLU=0x74c0fc, AMB=0xffa94d;
+    var V=View(aw); if(!V) return;
+    // ---- a generic chi(2) converter chip: the memory photon and a strong pump merge into one periodically poled waveguide,
+    // and the photon leaves at a telecom wavelength into a spool of low-loss fiber (x along the chip, z toward the viewer)
+    var L=8, Z0=-1.35, Z1=1.35, YW=0.03, ZP=0.5, XM=2.6, XC0=3.1, XC1=6.7, MX=-2.75, SX=L+2.5;
+    V.slab(L,Z0,Z1);
+    var sig=[[0,-ZP],[1.1,-ZP]].concat(sb(1.1,-ZP,XM,0,18)), pmp=[[0,ZP],[1.1,ZP]].concat(sb(1.1,ZP,XM,0,18)), out=[[XM,0],[L,0]];
+    V.tube(sig,YW,0.05,V.M.wg); V.tube(pmp,YW,0.05,V.M.wg); V.tube(out,YW,0.05,V.M.wg);
+    // periodic poling: alternating domains under the waveguide
+    var NS=30, dw=(XC1-XC0)/NS, dA=new THREE.MeshStandardMaterial({color:0x8d3a48,roughness:.6,emissive:0x40101a,emissiveIntensity:.5}), dB=new THREE.MeshStandardMaterial({color:0x33528f,roughness:.6,emissive:0x0c1c40,emissiveIntensity:.5});
+    for(var i=0;i<NS;i++){var m=V.box(dw*0.92,0.006,1.0,XC0+dw*(i+0.5),0.004,0,i%2?dB:dA,false); m.castShadow=false;}
+    [-0.56,0.56].forEach(function(z){V.box(XC1-XC0+0.1,0.012,0.05,(XC0+XC1)/2,0.006,z,V.M.gold,false);});
+    // fibres, pump laser, quantum memory, fibre spool
+    V.fiber(MX+0.25,0,-ZP,YW); V.fiber(-1.5,0,ZP,YW); V.fiber(L,SX-0.62,0,YW);
+    V.box(0.7,0.26,0.5,-1.85,-0.1,ZP,new THREE.MeshStandardMaterial({color:0x2a2e37,roughness:.35,metalness:.55}),true);
+    V.box(0.5,0.02,0.3,-1.85,0.04,ZP,V.M.gold,false);
+    var mem=new THREE.Mesh(new THREE.SphereGeometry(0.2,24,16),basic(0xff8a94,.9)); mem.position.set(MX,YW,-ZP); V.add(mem);
+    var halo=new THREE.Mesh(new THREE.SphereGeometry(0.42,24,16),basic(RED,.16)); halo.position.copy(mem.position); V.add(halo);
+    var atoms=[]; for(i=0;i<7;i++) atoms.push(V.dot(basic(0xffc2c8,.9),0.035));
+    for(i=0;i<5;i++){var sp=new THREE.Mesh(new THREE.TorusGeometry(0.62,0.045,10,90),V.M.glass); sp.rotation.x=-Math.PI/2; sp.position.set(SX,YW-0.2+i*0.1,0); sp.renderOrder=3; V.add(sp);
+      var co=new THREE.Mesh(new THREE.TorusGeometry(0.62,0.012,6,90),basic(BLU,.55)); co.rotation.x=-Math.PI/2; co.position.copy(sp.position); V.add(co);}
+    // light: the photon lane changes colour through the poled section, the pump runs alongside
+    var lerp=function(u){return new THREE.Color(RED).lerp(new THREE.Color(BLU),u);};
+    var inSig=[[MX+0.2,-ZP]].concat(sig,[[XC0,0]]);
+    V.tube(inSig,YW+0.004,0.022,basic(RED,.9)); V.tube(inSig,YW+0.004,0.08,basic(RED,.22));
+    var NG=18; for(i=0;i<NG;i++){var a=XC0+(XC1-XC0)*i/NG, b=XC0+(XC1-XC0)*(i+1)/NG, c=lerp((i+0.5)/NG);
+      V.tube([[a,0],[b,0]],YW+0.004,0.022,new THREE.MeshBasicMaterial({color:c})); V.tube([[a,0],[b,0]],YW+0.004,0.08,new THREE.MeshBasicMaterial({color:c,transparent:true,opacity:.22,depthWrite:false}));}
+    var outL=[[XC1,0],[SX-0.62,0]]; V.tube(outL,YW+0.004,0.022,basic(BLU,.95)); V.tube(outL,YW+0.004,0.08,basic(BLU,.22));
+    var pIn=[[-1.5,ZP]].concat(pmp,[[XC1+0.5,0]]), pOff=pIn.map(function(q){return [q[0],q[1]+0.03];});
+    V.tube(pOff,YW+0.004,0.014,basic(AMB,.85));
+    var photC=curve(inSig.concat([[SX-0.62,0]]),YW+0.06), pumpC=curve(pOff,YW+0.05), phot=[], pd=[], k;
+    for(k=0;k<3;k++) phot.push({a:V.dot(new THREE.MeshBasicMaterial({color:RED}),0.06),g:V.dot(new THREE.MeshBasicMaterial({color:RED,transparent:true,opacity:.3,depthWrite:false}),0.17)});
+    for(k=0;k<26;k++) pd.push(V.dot(basic(0xffe1b8),0.026));
+    // labels
+    label(V,[MX,YW+0.2,-ZP],"quantum memory",[-10,-64],[4,-30],{});
+    label(V,[-1.2,YW,-ZP],"visible / near-infrared photon",[60,-84],null,{pc:true});
+    label(V,[-1.85,0.05,ZP+0.25],"pump laser",[-30,60],null,{pc:true});
+    label(V,[(XC0+XC1)/2+0.6,YW,-0.5],"periodically poled χ⁽²⁾ waveguide",[10,-78],[0,-34],{});
+    label(V,[L+1.0,YW,0],"telecom photon",[50,74],[6,30],{});
+    label(V,[SX,YW+0.25,-0.62],"low-loss fiber to a remote node",[-10,-70],null,{pc:true});
+    fit(V); V.fx=0.9; V.fy=0.7; V.top=40; V.dx=0; V.topS=18;
+    var cA=new THREE.Color(RED), cB=new THREE.Color(BLU);
+    function update(t){
+      phot.forEach(function(p,j){var u=(t*0.085+j/3)%1, e=Math.max(0.001,Math.min(1,u/0.03,(1-u)/0.03));
+        photC.getPoint(u,p.a.position); p.g.position.copy(p.a.position); p.a.scale.setScalar(e); p.g.scale.setScalar(e);
+        var w=Math.max(0,Math.min(1,(p.a.position.x-XC0)/(XC1-XC0))); p.a.material.color.copy(cA).lerp(cB,w); p.g.material.color.copy(p.a.material.color);});
+      pd.forEach(function(d,j){pumpC.getPoint((t*0.11+j/pd.length)%1,d.position);});
+      atoms.forEach(function(d,j){var a=t*(0.9+0.13*j)+j*1.7, r=0.22+0.05*Math.sin(t*0.7+j); d.position.set(MX+r*Math.cos(a)*Math.cos(j),YW+r*Math.sin(a*0.8+j),-ZP+r*Math.sin(a)*Math.cos(j*0.6));});
+      halo.scale.setScalar(1+0.06*Math.sin(t*1.6));
+    }
+    var visible=true;
+    function refresh(){ if(size(V)) render(V); }
+    if(window.ResizeObserver){new ResizeObserver(refresh).observe(aw);}
+    window.addEventListener("resize",refresh);
+    if(mqS.addEventListener) mqS.addEventListener("change",function(){setTimeout(refresh,0);});
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(refresh);
+    update(still?2.2:0); refresh();
     if(still) return;
     if(window.IntersectionObserver){new IntersectionObserver(function(en){visible=en.some(function(e){return e.isIntersecting;});}).observe(aw);}
     function loop(now){ requestAnimationFrame(loop); if(!visible||!aw.getBoundingClientRect().width) return; if(!size(V)) return; update(now/1000); render(V); }
