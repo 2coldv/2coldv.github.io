@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chanseung Lee</title>
 <meta name="description" content="Chanseung Lee — integrated photonics: optical interconnects, quantum light sources, quantum frequency conversion.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Chanseung Lee">
+<meta property="og:description" content="Undergraduate researcher in integrated photonics: quantum frequency conversion, microring quantum light sources, and optical interconnects.">
+<meta property="og:url" content="https://2coldv.github.io/">
+<meta property="og:image" content="https://2coldv.github.io/img/profile.jpg">
+<meta name="twitter:card" content="summary">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap">
 <style>
@@ -409,7 +415,8 @@ svg.rr text{font-family:var(--body)}
 }
 
 /* survey item */
-.sv-sub{font-size:.95rem;color:var(--muted);margin-top:2px}
+.sv-sub{font-size:.95rem;color:var(--fg);font-weight:500;margin-top:6px}
+.sv-n{display:inline-block;margin-right:10px;font-size:.78em;font-weight:600;color:var(--accent);letter-spacing:.06em;font-variant-numeric:tabular-nums}
 .rr .rr-l{font-size:13px;fill:#b3bac6}
 .sv-ref{margin:8px 0 0;font-size:.82rem;color:var(--faint);line-height:1.5}
 .sv-ref a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
@@ -417,6 +424,32 @@ svg.rr text{font-family:var(--body)}
 @media (max-width:640px){.sv-sub{font-size:.8rem}.sv-ref{font-size:.7rem}}
 
 .sv-src{margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.rp-panel,.fig{box-shadow:0 1px 2px rgba(16,24,40,.05),0 10px 28px -14px rgba(16,24,40,.22)}
+.pj-toc{display:grid;grid-template-columns:1fr 1fr;gap:10px 48px;margin-top:22px;padding:18px 22px;border:1px solid var(--line);border-radius:8px}
+.pj-toc-h{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+.pj-toc ol{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:2px;counter-reset:t}
+.pj-toc li{counter-increment:t}
+.pj-toc button{font:inherit;font-size:.95rem;color:var(--fg);background:none;border:0;padding:4px 0;cursor:pointer;text-align:left;display:flex;gap:10px}
+.pj-toc button::before{content:counter(t,decimal-leading-zero);color:var(--accent);font-size:.8em;font-weight:600;font-variant-numeric:tabular-nums;padding-top:.15em}
+.pj-toc button:hover{color:var(--accent)}
+#v-projects article[id]{scroll-margin-top:84px}
+.kpis{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.kpi{font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 12px;background:#f6f8fb;white-space:nowrap}
+.kpi b{color:var(--fg);font-weight:600;margin-right:6px}
+.pj-more{min-width:0}
+.pj-more>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;margin-top:8px;font-size:.88rem;font-weight:500;color:var(--accent)}
+.pj-more>summary::-webkit-details-marker{display:none}
+.pj-more>summary::after{content:"";width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
+.pj-more[open]>summary::after{transform:translateY(2px) rotate(-135deg)}
+.pj-more .s-hide,.pj-more[open] .s-show{display:none}.pj-more[open] .s-hide{display:inline}
+.pj-more-in{display:grid;gap:6px;min-width:0;margin-top:10px}
+.rr-inset-xs{right:12px;bottom:10px;width:27%}
+.rr-inset-xs svg{display:block;width:100%;height:auto;box-shadow:0 4px 14px rgba(0,0,0,.45);border-radius:5px}
+.rr-inset-xs text{font-family:var(--body)}
+.btn.ico{padding:10px 13px}
+.btn.ico svg{display:block}
+.tx3d-lab.on{color:#fff;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+@media (max-width:640px){.pj-toc{grid-template-columns:1fr;padding:14px 16px;gap:14px}.pj-toc button{font-size:.85rem}.kpi{font-size:.72rem;padding:2px 9px}.rr-inset-xs{display:none}.pj-more>summary{font-size:.8rem}.btn.ico{display:none}}
 </style>
 </head>
 <body>
@@ -447,6 +480,8 @@ svg.rr text{font-family:var(--body)}
       <div class="actions">
         <a class="btn" href="CV.pdf" target="_blank" rel="noopener">Download CV</a>
         <a class="btn ghost" href="#contact">Get in touch</a>
+        <a class="btn ghost ico" href="mailto:cslee20a@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"/><path d="m3 5.5 7 5.5 7-5.5"/></svg></a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/chanseung-lee-37251732a" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </div>
@@ -535,51 +570,6 @@ svg.rr text{font-family:var(--body)}
   </div>
 
   <!-- 1. Optical interconnects / CPO -->
-  <article class="topic">
-    <div class="topic-h">
-      <h3>Optical interconnects &amp; co-packaged optics</h3>
-      <span class="eyebrow">Classical links</span>
-    </div>
-    <div class="fig fig3d">
-      <div class="tx3d-stage" id="tx3d-wrap">
-      <canvas id="tx3d" role="img" aria-label="3D view of a comb-driven silicon photonic transmitter. A continuous-wave pump laser feeds two series-coupled Si3N4 microresonators that generate a frequency comb. An optical fiber carries the comb to a silicon photonic transmitter chip, where a de-multiplexer tree of MZI filters with delay lines splits the comb lines into four lanes, ten resonant ring modulators per lane encode data, and a mirrored multiplexer combines everything onto one output fiber."></canvas>
-      <svg class="tx3d-lines" id="tx3d-lines" aria-hidden="true"></svg>
-      <div class="tx3d-labels" id="tx3d-labels" aria-hidden="true"></div>
-      <div class="tx3d-title">Transmitter · one comb, many channels</div>
-      <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
-      </div>
-    </div>
-    <div class="fig fig-icx">
-      <div class="tx3d-title icx-title">Link · 4 channels</div>
-      <svg id="icx" viewBox="0 0 960 400" role="img" aria-label="Animated optical link with four channels. Comb light enters a silicon photonic transmitter from the left, where four ring modulators write the bit words 1110, 1100, 0111 and 1010 onto their own colors. A fiber carries the light to a silicon photonic receiver, where four ring filters each drop one color into its own germanium photodetector and the same words are read back.">
-        <defs>
-          <filter id="glow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          <filter id="icBlur" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="2.6"/></filter>
-          <filter id="icShadow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="9"/></filter>
-          <linearGradient id="icTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#46505f"/><stop offset=".55" stop-color="#323946"/><stop offset="1" stop-color="#3b4351"/></linearGradient>
-          <linearGradient id="icOxF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c4452"/><stop offset="1" stop-color="#2a303a"/></linearGradient>
-          <linearGradient id="icSubF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2027"/><stop offset="1" stop-color="#121418"/></linearGradient>
-          <linearGradient id="icGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d488"/><stop offset="1" stop-color="#b48a3a"/></linearGradient>
-          <linearGradient id="icGe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a84a6"/><stop offset="1" stop-color="#55506b"/></linearGradient>
-          <linearGradient id="icGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9f1ff" stop-opacity=".34"/><stop offset=".5" stop-color="#9fb2cc" stop-opacity=".1"/><stop offset="1" stop-color="#e9f1ff" stop-opacity=".22"/></linearGradient>
-        </defs>
-        <g id="ic-shadow"></g>
-        <g id="ic-chips"></g>
-        <g id="ic-surf"></g>
-        <g id="ic-light"></g>
-        <g id="ic-parts"></g>
-        <g id="ic-fiber"></g>
-        <g id="ic-over"></g>
-        <g id="ic-labels"></g>
-      </svg>
-    </div>
-    <div class="cap">
-      <p>One continuous-wave laser pumps a Si₃N₄ microresonator that turns it into a comb of evenly spaced wavelengths. On the silicon transmitter, a tree of ring-assisted and asymmetric MZI filters sorts the comb lines into lanes, a ring modulator tuned to each line writes its data, and a mirrored tree folds every channel back onto one output fiber.</p>
-      <p>The animation below follows four of those channels. Each ring modulator writes its color's bits, and at the receiver a matching ring filter drops that color into its own photodetector. Packaging these chiplets next to the driver and receiver electronics keeps the electrical path short, which is what sets energy per bit in chip-to-chip and memory links.</p>
-    </div>
-  </article>
-
-  <!-- 2. Quantum light sources -->
   <article class="topic">
     <div class="topic-h">
       <h3>Quantum light sources</h3>
@@ -755,19 +745,79 @@ svg.rr text{font-family:var(--body)}
       <p>A strong pump and a χ⁽²⁾ waveguide carry out the shift through difference-frequency generation. The practical targets are high conversion efficiency and low added noise from the pump, both set by the waveguide design.</p>
     </div>
   </article>
+
+  <!-- 2. Quantum light sources -->
+  <article class="topic">
+    <div class="topic-h">
+      <h3>Optical interconnects &amp; co-packaged optics</h3>
+      <span class="eyebrow">Classical links</span>
+    </div>
+    <div class="fig fig3d">
+      <div class="tx3d-stage" id="tx3d-wrap">
+      <canvas id="tx3d" role="img" aria-label="3D view of a comb-driven silicon photonic transmitter. A continuous-wave pump laser feeds two series-coupled Si3N4 microresonators that generate a frequency comb. An optical fiber carries the comb to a silicon photonic transmitter chip, where a de-multiplexer tree of MZI filters with delay lines splits the comb lines into four lanes, ten resonant ring modulators per lane encode data, and a mirrored multiplexer combines everything onto one output fiber."></canvas>
+      <svg class="tx3d-lines" id="tx3d-lines" aria-hidden="true"></svg>
+      <div class="tx3d-labels" id="tx3d-labels" aria-hidden="true"></div>
+      <div class="tx3d-title">Transmitter · one comb, many channels</div>
+      <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
+      </div>
+    </div>
+    <div class="fig fig-icx">
+      <div class="tx3d-title icx-title">Link · 4 channels</div>
+      <svg id="icx" viewBox="0 0 960 400" role="img" aria-label="Animated optical link with four channels. Comb light enters a silicon photonic transmitter from the left, where four ring modulators write the bit words 1110, 1100, 0111 and 1010 onto their own colors. A fiber carries the light to a silicon photonic receiver, where four ring filters each drop one color into its own germanium photodetector and the same words are read back.">
+        <defs>
+          <filter id="glow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="1.8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="icBlur" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="2.6"/></filter>
+          <filter id="icShadow" filterUnits="userSpaceOnUse" x="0" y="0" width="960" height="400"><feGaussianBlur stdDeviation="9"/></filter>
+          <linearGradient id="icTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#46505f"/><stop offset=".55" stop-color="#323946"/><stop offset="1" stop-color="#3b4351"/></linearGradient>
+          <linearGradient id="icOxF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3c4452"/><stop offset="1" stop-color="#2a303a"/></linearGradient>
+          <linearGradient id="icSubF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1c2027"/><stop offset="1" stop-color="#121418"/></linearGradient>
+          <linearGradient id="icGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d488"/><stop offset="1" stop-color="#b48a3a"/></linearGradient>
+          <linearGradient id="icGe" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a84a6"/><stop offset="1" stop-color="#55506b"/></linearGradient>
+          <linearGradient id="icGlass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9f1ff" stop-opacity=".34"/><stop offset=".5" stop-color="#9fb2cc" stop-opacity=".1"/><stop offset="1" stop-color="#e9f1ff" stop-opacity=".22"/></linearGradient>
+        </defs>
+        <g id="ic-shadow"></g>
+        <g id="ic-chips"></g>
+        <g id="ic-surf"></g>
+        <g id="ic-light"></g>
+        <g id="ic-parts"></g>
+        <g id="ic-fiber"></g>
+        <g id="ic-over"></g>
+        <g id="ic-labels"></g>
+      </svg>
+    </div>
+    <div class="cap">
+      <p>One continuous-wave laser pumps a Si₃N₄ microresonator that turns it into a comb of evenly spaced wavelengths. On the silicon transmitter, a tree of ring-assisted and asymmetric MZI filters sorts the comb lines into lanes, a ring modulator tuned to each line writes its data, and a mirrored tree folds every channel back onto one output fiber.</p>
+      <p>The animation below follows four of those channels. Each ring modulator writes its color's bits, and at the receiver a matching ring filter drops that color into its own photodetector. Packaging these chiplets next to the driver and receiver electronics keeps the electrical path short, which is what sets energy per bit in chip-to-chip and memory links.</p>
+    </div>
+  </article>
 </section>
 
 <!-- ============ PROJECTS ============ -->
 <section class="view" id="v-projects" data-view="projects" hidden>
   <div class="eyebrow">Projects</div>
   <h2 style="margin-top:12px">Research projects</h2>
+
+  <nav class="pj-toc" aria-label="Projects on this page">
+    <div><span class="pj-toc-h">Research</span><ol>
+      <li><button type="button" data-jump="p-qfc">Quantum frequency conversion chip</button></li>
+      <li><button type="button" data-jump="p-ring">SiN microring photon-pair sources</button></li>
+      <li><button type="button" data-jump="p-survey">Survey of microring quantum light sources</button></li>
+    </ol></div>
+    <div><span class="pj-toc-h">Coursework</span><ol>
+      <li><button type="button" data-jump="p-hbt">HBT and GRA single-photon experiments</button></li>
+      <li><button type="button" data-jump="p-mosfet">MOSFET characterization</button></li>
+      <li><button type="button" data-jump="p-amp">Multistage analog amplifier</button></li>
+      <li><button type="button" data-jump="p-tcad">CMOS TCAD simulation</button></li>
+    </ol></div>
+  </nav>
   <div class="xp rp">
 
-    <article class="rp-item">
+    <article class="rp-item" id="p-qfc">
       <div class="xp-when rp-when">2026</div>
       <h3>Modal Phase Matching with Laterally Split-Poled Domains for On-Chip Quantum Frequency Conversion</h3>
       <div class="xp-org">Seoul National University (SNU), Q-SPIN Lab, Republic of Korea</div>
       <div class="xp-sub">Project with Samsung Advanced Institute of Technology (SAIT)</div>
+      <div class="kpis"><span class="kpi"><b>350 %/W/cm²</b>simulated normalized efficiency</span><span class="kpi"><b>780 nm → 1300 nm</b>⁸⁷Rb photon to telecom O-band</span></div>
       <div class="rp-figs">
         <div class="rp-panel rp-3d" id="qfc3d-wrap">
           <canvas id="qfc3d" role="img" aria-label="3D view of the quantum frequency conversion chip. A 780 nanometre single photon from rubidium-87 atoms in a magneto-optical trap and a 1950 nanometre pump are combined off the chip in a fiber wavelength-division multiplexer and enter through one fiber. Both travel along a single straight silicon nitride strip under a z-cut thin-film lithium niobate layer. In the conversion section the lithium niobate has laterally split-poled domains: two domains of opposite sign, split along the waveguide centre. The photon leaves as a 1300 nanometre telecom photon, and an inline filter after the chip removes the leftover pump."></canvas>
@@ -888,10 +938,11 @@ svg.rr text{font-family:var(--body)}
     </article>
 
 
-    <article class="rp-item">
+    <article class="rp-item" id="p-ring">
       <div class="xp-when rp-when">2026</div>
       <h3>Design and Simulation of SiN Microring Photon-Pair Sources</h3>
       <div class="xp-org">KAIST, Q-SPIN Lab, Republic of Korea</div>
+      <div class="kpis"><span class="kpi"><b>LIGENTEC SiN MPW</b>tape-out</span></div>
       <div class="rp-figs rr-row">
         <div class="rp-panel rp-3d rr-3d" id="rr3d-wrap">
           <canvas role="img" aria-label="3D view of a silicon nitride microring photon-pair source chip. A pump enters through a fiber, travels along the bus waveguide and circulates in the ring, where spontaneous four-wave mixing creates signal and idler photon pairs that leave through the output fiber. Every few seconds a second ring is coupled above the first to form a double ring."></canvas>
@@ -900,6 +951,14 @@ svg.rr text{font-family:var(--body)}
           <div class="rp-title">Microring source<span class="pc-only-i"> · SFWM</span></div>
           <div class="rr-pill rr-pill-tl" id="rr-mode">single ring</div>
           <figure class="rp-inset rr-inset-tr"><img src="img/inset-rings.png" alt="Chip layout of the single- and double-ring sources" loading="lazy"><figcaption>chip layout</figcaption></figure>
+          <figure class="rp-inset rr-inset-xs"><svg viewBox="0 0 150 92" role="img" aria-label="Waveguide cross-section: a silicon nitride core buried in silicon dioxide on a silicon substrate">
+            <rect x="0" y="0" width="150" height="92" rx="5" fill="#12151b" stroke="#2a2f38"/>
+            <rect x="1" y="66" width="148" height="25" fill="#23262d"/><rect x="1" y="8" width="148" height="58" fill="#3b4250" fill-opacity=".55"/>
+            <rect x="52" y="34" width="46" height="15" fill="#6a7fc0" stroke="#9db0ee" stroke-width=".8"/>
+            <ellipse cx="75" cy="41.5" rx="30" ry="13" fill="#ffb35c" fill-opacity=".16"/><ellipse cx="75" cy="41.5" rx="17" ry="7" fill="#ffb35c" fill-opacity=".3"/>
+            <text x="75" y="45" text-anchor="middle" font-size="9" fill="#eef1f5">Si₃N₄</text><text x="8" y="21" font-size="9" fill="#b3bac6">SiO₂ cladding</text>
+            <text x="8" y="61" font-size="9" fill="#b3bac6">SiO₂</text><text x="8" y="83" font-size="9" fill="#8a919c">Si substrate</text>
+          </svg><figcaption>cross-section</figcaption></figure>
           <div class="tx3d-fallback">The 3D view needs WebGL, which this browser has turned off.</div>
         </div>
         <div class="rp-panel rr-panel">
@@ -1025,11 +1084,11 @@ svg.rr text{font-family:var(--body)}
       </ul>
     </article>
 
-    <article class="rp-item sv-item">
+    <article class="rp-item sv-item" id="p-survey">
       <div class="xp-when rp-when">2026</div>
       <h3>Survey of Microring Quantum Light Sources: Photon Pairs and Squeezed Light</h3>
       <div class="xp-org">KAIST, Q-SPIN Lab, Republic of Korea</div>
-      <div class="sv-sub">High-purity photon pairs · dual-AMZI-coupled microring</div>
+      <div class="sv-sub"><span class="sv-n">01</span>High-purity photon pairs · dual-AMZI-coupled microring</div>
       <div class="rp-figs rr-row">
         <div class="rp-panel rp-3d rr-3d" id="amzi3d-wrap">
           <canvas role="img" aria-label="3D view of a microring coupled to two asymmetric Mach-Zehnder interferometers. The upper interferometer couples only the pump into the ring, the lower one couples out only the signal and idler photons, which leave through the drop port. Phase shifters sit on both interferometer arms and on the ring."></canvas>
@@ -1075,7 +1134,7 @@ svg.rr text{font-family:var(--body)}
       </ul>
 
       <div class="sv-src">
-      <div class="sv-sub">Squeezed light · penguin-shaped dual-microring, dual-interferometer squeezer</div>
+      <div class="sv-sub"><span class="sv-n">02</span>Squeezed light · penguin-shaped dual-microring, dual-interferometer squeezer</div>
       <div class="rp-figs rr-row">
         <div class="rp-panel rp-3d rr-3d" id="sq3d-wrap">
           <canvas role="img" aria-label="3D view of the squeezer. A principal microring sits between two asymmetric Mach-Zehnder interferometers: the left one couples the pump in from the input fibre and passes the residual pump to the through port, the right one couples the squeezed signal and idler out to the drop port. A smaller auxiliary ring behind the principal ring tunes the idler resonance. Phase shifters sit on both interferometer arms and on both rings."></canvas>
@@ -1127,11 +1186,13 @@ svg.rr text{font-family:var(--body)}
   <h2 class="pj-h2">Selected academic projects</h2>
   <div class="xp">
 
-    <article class="xp-item">
+    <article class="xp-item" id="p-hbt">
       <div class="xp-when">2025<span class="grade">Grade A+</span></div>
       <div class="xp-body">
         <h3>Single-Photon Verification, Photon-Statistics Analysis Using HBT and GRA Experiments <a class="pdf-btn" href="Quantum_Optics_Report.pdf" download="Chanseung_Lee_HBT_GRA_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
         <div class="xp-org">Prof. Gwang Jo Lee · Kyung Hee University</div>
+      <div class="kpis"><span class="kpi"><b>g<sup>(2)</sup>(0) = 0.016</b>heralded SPDC photons</span></div>
+        <details class="pj-more"><summary><span class="s-show">Show details</span><span class="s-hide">Hide details</span></summary><div class="pj-more-in">
         <ul>
           <li>Performed optical alignment of HBT and GRA setups and measured g<sup>(2)</sup>(0) to characterize the photon statistics of coherent, thermal, and SPDC-based light sources.</li>
           <li>Generated photon pairs via SPDC with a BBO crystal and verified nonclassical single-photon behavior through coincidence suppression.</li>
@@ -1176,14 +1237,17 @@ svg.rr text{font-family:var(--body)}
           </div>
           <figcaption><span class="key" style="--k:#9b7bff"></span>pump (405 nm) <span class="key" style="--k:#ff4d5e"></span>photon pair <span class="key" style="--k:#ffb35c"></span>detector pulse · GRA measurement on the tabletop kit: the BBO crystal emits a photon pair, detector A heralds one photon, and its partner meets a 50:50 beam splitter and is counted at B or at C, never both. Heralded AB and AC coincidences build up while the triple coincidence ABC ideally stays at zero.</figcaption>
         </figure>
+        </div></details>
       </div>
     </article>
 
-    <article class="xp-item">
+    <article class="xp-item" id="p-mosfet">
       <div class="xp-when">2025<span class="grade">Grade A+</span></div>
       <div class="xp-body">
         <h3>Characterization and Parameter Extraction of Long- and Short-Channel MOSFETs <a class="pdf-btn" href="report.pdf" download="Chanseung_Lee_MOSFET_Characterization_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
         <div class="xp-org">Prof. Seung Hwan Lee · Kyung Hee University</div>
+      <div class="kpis"><span class="kpi"><b>L = 10 µm vs 0.35 µm</b>long- and short-channel devices</span></div>
+        <details class="pj-more"><summary><span class="s-show">Show details</span><span class="s-hide">Hide details</span></summary><div class="pj-more-in">
         <ul>
           <li>Measured transistor I–V characteristics using an MS TECH probe station and CLARIUS software, and extracted key parameters including V<sub>t</sub>, SS, I<sub>off</sub>, GIDL, DIBL, and g<sub>m</sub>.</li>
           <li>Analyzed long- and short-channel device behavior, body-bias effects, and transistor scaling by comparing L = 10 µm and L = 0.35 µm devices.</li>
@@ -1192,15 +1256,17 @@ svg.rr text{font-family:var(--body)}
           <figure style="--ar:.75"><img src="img/probe-station.jpg" width="900" height="1200" alt="Probe station with four micro-positioner probes landing on a die under a microscope" loading="lazy"><figcaption>MS TECH probe station</figcaption></figure>
           <figure style="--ar:1.148"><img src="img/clarius.jpg" width="1200" height="1045" alt="CLARIUS test setup: gate voltage step 0 to 5 V, drain linear sweep 0 to 3.3 V, bulk bias, source grounded" loading="lazy"><figcaption>CLARIUS I–V sweep setup</figcaption></figure>
         </div>
+        </div></details>
       </div>
     </article>
 
 
-    <article class="xp-item">
+    <article class="xp-item" id="p-amp">
       <div class="xp-when">2025<span class="grade">Grade A+</span></div>
       <div class="xp-body">
         <h3>Design of a Multistage Analog Amplifier Using LTspice <a class="pdf-btn" href="circuit%20design%20report.pdf" download="Chanseung_Lee_Multistage_Amplifier_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
         <div class="xp-org">Prof. Young Hyun Lim · Kyung Hee University</div>
+        <details class="pj-more"><summary><span class="s-show">Show details</span><span class="s-hide">Hide details</span></summary><div class="pj-more-in">
         <ul>
           <li>Designed differential, gain, and output stages, and performed AC/DC/transient analysis with pole-zero estimation.</li>
           <li>Optimized amplifier performance in terms of gain, bandwidth, and power consumption.</li>
@@ -1209,14 +1275,17 @@ svg.rr text{font-family:var(--body)}
           <figure style="--ar:1.822"><a class="zoom" href="img/amp-schematic.png" target="_blank" rel="noopener"><img src="img/amp-schematic.png" width="1436" height="788" alt="LTspice schematic of the multistage amplifier: differential pair M3/M5 with current-mirror load M2/M4, second gain stage M7/M8, source-follower output M9 driving a 100 ohm load, biased by a 100 µA current source" loading="lazy"></a><figcaption>Full schematic, biased so every MOSFET operates in saturation</figcaption></figure>
           <figure style="--ar:2"><a class="zoom" href="img/amp-bode.png" target="_blank" rel="noopener"><img src="img/amp-bode.png" width="1600" height="800" alt="LTspice Bode plot of V(out) from 1 Hz to 10 MHz with cursor readout 134.9 dB at 40.6 Hz" loading="lazy"></a><figcaption>Bode plot of V(out), cursor at 134.9 dB, 40.6 Hz</figcaption></figure>
         </div>
+        </div></details>
       </div>
     </article>
 
-    <article class="xp-item">
+    <article class="xp-item" id="p-tcad">
       <div class="xp-when">2025<span class="grade">Pass</span></div>
       <div class="xp-body">
         <h3>Device and Process Simulation of CMOS Transistors Using Silvaco TCAD <a class="pdf-btn" href="TCAD%20project.pdf" download="Chanseung_Lee_Silvaco_TCAD_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
         <div class="xp-org">Prof. Seung Hyun Lee · Kyung Hee University</div>
+      <div class="kpis"><span class="kpi"><b>90 nm NMOS</b>L = 60, 90, 120 nm</span></div>
+        <details class="pj-more"><summary><span class="s-show">Show details</span><span class="s-hide">Hide details</span></summary><div class="pj-more-in">
         <ul>
           <li>Built a complete NMOS fabrication flow including oxidation, implantation, annealing, and metallization, and extracted key electrical characteristics such as I<sub>D</sub>–V<sub>G</sub>/V<sub>D</sub>, V<sub>th</sub>, g<sub>m</sub>, and r<sub>o</sub>.</li>
           <li>Investigated short-channel non-idealities including DIBL, GIDL, and the effects of high-k gate oxides.</li>
@@ -1225,6 +1294,7 @@ svg.rr text{font-family:var(--body)}
           <figure style="--ar:1.524"><a class="zoom" href="img/tcad-structure.png" target="_blank" rel="noopener"><img src="img/tcad-structure.png" width="1198" height="786" alt="Silvaco Athena cross-section of the 90 nm NMOS: silicon substrate, SiO2 gate oxide and spacers, polysilicon gate, aluminum contacts" loading="lazy"></a><figcaption>Athena cross-section of the 90 nm NMOS</figcaption></figure>
           <figure style="--ar:1.524"><a class="zoom" href="img/tcad-lch-log.png" target="_blank" rel="noopener"><img src="img/tcad-lch-log.png" width="1198" height="786" alt="Log-scale drain current versus gate voltage at V_DS = 3 V for channel lengths of 60, 90 and 120 nm; the 60 nm device shows higher off-current and a gentler subthreshold slope" loading="lazy"></a><figcaption>Log-scale I<sub>D</sub>–V<sub>G</sub> at V<sub>DS</sub> = 3 V for L = 60, 90, 120 nm</figcaption></figure>
         </div>
+        </div></details>
       </div>
     </article>
   </div>
@@ -1245,7 +1315,7 @@ svg.rr text{font-family:var(--body)}
 
 </main>
 
-<footer><div class="foot-in">© 2026 Chanseung Lee<span id="visits" hidden> · <span id="visits-n"></span> visitors</span></div></footer>
+<footer><div class="foot-in">© 2026 Chanseung Lee · Last updated Nov 2026<span id="visits" hidden> · <span id="visits-n"></span> visitors</span></div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -1335,7 +1405,7 @@ svg.rr text{font-family:var(--body)}
       subTop:new THREE.MeshStandardMaterial({color:0x6b727d,roughness:.6,metalness:.05}),
       clad:new THREE.MeshPhysicalMaterial({color:0x8d9aac,roughness:.15,metalness:0,clearcoat:.5,transparent:true,opacity:.16,depthWrite:false}),
       comb:new THREE.MeshStandardMaterial({color:0x6c7179,roughness:.6,metalness:.05}),
-      gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5}),
+      gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5,side:THREE.DoubleSide}),
       core:new THREE.MeshBasicMaterial({color:0xff4a26}),
       green:new THREE.MeshBasicMaterial({color:0x7be04c}),
       glow:new THREE.MeshBasicMaterial({color:0xff3a14,transparent:true,opacity:.3,depthWrite:false}),
@@ -1718,7 +1788,7 @@ svg.rr text{font-family:var(--body)}
       rim:new THREE.MeshStandardMaterial({color:0x878c94,roughness:.5,metalness:.05}),
       ln:new THREE.MeshStandardMaterial({color:0x6e6c86,roughness:.45,metalness:.05}),
       dom:new THREE.MeshStandardMaterial({color:0x9d9abb,roughness:.5,metalness:.05}),
-      gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5}),
+      gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5,side:THREE.DoubleSide}),
       edge:new THREE.LineBasicMaterial({color:0xd4dbe6,transparent:true,opacity:.32}),
       glass:new THREE.MeshPhysicalMaterial({color:0xe6eeff,roughness:.05,metalness:0,clearcoat:1,transparent:true,opacity:.3,depthWrite:false}),
       cap:new THREE.MeshBasicMaterial({color:0xf2f6ff,transparent:true,opacity:.6})
@@ -2218,11 +2288,7 @@ svg.rr text{font-family:var(--body)}
     box(XC1-XC0,TOP,ZD,(XC0+XC1)/2,TOP/2,-ZD/2,M.dp,false,true);
     box(XC1-XC0,TOP,ZD,(XC0+XC1)/2,TOP/2,ZD/2,M.dm,false,true);
     (function(){var g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(XC0,TOP+0.002,-ZD),new THREE.Vector3(XC1,TOP+0.002,-ZD),new THREE.Vector3(XC1,TOP+0.002,ZD),new THREE.Vector3(XC0,TOP+0.002,ZD),new THREE.Vector3(XC0,TOP+0.002,-ZD)]);world.add(new THREE.Line(g,M.dim));})();
-    for(var ax=XC0+0.45;ax<XC1-0.2;ax+=0.8){arrow(ax,-0.82,true); arrow(ax,0.82,false);}
-    // conversion length marker along the back edge
-    (function(){var z=-ZD-0.18,y=TOP+0.003,t=0.09;
-      var g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(XC0,y,z),new THREE.Vector3(XC1,y,z),new THREE.Vector3(XC0,y,z-t),new THREE.Vector3(XC0,y,z+t),new THREE.Vector3(XC1,y,z-t),new THREE.Vector3(XC1,y,z+t)]);
-      world.add(new THREE.LineSegments(g,M.dim));})();
+    for(var ax=XC0+0.45;ax<XC1-0.2;ax+=1.2){arrow(ax,-0.82,true); arrow(ax,0.82,false);}
     // the strip, the photon lane (780 nm red turning 1300 nm gold) and the co-propagating 1950 nm pump
     guide([[0,0],[L,0]]);
     convLight([[0,-0.045],[L,-0.045]],YL,XC0,XC1);
@@ -2277,16 +2343,15 @@ svg.rr text{font-family:var(--body)}
       {p:[-3.45,YF,PZ],t:"1950 nm pump",o:[-24,56],os:[-8,32]},
       {p:[-1.75,YF-0.17,0],t:"fiber WDM (photon + pump)",o:[40,124],os:[0,0],pc:true},
       {p:[-0.006,-TLN-0.035,0],t:"Si₃N₄ strip under TFLN",o:[70,96],os:[40,72]},
-      {p:[(XC0+XC1)/2-0.6,TOP,-1.0],t:"+χ⁽²⁾ domain (P ↑)",o:[-60,-92],os:[-34,-46]},
-      {p:[(XC0+XC1)/2+0.5,TOP,1.0],t:"−χ⁽²⁾ domain (P ↓)",o:[-20,96],os:[-20,60]},
-      {p:[XC1-0.8,TOP,-ZD-0.18],t:"conversion length L",o:[40,-72],os:[0,0],pc:true},
+      {p:[XC0+1.05,TOP,-0.82],t:"+χ⁽²⁾",o:[0,0],os:[0,0],nl:true},
+      {p:[XC0+1.05,TOP,0.82],t:"−χ⁽²⁾",o:[0,0],os:[0,0],nl:true},
       {p:[(F0+F1)/2,YF-0.16,0],t:"pump filter (off-chip)",o:[24,104],os:[-6,74]},
       {p:[L+2.7,YF,-0.045],t:"1300 nm telecom photon",o:[-30,-60],os:[-20,-34]},
       {p:[L*0.66,-TLN-TBOX/2,ZW],t:"z-cut TFLN · SiO₂ · Si",o:[40,70],os:[0,0],pc:true}
     ];
     var NS2="http://www.w3.org/2000/svg";
     labs.forEach(function(l){
-      l.el=document.createElement("div"); l.el.className="tx3d-lab"; l.el.textContent=l.t; labsEl.appendChild(l.el);
+      l.el=document.createElement("div"); l.el.className="tx3d-lab"+(l.nl?" on":""); l.el.textContent=l.t; labsEl.appendChild(l.el);
       l.ln=document.createElementNS(NS2,"line"); l.ln.setAttribute("stroke","#7a828f"); l.ln.setAttribute("stroke-width","1"); linesEl.appendChild(l.ln);
       l.dot=document.createElementNS(NS2,"circle"); l.dot.setAttribute("fill","#a3abb8"); linesEl.appendChild(l.dot);
       l.v=new THREE.Vector3(l.p[0],l.p[1],l.p[2]);
@@ -2322,7 +2387,7 @@ svg.rr text{font-family:var(--body)}
         l.ln.setAttribute("x1",ax.toFixed(1)); l.ln.setAttribute("y1",ay.toFixed(1));
         l.ln.setAttribute("x2",(ax+dx/dl*stop).toFixed(1)); l.ln.setAttribute("y2",(ay+dy/dl*stop).toFixed(1));
         l.dot.setAttribute("cx",ax.toFixed(1)); l.dot.setAttribute("cy",ay.toFixed(1)); l.dot.setAttribute("r",small?"1.4":"2");
-        l.ln.style.display=l.dot.style.display=hide?"none":"";
+        l.ln.style.display=l.dot.style.display=(hide||l.nl)?"none":"";
       });
     }
     function size(){
@@ -2426,6 +2491,18 @@ svg.rr text{font-family:var(--body)}
     function curve(pts,y){return new PolyCurve(pts.map(function(p){return new THREE.Vector3(p[0],y,p[1]);}));}
     function basic(c,op){return new THREE.MeshBasicMaterial(op==null?{color:c}:{color:c,transparent:true,opacity:op,depthWrite:false});}
 
+    function ribbon(c,w,h,y0,closed){ // rectangular ridge (waveguide core, heater strip) swept along a curve in the xz plane
+      var n=Math.max(24,Math.round(c.T*70)),P=[],i,p=new THREE.Vector3(),pos=[],hw=w/2,y1=y0+h;
+      for(i=0;i<=n;i++){c.getPoint(i/n,p);P.push([p.x,p.z]);}
+      function side(i){var a=P[closed?(i-1+n)%n:Math.max(i-1,0)],b=P[closed?(i+1)%n:Math.min(i+1,n)],tx=b[0]-a[0],tz=b[1]-a[1],l=Math.sqrt(tx*tx+tz*tz)||1;return [-tz/l*hw,tx/l*hw];}
+      function quad(a,b,d,e){pos.push(a[0],a[1],a[2],b[0],b[1],b[2],d[0],d[1],d[2],a[0],a[1],a[2],d[0],d[1],d[2],e[0],e[1],e[2]);}
+      for(i=0;i<n;i++){var j=closed?(i+1)%n:i+1,s0=side(i),s1=side(j),A=P[i],B=P[j];
+        var l0=[A[0]+s0[0],y0,A[1]+s0[1]],r0=[A[0]-s0[0],y0,A[1]-s0[1]],l1=[B[0]+s1[0],y0,B[1]+s1[1]],r1=[B[0]-s1[0],y0,B[1]-s1[1]];
+        var L0=[l0[0],y1,l0[2]],R0=[r0[0],y1,r0[2]],L1=[l1[0],y1,l1[2]],R1=[r1[0],y1,r1[2]];
+        quad(L0,L1,R1,R0); quad(l0,l1,L1,L0); quad(r0,R0,R1,r1);
+        if(!closed&&i===0) quad(l0,L0,R0,r0); if(!closed&&i===n-1) quad(l1,r1,R1,L1);}
+      var g=new THREE.BufferGeometry(); g.setAttribute("position",new THREE.Float32BufferAttribute(pos,3)); g.computeVertexNormals(); return g;
+    }
     function View(wrap){
       var canvas=wrap.querySelector("canvas"), renderer;
       try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});}catch(e){wrap.classList.add("no3d");return null;}
@@ -2446,8 +2523,8 @@ svg.rr text{font-family:var(--body)}
         si:new THREE.MeshStandardMaterial({color:0x101114,roughness:.7,metalness:.1}),
         box:new THREE.MeshStandardMaterial({color:0x8d929c,roughness:.5,metalness:0}),
         top:new THREE.MeshStandardMaterial({color:0x06070a,roughness:.85,metalness:.05}),
-        wg:new THREE.MeshStandardMaterial({color:0x2e3550,roughness:.45,emissive:0x0a1226,emissiveIntensity:.6}),
-        gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5}),
+        wg:new THREE.MeshStandardMaterial({color:0x3a4466,roughness:.4,emissive:0x0c1630,emissiveIntensity:.7,side:THREE.DoubleSide}),
+        gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5,side:THREE.DoubleSide}),
         edge:new THREE.LineBasicMaterial({color:0xd4dbe6,transparent:true,opacity:.3}),
         glass:new THREE.MeshPhysicalMaterial({color:0xe6eeff,roughness:.05,metalness:0,clearcoat:1,transparent:true,opacity:.3,depthWrite:false}),
         cap:new THREE.MeshBasicMaterial({color:0xf2f6ff,transparent:true,opacity:.6})
@@ -2455,8 +2532,13 @@ svg.rr text{font-family:var(--body)}
       v.add=function(o){v.world.add(o);return o;};
       v.box=function(w,h,d,x,y,z,mat,edges){var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat); m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true; v.add(m);
         if(edges){var e=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),v.M.edge); e.position.copy(m.position); v.add(e);} return m;};
-      v.tube=function(pts,y,r,mat){var c=curve(pts,y); var m=new THREE.Mesh(new THREE.TubeGeometry(c,Math.max(8,Math.round(c.T*50)),r,8,false),mat); v.add(m); return m;};
-      v.torus=function(cx,cz,R,y,r,mat){var m=new THREE.Mesh(new THREE.TorusGeometry(R,r,10,120),mat); m.rotation.x=-Math.PI/2; m.position.set(cx,y,cz); v.add(m); return m;};
+      v.tube=function(pts,y,r,mat){var solid=mat===v.M.wg||mat===v.M.gold; if(!solid&&r<0.03) y+=0.02; var c=curve(pts,y), g;
+        if(mat===v.M.wg) g=ribbon(c,r*2.2,r*1.05,y-r*0.6); else if(mat===v.M.gold) g=ribbon(c,r*3.1,r*0.6,y-r*1.15); else g=new THREE.TubeGeometry(c,Math.max(8,Math.round(c.T*50)),r,8,false);
+        var m=new THREE.Mesh(g,mat); if(solid){m.castShadow=true;m.receiveShadow=true;} v.add(m); return m;};
+      v.torus=function(cx,cz,R,y,r,mat){var m;
+        if(mat===v.M.wg){var pp=[],q;for(q=0;q<=160;q++){pp.push([cx+R*Math.cos(2*Math.PI*q/160),cz+R*Math.sin(2*Math.PI*q/160)]);} m=new THREE.Mesh(ribbon(curve(pp,y),r*2.2,r*1.05,y-r*0.6,true),mat); m.castShadow=true; m.receiveShadow=true;}
+        else{m=new THREE.Mesh(new THREE.TorusGeometry(R,r,10,160),mat); m.rotation.x=-Math.PI/2; m.position.set(cx,r<0.03?y+0.02:y,cz);}
+        v.add(m); return m;};
       v.fiber=function(x0,x1,z,y){
         var f=new THREE.Mesh(new THREE.CylinderGeometry(0.14,0.14,x1-x0,40,1,true),v.M.glass); f.rotation.z=Math.PI/2; f.position.set((x0+x1)/2,y,z); f.renderOrder=3; v.add(f);
         [x0,x1].forEach(function(x){var r=new THREE.Mesh(new THREE.TorusGeometry(0.14,0.008,6,40),v.M.cap); r.rotation.y=Math.PI/2; r.position.set(x,y,z); v.add(r);});
@@ -2466,6 +2548,10 @@ svg.rr text{font-family:var(--body)}
         v.box(L,0.42,Z1-Z0,L/2,-0.26-0.21,(Z0+Z1)/2,v.M.si,true);
         v.box(L,0.24,Z1-Z0,L/2,-0.14,(Z0+Z1)/2,v.M.box,true);
         v.box(L,0.02,Z1-Z0,L/2,-0.01,(Z0+Z1)/2,v.M.top,true);
+        var mk=new THREE.MeshBasicMaterial({color:0x4d5564}); // lithography alignment marks in the corners
+        [[0.3,Z0+0.3],[L-0.3,Z0+0.3],[0.3,Z1-0.3],[L-0.3,Z1-0.3]].forEach(function(q){
+          [[0.2,0.028],[0.028,0.2]].forEach(function(d){var m=new THREE.Mesh(new THREE.BoxGeometry(d[0],0.004,d[1]),mk); m.position.set(q[0],0.003,q[1]); v.add(m); v.skip.push(m);});
+          [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(e){var m=new THREE.Mesh(new THREE.BoxGeometry(0.045,0.004,0.045),mk); m.position.set(q[0]+e[0]*0.075,0.003,q[1]+e[1]*0.075); v.add(m); v.skip.push(m);});});
       };
       return v;
     }
@@ -2544,7 +2630,6 @@ svg.rr text{font-family:var(--body)}
       label(R,[RX-RR,YW,C1],"Si₃N₄ microring",[-120,-18],null,{});
       label(R,[RX-RR,YW,C2],"coupled ring",[-110,-24],null,{vis:function(){return curMode;}});
       label(R,[L+1.2,YW,BZ],"signal + idler out",[16,46],null,{});
-      label(R,[L*0.45,-0.13,Z1],"Si₃N₄ on SiO₂ / Si",[30,60],null,{pc:true});
       fit(R); R.fx=0.8; R.fy=0.62; R.top=44; R.dx=18; R.topS=24;
       ring={v:R,update:function(t){
         var dbl=Math.floor(t/5)%2===1; setMode(dbl);
@@ -2640,6 +2725,18 @@ svg.rr text{font-family:var(--body)}
     function curve(pts,y){return new PolyCurve(pts.map(function(p){return new THREE.Vector3(p[0],y,p[1]);}));}
     function basic(c,op){return new THREE.MeshBasicMaterial(op==null?{color:c}:{color:c,transparent:true,opacity:op,depthWrite:false});}
 
+    function ribbon(c,w,h,y0,closed){ // rectangular ridge (waveguide core, heater strip) swept along a curve in the xz plane
+      var n=Math.max(24,Math.round(c.T*70)),P=[],i,p=new THREE.Vector3(),pos=[],hw=w/2,y1=y0+h;
+      for(i=0;i<=n;i++){c.getPoint(i/n,p);P.push([p.x,p.z]);}
+      function side(i){var a=P[closed?(i-1+n)%n:Math.max(i-1,0)],b=P[closed?(i+1)%n:Math.min(i+1,n)],tx=b[0]-a[0],tz=b[1]-a[1],l=Math.sqrt(tx*tx+tz*tz)||1;return [-tz/l*hw,tx/l*hw];}
+      function quad(a,b,d,e){pos.push(a[0],a[1],a[2],b[0],b[1],b[2],d[0],d[1],d[2],a[0],a[1],a[2],d[0],d[1],d[2],e[0],e[1],e[2]);}
+      for(i=0;i<n;i++){var j=closed?(i+1)%n:i+1,s0=side(i),s1=side(j),A=P[i],B=P[j];
+        var l0=[A[0]+s0[0],y0,A[1]+s0[1]],r0=[A[0]-s0[0],y0,A[1]-s0[1]],l1=[B[0]+s1[0],y0,B[1]+s1[1]],r1=[B[0]-s1[0],y0,B[1]-s1[1]];
+        var L0=[l0[0],y1,l0[2]],R0=[r0[0],y1,r0[2]],L1=[l1[0],y1,l1[2]],R1=[r1[0],y1,r1[2]];
+        quad(L0,L1,R1,R0); quad(l0,l1,L1,L0); quad(r0,R0,R1,r1);
+        if(!closed&&i===0) quad(l0,L0,R0,r0); if(!closed&&i===n-1) quad(l1,r1,R1,L1);}
+      var g=new THREE.BufferGeometry(); g.setAttribute("position",new THREE.Float32BufferAttribute(pos,3)); g.computeVertexNormals(); return g;
+    }
     function View(wrap){
       var canvas=wrap.querySelector("canvas"), renderer;
       try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});}catch(e){wrap.classList.add("no3d");return null;}
@@ -2660,8 +2757,8 @@ svg.rr text{font-family:var(--body)}
         si:new THREE.MeshStandardMaterial({color:0x101114,roughness:.7,metalness:.1}),
         box:new THREE.MeshStandardMaterial({color:0x8d929c,roughness:.5,metalness:0}),
         top:new THREE.MeshStandardMaterial({color:0x06070a,roughness:.85,metalness:.05}),
-        wg:new THREE.MeshStandardMaterial({color:0x2e3550,roughness:.45,emissive:0x0a1226,emissiveIntensity:.6}),
-        gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5}),
+        wg:new THREE.MeshStandardMaterial({color:0x3a4466,roughness:.4,emissive:0x0c1630,emissiveIntensity:.7,side:THREE.DoubleSide}),
+        gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5,side:THREE.DoubleSide}),
         edge:new THREE.LineBasicMaterial({color:0xd4dbe6,transparent:true,opacity:.3}),
         glass:new THREE.MeshPhysicalMaterial({color:0xe6eeff,roughness:.05,metalness:0,clearcoat:1,transparent:true,opacity:.3,depthWrite:false}),
         cap:new THREE.MeshBasicMaterial({color:0xf2f6ff,transparent:true,opacity:.6})
@@ -2669,8 +2766,13 @@ svg.rr text{font-family:var(--body)}
       v.add=function(o){v.world.add(o);return o;};
       v.box=function(w,h,d,x,y,z,mat,edges){var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat); m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true; v.add(m);
         if(edges){var e=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),v.M.edge); e.position.copy(m.position); v.add(e);} return m;};
-      v.tube=function(pts,y,r,mat){var c=curve(pts,y); var m=new THREE.Mesh(new THREE.TubeGeometry(c,Math.max(8,Math.round(c.T*50)),r,8,false),mat); v.add(m); return m;};
-      v.torus=function(cx,cz,R,y,r,mat){var m=new THREE.Mesh(new THREE.TorusGeometry(R,r,10,120),mat); m.rotation.x=-Math.PI/2; m.position.set(cx,y,cz); v.add(m); return m;};
+      v.tube=function(pts,y,r,mat){var solid=mat===v.M.wg||mat===v.M.gold; if(!solid&&r<0.03) y+=0.02; var c=curve(pts,y), g;
+        if(mat===v.M.wg) g=ribbon(c,r*2.2,r*1.05,y-r*0.6); else if(mat===v.M.gold) g=ribbon(c,r*3.1,r*0.6,y-r*1.15); else g=new THREE.TubeGeometry(c,Math.max(8,Math.round(c.T*50)),r,8,false);
+        var m=new THREE.Mesh(g,mat); if(solid){m.castShadow=true;m.receiveShadow=true;} v.add(m); return m;};
+      v.torus=function(cx,cz,R,y,r,mat){var m;
+        if(mat===v.M.wg){var pp=[],q;for(q=0;q<=160;q++){pp.push([cx+R*Math.cos(2*Math.PI*q/160),cz+R*Math.sin(2*Math.PI*q/160)]);} m=new THREE.Mesh(ribbon(curve(pp,y),r*2.2,r*1.05,y-r*0.6,true),mat); m.castShadow=true; m.receiveShadow=true;}
+        else{m=new THREE.Mesh(new THREE.TorusGeometry(R,r,10,160),mat); m.rotation.x=-Math.PI/2; m.position.set(cx,r<0.03?y+0.02:y,cz);}
+        v.add(m); return m;};
       v.fiber=function(x0,x1,z,y){
         var f=new THREE.Mesh(new THREE.CylinderGeometry(0.14,0.14,x1-x0,40,1,true),v.M.glass); f.rotation.z=Math.PI/2; f.position.set((x0+x1)/2,y,z); f.renderOrder=3; v.add(f);
         [x0,x1].forEach(function(x){var r=new THREE.Mesh(new THREE.TorusGeometry(0.14,0.008,6,40),v.M.cap); r.rotation.y=Math.PI/2; r.position.set(x,y,z); v.add(r);});
@@ -2680,6 +2782,10 @@ svg.rr text{font-family:var(--body)}
         v.box(L,0.42,Z1-Z0,L/2,-0.26-0.21,(Z0+Z1)/2,v.M.si,true);
         v.box(L,0.24,Z1-Z0,L/2,-0.14,(Z0+Z1)/2,v.M.box,true);
         v.box(L,0.02,Z1-Z0,L/2,-0.01,(Z0+Z1)/2,v.M.top,true);
+        var mk=new THREE.MeshBasicMaterial({color:0x4d5564}); // lithography alignment marks in the corners
+        [[0.3,Z0+0.3],[L-0.3,Z0+0.3],[0.3,Z1-0.3],[L-0.3,Z1-0.3]].forEach(function(q){
+          [[0.2,0.028],[0.028,0.2]].forEach(function(d){var m=new THREE.Mesh(new THREE.BoxGeometry(d[0],0.004,d[1]),mk); m.position.set(q[0],0.003,q[1]); v.add(m); v.skip.push(m);});
+          [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(e){var m=new THREE.Mesh(new THREE.BoxGeometry(0.045,0.004,0.045),mk); m.position.set(q[0]+e[0]*0.075,0.003,q[1]+e[1]*0.075); v.add(m); v.skip.push(m);});});
       };
       return v;
     }
@@ -2829,6 +2935,18 @@ svg.rr text{font-family:var(--body)}
     function curve(pts,y){return new PolyCurve(pts.map(function(p){return new THREE.Vector3(p[0],y,p[1]);}));}
     function basic(c,op){return new THREE.MeshBasicMaterial(op==null?{color:c}:{color:c,transparent:true,opacity:op,depthWrite:false});}
 
+    function ribbon(c,w,h,y0,closed){ // rectangular ridge (waveguide core, heater strip) swept along a curve in the xz plane
+      var n=Math.max(24,Math.round(c.T*70)),P=[],i,p=new THREE.Vector3(),pos=[],hw=w/2,y1=y0+h;
+      for(i=0;i<=n;i++){c.getPoint(i/n,p);P.push([p.x,p.z]);}
+      function side(i){var a=P[closed?(i-1+n)%n:Math.max(i-1,0)],b=P[closed?(i+1)%n:Math.min(i+1,n)],tx=b[0]-a[0],tz=b[1]-a[1],l=Math.sqrt(tx*tx+tz*tz)||1;return [-tz/l*hw,tx/l*hw];}
+      function quad(a,b,d,e){pos.push(a[0],a[1],a[2],b[0],b[1],b[2],d[0],d[1],d[2],a[0],a[1],a[2],d[0],d[1],d[2],e[0],e[1],e[2]);}
+      for(i=0;i<n;i++){var j=closed?(i+1)%n:i+1,s0=side(i),s1=side(j),A=P[i],B=P[j];
+        var l0=[A[0]+s0[0],y0,A[1]+s0[1]],r0=[A[0]-s0[0],y0,A[1]-s0[1]],l1=[B[0]+s1[0],y0,B[1]+s1[1]],r1=[B[0]-s1[0],y0,B[1]-s1[1]];
+        var L0=[l0[0],y1,l0[2]],R0=[r0[0],y1,r0[2]],L1=[l1[0],y1,l1[2]],R1=[r1[0],y1,r1[2]];
+        quad(L0,L1,R1,R0); quad(l0,l1,L1,L0); quad(r0,R0,R1,r1);
+        if(!closed&&i===0) quad(l0,L0,R0,r0); if(!closed&&i===n-1) quad(l1,r1,R1,L1);}
+      var g=new THREE.BufferGeometry(); g.setAttribute("position",new THREE.Float32BufferAttribute(pos,3)); g.computeVertexNormals(); return g;
+    }
     function View(wrap){
       var canvas=wrap.querySelector("canvas"), renderer;
       try{renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});}catch(e){wrap.classList.add("no3d");return null;}
@@ -2849,8 +2967,8 @@ svg.rr text{font-family:var(--body)}
         si:new THREE.MeshStandardMaterial({color:0x101114,roughness:.7,metalness:.1}),
         box:new THREE.MeshStandardMaterial({color:0x8d929c,roughness:.5,metalness:0}),
         top:new THREE.MeshStandardMaterial({color:0x06070a,roughness:.85,metalness:.05}),
-        wg:new THREE.MeshStandardMaterial({color:0x2e3550,roughness:.45,emissive:0x0a1226,emissiveIntensity:.6}),
-        gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5}),
+        wg:new THREE.MeshStandardMaterial({color:0x3a4466,roughness:.4,emissive:0x0c1630,emissiveIntensity:.7,side:THREE.DoubleSide}),
+        gold:new THREE.MeshStandardMaterial({color:0xd8b54a,roughness:.35,metalness:.4,emissive:0x4a3708,emissiveIntensity:.5,side:THREE.DoubleSide}),
         edge:new THREE.LineBasicMaterial({color:0xd4dbe6,transparent:true,opacity:.3}),
         glass:new THREE.MeshPhysicalMaterial({color:0xe6eeff,roughness:.05,metalness:0,clearcoat:1,transparent:true,opacity:.3,depthWrite:false}),
         cap:new THREE.MeshBasicMaterial({color:0xf2f6ff,transparent:true,opacity:.6})
@@ -2858,8 +2976,13 @@ svg.rr text{font-family:var(--body)}
       v.add=function(o){v.world.add(o);return o;};
       v.box=function(w,h,d,x,y,z,mat,edges){var m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat); m.position.set(x,y,z); m.castShadow=true; m.receiveShadow=true; v.add(m);
         if(edges){var e=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),v.M.edge); e.position.copy(m.position); v.add(e);} return m;};
-      v.tube=function(pts,y,r,mat){var c=curve(pts,y); var m=new THREE.Mesh(new THREE.TubeGeometry(c,Math.max(8,Math.round(c.T*50)),r,8,false),mat); v.add(m); return m;};
-      v.torus=function(cx,cz,R,y,r,mat){var m=new THREE.Mesh(new THREE.TorusGeometry(R,r,10,120),mat); m.rotation.x=-Math.PI/2; m.position.set(cx,y,cz); v.add(m); return m;};
+      v.tube=function(pts,y,r,mat){var solid=mat===v.M.wg||mat===v.M.gold; if(!solid&&r<0.03) y+=0.02; var c=curve(pts,y), g;
+        if(mat===v.M.wg) g=ribbon(c,r*2.2,r*1.05,y-r*0.6); else if(mat===v.M.gold) g=ribbon(c,r*3.1,r*0.6,y-r*1.15); else g=new THREE.TubeGeometry(c,Math.max(8,Math.round(c.T*50)),r,8,false);
+        var m=new THREE.Mesh(g,mat); if(solid){m.castShadow=true;m.receiveShadow=true;} v.add(m); return m;};
+      v.torus=function(cx,cz,R,y,r,mat){var m;
+        if(mat===v.M.wg){var pp=[],q;for(q=0;q<=160;q++){pp.push([cx+R*Math.cos(2*Math.PI*q/160),cz+R*Math.sin(2*Math.PI*q/160)]);} m=new THREE.Mesh(ribbon(curve(pp,y),r*2.2,r*1.05,y-r*0.6,true),mat); m.castShadow=true; m.receiveShadow=true;}
+        else{m=new THREE.Mesh(new THREE.TorusGeometry(R,r,10,160),mat); m.rotation.x=-Math.PI/2; m.position.set(cx,r<0.03?y+0.02:y,cz);}
+        v.add(m); return m;};
       v.fiber=function(x0,x1,z,y){
         var f=new THREE.Mesh(new THREE.CylinderGeometry(0.14,0.14,x1-x0,40,1,true),v.M.glass); f.rotation.z=Math.PI/2; f.position.set((x0+x1)/2,y,z); f.renderOrder=3; v.add(f);
         [x0,x1].forEach(function(x){var r=new THREE.Mesh(new THREE.TorusGeometry(0.14,0.008,6,40),v.M.cap); r.rotation.y=Math.PI/2; r.position.set(x,y,z); v.add(r);});
@@ -2869,6 +2992,10 @@ svg.rr text{font-family:var(--body)}
         v.box(L,0.42,Z1-Z0,L/2,-0.26-0.21,(Z0+Z1)/2,v.M.si,true);
         v.box(L,0.24,Z1-Z0,L/2,-0.14,(Z0+Z1)/2,v.M.box,true);
         v.box(L,0.02,Z1-Z0,L/2,-0.01,(Z0+Z1)/2,v.M.top,true);
+        var mk=new THREE.MeshBasicMaterial({color:0x4d5564}); // lithography alignment marks in the corners
+        [[0.3,Z0+0.3],[L-0.3,Z0+0.3],[0.3,Z1-0.3],[L-0.3,Z1-0.3]].forEach(function(q){
+          [[0.2,0.028],[0.028,0.2]].forEach(function(d){var m=new THREE.Mesh(new THREE.BoxGeometry(d[0],0.004,d[1]),mk); m.position.set(q[0],0.003,q[1]); v.add(m); v.skip.push(m);});
+          [[-1,-1],[1,-1],[-1,1],[1,1]].forEach(function(e){var m=new THREE.Mesh(new THREE.BoxGeometry(0.045,0.004,0.045),mk); m.position.set(q[0]+e[0]*0.075,0.003,q[1]+e[1]*0.075); v.add(m); v.skip.push(m);});});
       };
       return v;
     }
@@ -3000,6 +3127,12 @@ svg.rr text{font-family:var(--body)}
     function loop(now){ requestAnimationFrame(loop); if(!visible||!aw.getBoundingClientRect().width) return; if(!size(V)) return; update(now/1000); render(V); }
     requestAnimationFrame(loop);
   })();
+
+  // project index: jump to a project on the Projects tab, opening its details if they are folded
+  document.querySelectorAll("[data-jump]").forEach(function(b){b.addEventListener("click",function(){
+    var el=document.getElementById(b.getAttribute("data-jump")); if(!el) return; var d=el.querySelector("details"); if(d) d.open=true;
+    requestAnimationFrame(function(){var bar=document.getElementById("bar"), y=el.getBoundingClientRect().top+window.scrollY-(bar?bar.offsetHeight:0)-16;
+      window.scrollTo({top:y,behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});});});});
 
   // routing
   var routes=["home","experience","research","projects","contact"];
