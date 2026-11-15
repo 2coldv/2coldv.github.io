@@ -477,10 +477,14 @@ svg.rr text{font-family:var(--body)}
   .bar nav{overflow:visible}
   .nav-sub{display:block;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);z-index:6;padding:6px;background:var(--bg);border:1px solid var(--line);border-radius:10px;
     box-shadow:0 1px 2px rgba(16,24,40,.05),0 12px 28px -12px rgba(16,24,40,.22);visibility:hidden;opacity:0;transition:opacity .15s,visibility 0s .15s}
-  .nav-sub::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
-  @media (hover:hover){.nav-dd:hover .nav-sub,.nav-dd:focus-within .nav-sub{visibility:visible;opacity:1;transition:opacity .15s}}
-  .nav-dd.shut .nav-sub{visibility:hidden;opacity:0;transition:none}
   .nav-dd.open .nav-sub{visibility:visible;opacity:1;transition:opacity .15s}
+  .nav-btn{display:inline-flex;align-items:center;gap:7px;margin:0;padding:4px 0;background:none;border:0;border-bottom:1px solid transparent;border-radius:0;font:inherit;font-size:1rem;letter-spacing:inherit;
+    color:var(--muted);white-space:nowrap;cursor:pointer;transition:color .15s,border-color .15s;-webkit-tap-highlight-color:transparent}
+  .nav-btn:hover,.nav-dd.open .nav-btn{color:var(--fg)}
+  .nav-btn[aria-current="page"]{color:var(--fg);border-bottom-color:var(--fg)}
+  .nav-btn:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .nav-btn svg{flex:none;opacity:.6;transition:transform .2s}
+  .nav-dd.open .nav-btn svg{transform:rotate(180deg)}
   .bar nav .nav-sub a{display:block;padding:9px 14px;font-size:.94rem;color:var(--muted);border:0;border-radius:7px}
   .bar nav .nav-sub a:hover,.bar nav .nav-sub a:focus-visible{color:var(--fg);background:#f3f4f7}
   .bar nav .nav-sub a[aria-current="page"]{color:var(--fg);font-weight:500}
@@ -533,7 +537,7 @@ svg.rr text{font-family:var(--body)}
     <nav aria-label="Sections">
       <a href="#experience" data-route="experience">Research Experience</a>
       <a href="#research" data-route="research">Research Interests</a>
-      <span class="nav-dd"><a href="#projects-research" data-route="projects" aria-haspopup="true">Projects</a><span class="nav-sub"><a href="#projects-research" data-sub="research">Research projects</a><a href="#projects-academic" data-sub="academic">Selected academic projects</a></span></span>
+      <span class="nav-dd"><button type="button" class="nav-btn" data-route="projects" aria-haspopup="true" aria-expanded="false">Projects<svg viewBox="0 0 10 6" width="10" height="6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button><span class="nav-sub"><a href="#projects-research" data-sub="research">Research projects</a><a href="#projects-academic" data-sub="academic">Selected academic projects</a></span></span>
       <a href="#contact" data-route="contact">Contact</a>
     </nav>
   </div>
@@ -3625,25 +3629,18 @@ svg.rr text{font-family:var(--body)}
   b.addEventListener("click",function(){ set(!root.classList.contains("drw-open")); });
   x.addEventListener("click",function(){ set(false); });
   links.forEach(function(a){ a.addEventListener("click",function(){ set(false); }); });
-  window.addEventListener("hashchange",function(){ mark(); set(false); });
-  document.addEventListener("keydown",function(e){ if(e.key==="Escape") set(false); });
+  var dd=document.querySelector(".nav-dd"), nb=dd&&dd.querySelector(".nav-btn");
+  function list(open){ if(!nb) return; dd.classList.toggle("open",open); nb.setAttribute("aria-expanded",open?"true":"false"); }
+  window.addEventListener("hashchange",function(){ mark(); set(false); list(false); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape"){ set(false); list(false); } });
   var mq=window.matchMedia("(min-width:641px)"), off=function(){ if(mq.matches) set(false); };
   if(mq.addEventListener) mq.addEventListener("change",off); else if(mq.addListener) mq.addListener(off);
   mark(); set(false);
-  var dd=document.querySelector(".nav-dd");
-  if(dd){
-    // with a finger there is no hover: the first tap on the tab opens the list, the next tap follows the link
-    var touch=false;
-    dd.addEventListener("pointerenter",function(e){ if(e.pointerType==="mouse"){ touch=false; dd.classList.remove("shut"); } });
-    dd.addEventListener("pointerdown",function(e){ touch=e.pointerType==="touch"||e.pointerType==="pen"; });
-    dd.addEventListener("click",function(e){
-      var a=e.target.closest&&e.target.closest("a"); if(!a) return;
-      if(touch&&a.parentNode===dd&&!dd.classList.contains("open")){ e.preventDefault(); dd.classList.remove("shut"); dd.classList.add("open"); return; }
-      dd.classList.remove("open"); dd.classList.add("shut");
-      if(document.activeElement&&document.activeElement.blur) document.activeElement.blur();
-    });
-    dd.addEventListener("mouseleave",function(){ if(!touch) dd.classList.remove("shut"); });
-    document.addEventListener("pointerdown",function(e){ if(!dd.contains(e.target)) dd.classList.remove("open"); });
+  if(nb){
+    nb.addEventListener("click",function(){ list(!dd.classList.contains("open")); });
+    dd.querySelector(".nav-sub").addEventListener("click",function(e){ if(e.target.closest&&e.target.closest("a")) list(false); });
+    dd.addEventListener("focusout",function(e){ if(e.relatedTarget&&!dd.contains(e.relatedTarget)) list(false); });
+    document.addEventListener("pointerdown",function(e){ if(!dd.contains(e.target)) list(false); });
   }
 })();
 </script>
