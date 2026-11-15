@@ -437,17 +437,12 @@ svg.rr text{font-family:var(--body)}
 .kpi{font-size:.82rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 12px;background:#f6f8fb;white-space:nowrap}
 .kpi b{color:var(--fg);font-weight:600;margin-right:6px}
 .pj-more{min-width:0}
-.pj-more>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;margin-top:8px;font-size:.88rem;font-weight:500;color:var(--accent)}
-.pj-more>summary::-webkit-details-marker{display:none}
-.pj-more>summary::after{content:"";width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
-.pj-more[open]>summary::after{transform:translateY(2px) rotate(-135deg)}
-.pj-more .s-hide,.pj-more[open] .s-show{display:none}.pj-more[open] .s-hide{display:inline}
 .pj-more-in{display:grid;gap:6px;min-width:0;margin-top:10px}
 .rr-inset-xs{right:12px;bottom:10px;width:27%}
 .rr-inset-xs svg{display:block;width:100%;height:auto;box-shadow:0 4px 14px rgba(0,0,0,.45);border-radius:5px}
 .rr-inset-xs text{font-family:var(--body)}
 .tx3d-lab.on{color:#fff;font-weight:500;text-shadow:0 1px 6px rgba(0,0,0,.7)}
-@media (max-width:640px){.pj-toc{grid-template-columns:1fr;padding:14px 16px;gap:14px}.pj-toc button{font-size:.85rem}.kpi{font-size:.72rem;padding:2px 9px}.rr-inset-xs{display:none}.pj-more>summary{font-size:.8rem}}
+@media (max-width:640px){.pj-toc{grid-template-columns:1fr;padding:14px 16px;gap:14px}.pj-toc button{font-size:.85rem}.kpi{font-size:.72rem;padding:2px 9px}.rr-inset-xs{display:none}}
 .skills,.off{display:flex;flex-direction:column;gap:18px;margin-top:44px;padding-top:44px;border-top:1px solid var(--line)}
 .sk-body{display:grid;gap:16px;min-width:0}
 .sk-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 20px;align-items:baseline}
@@ -470,6 +465,26 @@ svg.rr text{font-family:var(--body)}
 .mfig-cap{margin:8px 0 2px;font-size:.85rem;color:var(--faint);line-height:1.6;max-width:none}
 @media (max-width:640px){.mfig{gap:8px}.mfig-card{padding:7px 6px;border-radius:8px}.mfig-plots{gap:6px}.mfig-cap{font-size:.75rem}}
 
+[data-pj="research"] #v-projects .pj-h2,[data-pj="research"] #v-projects .pj-h2+.xp,[data-pj="research"] #v-projects .pj-toc>div:nth-child(2),[data-pj="research"] #v-projects .pj-toc-h,
+[data-pj="academic"] #v-projects>h2:not(.pj-h2),[data-pj="academic"] #v-projects .pj-toc,[data-pj="academic"] #v-projects .xp.rp{display:none}
+[data-pj="research"] #v-projects .pj-toc ol{margin-top:0}
+[data-pj="academic"] #v-projects .pj-h2{margin-top:12px}
+.nav-dd{position:relative;display:flex}
+.nav-sub{display:none}
+@media (min-width:641px){
+  [data-pj="research"] #v-projects .pj-toc{grid-template-columns:1fr}
+  [data-pj="research"] #v-projects .pj-toc ol{grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,auto);grid-auto-flow:column;column-gap:48px}
+  .bar nav{overflow:visible}
+  .nav-sub{display:block;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);z-index:6;padding:6px;background:var(--bg);border:1px solid var(--line);border-radius:10px;
+    box-shadow:0 1px 2px rgba(16,24,40,.05),0 12px 28px -12px rgba(16,24,40,.22);visibility:hidden;opacity:0;transition:opacity .15s,visibility 0s .15s}
+  .nav-sub::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+  @media (hover:hover){.nav-dd:hover .nav-sub,.nav-dd:focus-within .nav-sub{visibility:visible;opacity:1;transition:opacity .15s}}
+  .nav-dd.shut .nav-sub{visibility:hidden;opacity:0;transition:none}
+  .nav-dd.open .nav-sub{visibility:visible;opacity:1;transition:opacity .15s}
+  .bar nav .nav-sub a{display:block;padding:9px 14px;font-size:.94rem;color:var(--muted);border:0;border-radius:7px}
+  .bar nav .nav-sub a:hover,.bar nav .nav-sub a:focus-visible{color:var(--fg);background:#f3f4f7}
+  .bar nav .nav-sub a[aria-current="page"]{color:var(--fg);font-weight:500}
+}
 .mnu,.drw,.drw-x{display:none}
 @media (max-width:640px){
   html{overflow-x:hidden;--dw:232px;--de:cubic-bezier(.4,0,.2,1)}
@@ -496,10 +511,6 @@ svg.rr text{font-family:var(--body)}
   .drw .drw-nav a:focus-visible,.drw-grp:focus-visible{outline:2px solid #fff;outline-offset:-2px}
   .drw-foot{margin:0;padding:16px 20px;font-size:12px;color:rgba(255,255,255,.5);max-width:none}
   .drw-open .drw-x{display:block;position:fixed;inset:0;z-index:19}
-  [data-pj="research"] #v-projects .pj-h2,[data-pj="research"] #v-projects .pj-h2+.xp,[data-pj="research"] #v-projects .pj-toc>div:nth-child(2),[data-pj="research"] #v-projects .pj-toc-h,
-  [data-pj="academic"] #v-projects>h2:not(.pj-h2),[data-pj="academic"] #v-projects .pj-toc,[data-pj="academic"] #v-projects .xp.rp{display:none}
-  [data-pj="research"] #v-projects .pj-toc ol{margin-top:0}
-  [data-pj="academic"] #v-projects .pj-h2{margin-top:12px}
 }
 @media (max-width:640px) and (prefers-reduced-motion:reduce){.bar,main,body>footer,.drw,.drw-open .drw{transition:none}}
 
@@ -522,7 +533,7 @@ svg.rr text{font-family:var(--body)}
     <nav aria-label="Sections">
       <a href="#experience" data-route="experience">Research Experience</a>
       <a href="#research" data-route="research">Research Interests</a>
-      <a href="#projects" data-route="projects">Projects</a>
+      <span class="nav-dd"><a href="#projects-research" data-route="projects" aria-haspopup="true">Projects</a><span class="nav-sub"><a href="#projects-research" data-sub="research">Research projects</a><a href="#projects-academic" data-sub="academic">Selected academic projects</a></span></span>
       <a href="#contact" data-route="contact">Contact</a>
     </nav>
   </div>
@@ -1192,7 +1203,7 @@ svg.rr text{font-family:var(--body)}
         <h3>Single-Photon Verification, Photon-Statistics Analysis Using HBT and GRA Experiments <a class="pdf-btn" href="Quantum_Optics_Report.pdf" download="Chanseung_Lee_HBT_GRA_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
         <div class="xp-org">Prof. Kwang Jo Lee · Kyung Hee University</div>
       <div class="kpis"><span class="kpi"><b>g<sup>(2)</sup>(0) = 0.016</b>heralded SPDC photons</span></div>
-        <details class="pj-more"><summary><span class="s-show">Show details</span><span class="s-hide">Hide details</span></summary><div class="pj-more-in">
+        <div class="pj-more"><div class="pj-more-in">
         <ul>
           <li>Performed optical alignment of HBT and GRA setups and measured g<sup>(2)</sup>(0) to characterize the photon statistics of coherent, thermal, and SPDC-based light sources.</li>
           <li>Generated photon pairs via SPDC with a BBO crystal and verified nonclassical single-photon behavior through coincidence suppression.</li>
@@ -1237,7 +1248,7 @@ svg.rr text{font-family:var(--body)}
           </div>
           <figcaption><span class="key" style="--k:#9b7bff"></span>pump (405 nm) <span class="key" style="--k:#ff4d5e"></span>photon pair <span class="key" style="--k:#ffb35c"></span>detector pulse · GRA measurement on the tabletop kit: the BBO crystal emits a photon pair, detector A heralds one photon, and its partner meets a 50:50 beam splitter and is counted at B or at C, never both. Heralded AB and AC coincidences build up while the triple coincidence ABC ideally stays at zero.</figcaption>
         </figure>
-        </div></details>
+        </div></div>
       </div>
     </article>
 
@@ -1247,7 +1258,7 @@ svg.rr text{font-family:var(--body)}
         <h3>Characterization and Parameter Extraction of Long- and Short-Channel MOSFETs <a class="pdf-btn" href="report.pdf" download="Chanseung_Lee_MOSFET_Characterization_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
         <div class="xp-org">Prof. Seung Hwan Lee · Kyung Hee University</div>
       <div class="kpis"><span class="kpi"><b>L = 10 µm vs 0.35 µm</b>long- and short-channel devices</span></div>
-        <details class="pj-more"><summary><span class="s-show">Show details</span><span class="s-hide">Hide details</span></summary><div class="pj-more-in">
+        <div class="pj-more"><div class="pj-more-in">
         <ul>
           <li>Measured transistor I–V characteristics using an MS TECH probe station and CLARIUS software, and extracted key parameters including V<sub>t</sub>, SS, I<sub>off</sub>, GIDL, DIBL, and g<sub>m</sub>.</li>
           <li>Analyzed long- and short-channel device behavior, body-bias effects, and transistor scaling by comparing L = 10 µm and L = 0.35 µm devices.</li>
@@ -1256,7 +1267,7 @@ svg.rr text{font-family:var(--body)}
           <figure style="--ar:.75"><img src="img/probe-station.jpg" width="900" height="1200" alt="Probe station with four micro-positioner probes landing on a die under a microscope" loading="lazy"><figcaption>MS TECH probe station</figcaption></figure>
           <figure style="--ar:1.148"><img src="img/clarius.jpg" width="1200" height="1045" alt="CLARIUS test setup: gate voltage step 0 to 5 V, drain linear sweep 0 to 3.3 V, bulk bias, source grounded" loading="lazy"><figcaption>CLARIUS I–V sweep setup</figcaption></figure>
         </div>
-        </div></details>
+        </div></div>
       </div>
     </article>
 
@@ -1266,7 +1277,7 @@ svg.rr text{font-family:var(--body)}
       <div class="xp-body">
         <h3>Design of a Multistage Analog Amplifier Using LTspice <a class="pdf-btn" href="circuit%20design%20report.pdf" download="Chanseung_Lee_Multistage_Amplifier_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
         <div class="xp-org">Prof. Young Hyun Lim · Kyung Hee University</div>
-        <details class="pj-more"><summary><span class="s-show">Show details</span><span class="s-hide">Hide details</span></summary><div class="pj-more-in">
+        <div class="pj-more"><div class="pj-more-in">
         <ul>
           <li>Designed differential, gain, and output stages, and performed AC/DC/transient analysis with pole-zero estimation.</li>
           <li>Optimized amplifier performance in terms of gain, bandwidth, and power consumption.</li>
@@ -1275,7 +1286,7 @@ svg.rr text{font-family:var(--body)}
           <figure style="--ar:1.822"><a class="zoom" href="img/amp-schematic.png" target="_blank" rel="noopener"><img src="img/amp-schematic.png" width="1436" height="788" alt="LTspice schematic of the multistage amplifier: differential pair M3/M5 with current-mirror load M2/M4, second gain stage M7/M8, source-follower output M9 driving a 100 ohm load, biased by a 100 µA current source" loading="lazy"></a><figcaption>Full schematic, biased so every MOSFET operates in saturation</figcaption></figure>
           <figure style="--ar:2"><a class="zoom" href="img/amp-bode.png" target="_blank" rel="noopener"><img src="img/amp-bode.png" width="1600" height="800" alt="LTspice Bode plot of V(out) from 1 Hz to 10 MHz with cursor readout 134.9 dB at 40.6 Hz" loading="lazy"></a><figcaption>Bode plot of V(out), cursor at 134.9 dB, 40.6 Hz</figcaption></figure>
         </div>
-        </div></details>
+        </div></div>
       </div>
     </article>
 
@@ -1285,7 +1296,7 @@ svg.rr text{font-family:var(--body)}
         <h3>Device and Process Simulation of CMOS Transistors Using Silvaco TCAD <a class="pdf-btn" href="TCAD%20project.pdf" download="Chanseung_Lee_Silvaco_TCAD_Report.pdf" aria-label="Download report PDF">PDF<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M6 1.5v6.2M3.2 5.2 6 8l2.8-2.8M2 10.5h8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
         <div class="xp-org">Prof. Seung Hyun Lee · Kyung Hee University</div>
       <div class="kpis"><span class="kpi"><b>90 nm NMOS</b>L = 60, 90, 120 nm</span></div>
-        <details class="pj-more"><summary><span class="s-show">Show details</span><span class="s-hide">Hide details</span></summary><div class="pj-more-in">
+        <div class="pj-more"><div class="pj-more-in">
         <ul>
           <li>Built a complete NMOS fabrication flow including oxidation, implantation, annealing, and metallization, and extracted key electrical characteristics such as I<sub>D</sub>–V<sub>G</sub>/V<sub>D</sub>, V<sub>th</sub>, g<sub>m</sub>, and r<sub>o</sub>.</li>
           <li>Investigated short-channel non-idealities including DIBL, GIDL, and the effects of high-k gate oxides.</li>
@@ -1294,7 +1305,7 @@ svg.rr text{font-family:var(--body)}
           <figure style="--ar:1.524"><a class="zoom" href="img/tcad-structure.png" target="_blank" rel="noopener"><img src="img/tcad-structure.png" width="1198" height="786" alt="Silvaco Athena cross-section of the 90 nm NMOS: silicon substrate, SiO2 gate oxide and spacers, polysilicon gate, aluminum contacts" loading="lazy"></a><figcaption>Athena cross-section of the 90 nm NMOS</figcaption></figure>
           <figure style="--ar:1.524"><a class="zoom" href="img/tcad-lch-log.png" target="_blank" rel="noopener"><img src="img/tcad-lch-log.png" width="1198" height="786" alt="Log-scale drain current versus gate voltage at V_DS = 3 V for channel lengths of 60, 90 and 120 nm; the 60 nm device shows higher off-current and a gentler subthreshold slope" loading="lazy"></a><figcaption>Log-scale I<sub>D</sub>–V<sub>G</sub> at V<sub>DS</sub> = 3 V for L = 60, 90, 120 nm</figcaption></figure>
         </div>
-        </div></details>
+        </div></div>
       </div>
     </article>
   </div>
@@ -3571,17 +3582,16 @@ svg.rr text{font-family:var(--body)}
   var routes=["home","experience","research","projects","contact"];
   function show(){
     var h=(location.hash||"").replace("#","");
-    var part=h==="projects-research"?"research":h==="projects-academic"?"academic":"";
+    var part=(h==="projects"||h==="projects-research")?"research":h==="projects-academic"?"academic":"";
     if(part)h="projects";
     if(routes.indexOf(h)<0)h="home";
     if(part)document.documentElement.setAttribute("data-pj",part);else document.documentElement.removeAttribute("data-pj");
+    [].forEach.call(document.querySelectorAll(".nav-sub a"),function(a){if(a.getAttribute("data-sub")===part)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
     document.querySelectorAll(".view").forEach(function(v){v.hidden=v.getAttribute("data-view")!==h;});
     document.querySelectorAll("[data-route]").forEach(function(a){
       if(a.getAttribute("data-route")===h&&h!=="home")a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
     });
     window.scrollTo(0,0);
-    if(part==="academic"&&window.matchMedia("(min-width:641px)").matches){var t=document.querySelector("#v-projects .pj-h2"),hb=document.getElementById("bar");
-      if(t)window.scrollTo(0,t.getBoundingClientRect().top+window.scrollY-(hb?hb.offsetHeight:0)-16);}
   }
   window.addEventListener("hashchange",show);
   show();
@@ -3598,9 +3608,9 @@ svg.rr text{font-family:var(--body)}
   function sublist(open){ sub.hidden=!open; g.setAttribute("aria-expanded",open?"true":"false"); }
   function mark(){
     var h=(location.hash||"").replace("#","");
-    if(h!=="projects"&&!links.some(function(a){return a.getAttribute("data-go")===h;})) h="home";
+    if(h==="projects") h="projects-research";
+    if(!links.some(function(a){return a.getAttribute("data-go")===h;})) h="home";
     links.forEach(function(a){ if(a.getAttribute("data-go")===h) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
-    g.classList.toggle("on",h==="projects");
     sublist(h.indexOf("projects")===0);
   }
   g.addEventListener("click",function(){ sublist(sub.hidden); });
@@ -3620,6 +3630,21 @@ svg.rr text{font-family:var(--body)}
   var mq=window.matchMedia("(min-width:641px)"), off=function(){ if(mq.matches) set(false); };
   if(mq.addEventListener) mq.addEventListener("change",off); else if(mq.addListener) mq.addListener(off);
   mark(); set(false);
+  var dd=document.querySelector(".nav-dd");
+  if(dd){
+    // with a finger there is no hover: the first tap on the tab opens the list, the next tap follows the link
+    var touch=false;
+    dd.addEventListener("pointerenter",function(e){ if(e.pointerType==="mouse"){ touch=false; dd.classList.remove("shut"); } });
+    dd.addEventListener("pointerdown",function(e){ touch=e.pointerType==="touch"||e.pointerType==="pen"; });
+    dd.addEventListener("click",function(e){
+      var a=e.target.closest&&e.target.closest("a"); if(!a) return;
+      if(touch&&a.parentNode===dd&&!dd.classList.contains("open")){ e.preventDefault(); dd.classList.remove("shut"); dd.classList.add("open"); return; }
+      dd.classList.remove("open"); dd.classList.add("shut");
+      if(document.activeElement&&document.activeElement.blur) document.activeElement.blur();
+    });
+    dd.addEventListener("mouseleave",function(){ if(!touch) dd.classList.remove("shut"); });
+    document.addEventListener("pointerdown",function(e){ if(!dd.contains(e.target)) dd.classList.remove("open"); });
+  }
 })();
 </script>
 </body>
