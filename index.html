@@ -471,12 +471,55 @@ svg.rr text{font-family:var(--body)}
 .mfig-plots img{display:block;width:100%;height:auto}
 .mfig-cap{margin:8px 0 2px;font-size:.85rem;color:var(--faint);line-height:1.6;max-width:none}
 @media (max-width:640px){.mfig{gap:8px}.mfig-card{padding:7px 6px;border-radius:8px}.mfig-plots{gap:6px}.mfig-cap{font-size:.75rem}}
+
+.mnu,.drw,.drw-x{display:none}
+@media (max-width:640px){
+  html{overflow-x:hidden;--dw:232px;--de:cubic-bezier(.4,0,.2,1)}
+  body{overflow-x:clip}
+  .bar nav{display:none}
+  .bar-in{flex-direction:row;align-items:center;justify-content:flex-start;gap:4px;padding-block:10px}
+  .mnu{display:inline-flex;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;margin-left:-9px;padding:0 9px;background:none;border:0;border-radius:8px;color:var(--fg);cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .mnu span{display:block;height:1.5px;background:currentColor;border-radius:1px}
+  .mnu:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+  .bar{transition:border-color .2s,transform .3s var(--de)}
+  main,body>footer{transition:transform .3s var(--de)}
+  .drw-open .bar,.drw-open main,.drw-open body>footer{transform:translateX(var(--dw))}
+  .drw{display:flex;flex-direction:column;position:fixed;top:0;bottom:0;left:0;width:var(--dw);z-index:20;background:#1c1d20;color:#fff;
+    padding-top:calc(60px + env(safe-area-inset-top,0px));padding-bottom:env(safe-area-inset-bottom,0px);overflow-y:auto;
+    transform:translateX(-100%);visibility:hidden;transition:transform .3s var(--de),visibility 0s .3s}
+  .drw-open .drw{transform:none;visibility:visible;transition:transform .3s var(--de)}
+  .drw .drw-nav{display:block;overflow:visible;gap:0;width:auto;border-bottom:1px solid rgba(255,255,255,.1)}
+  .drw .drw-nav a,.drw-grp{display:block;padding:13px 20px;font-size:15px;line-height:1.4;color:rgba(255,255,255,.9);text-decoration:none;white-space:nowrap;border:0;border-top:1px solid rgba(255,255,255,.1)}
+  .drw-grp{display:flex;align-items:center;justify-content:space-between;width:100%;margin:0;background:none;border-radius:0;font-family:inherit;font-weight:inherit;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .drw-grp svg{opacity:.55;transition:transform .2s}
+  .drw-grp[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .drw .drw-sub a{padding:11px 20px 11px 36px;font-size:14px;color:rgba(255,255,255,.72)}
+  .drw .drw-nav a[aria-current="page"],.drw-grp.on{color:#fff;background:rgba(255,255,255,.1)}
+  .drw .drw-nav a:focus-visible,.drw-grp:focus-visible{outline:2px solid #fff;outline-offset:-2px}
+  .drw-foot{margin:0;padding:16px 20px;font-size:12px;color:rgba(255,255,255,.5);max-width:none}
+  .drw-open .drw-x{display:block;position:fixed;inset:0;z-index:19}
+  [data-pj="research"] #v-projects .pj-h2,[data-pj="research"] #v-projects .pj-h2+.xp,[data-pj="research"] #v-projects .pj-toc>div:nth-child(2),[data-pj="research"] #v-projects .pj-toc-h,
+  [data-pj="academic"] #v-projects>h2:not(.pj-h2),[data-pj="academic"] #v-projects .pj-toc,[data-pj="academic"] #v-projects .xp.rp{display:none}
+  [data-pj="research"] #v-projects .pj-toc ol{margin-top:0}
+  [data-pj="academic"] #v-projects .pj-h2{margin-top:12px}
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){.bar,main,body>footer,.drw,.drw-open .drw{transition:none}}
+
+@media (max-width:640px){
+  #v-projects .xp li{font-size:14px;line-height:1.65}
+  #v-projects .xp ul{gap:13px;margin-top:14px}
+  #v-projects .xp-org{font-size:13.5px}
+  #v-projects .rp-item h3,#v-projects .xp-body h3{font-size:16.5px;line-height:1.3}
+  #v-projects .mfig-cap,#v-projects figcaption,#v-projects .sv-ref{font-size:12.5px;color:#676e79}
+  #v-projects .mfig-cap{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+}
 </style>
 </head>
 <body>
 
 <header class="bar" id="bar">
   <div class="bar-in">
+    <button class="mnu" id="mnu" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><span></span><span></span><span></span></button>
     <a class="name" href="#home" data-route="home">Chanseung Lee</a>
     <nav aria-label="Sections">
       <a href="#experience" data-route="experience">Research Experience</a>
@@ -486,6 +529,22 @@ svg.rr text{font-family:var(--body)}
     </nav>
   </div>
 </header>
+
+<aside class="drw" id="drawer" aria-label="Menu" inert>
+  <nav class="drw-nav" aria-label="Menu">
+    <a href="#home" data-go="home">Home</a>
+    <a href="#experience" data-go="experience">Research Experience</a>
+    <a href="#research" data-go="research">Research Interests</a>
+    <button type="button" class="drw-grp" id="drw-pj" aria-expanded="false" aria-controls="drw-sub">Projects<svg viewBox="0 0 10 6" width="10" height="6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+    <div class="drw-sub" id="drw-sub" hidden>
+      <a href="#projects-research" data-go="projects-research">Research projects</a>
+      <a href="#projects-academic" data-go="projects-academic">Academic projects</a>
+    </div>
+    <a href="#contact" data-go="contact">Contact</a>
+  </nav>
+  <p class="drw-foot">&copy; 2026 Chanseung Lee</p>
+</aside>
+<div class="drw-x" id="drw-x" hidden></div>
 
 <main>
 
@@ -3516,18 +3575,55 @@ svg.rr text{font-family:var(--body)}
   var routes=["home","experience","research","projects","contact"];
   function show(){
     var h=(location.hash||"").replace("#","");
+    var part=h==="projects-research"?"research":h==="projects-academic"?"academic":"";
+    if(part)h="projects";
     if(routes.indexOf(h)<0)h="home";
+    if(part)document.documentElement.setAttribute("data-pj",part);else document.documentElement.removeAttribute("data-pj");
     document.querySelectorAll(".view").forEach(function(v){v.hidden=v.getAttribute("data-view")!==h;});
     document.querySelectorAll("[data-route]").forEach(function(a){
       if(a.getAttribute("data-route")===h&&h!=="home")a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
     });
     window.scrollTo(0,0);
+    if(part==="academic"&&window.matchMedia("(min-width:641px)").matches){var t=document.querySelector("#v-projects .pj-h2"),hb=document.getElementById("bar");
+      if(t)window.scrollTo(0,t.getBoundingClientRect().top+window.scrollY-(hb?hb.offsetHeight:0)-16);}
   }
   window.addEventListener("hashchange",show);
   show();
 
   var bar=document.getElementById("bar");
   window.addEventListener("scroll",function(){bar.classList.toggle("scrolled",window.scrollY>4);},{passive:true});
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById("mnu"), d=document.getElementById("drawer"), x=document.getElementById("drw-x"), root=document.documentElement;
+  if(!b||!d||!x) return;
+  var links=[].slice.call(d.querySelectorAll("a[data-go]")), g=document.getElementById("drw-pj"), sub=document.getElementById("drw-sub");
+  function sublist(open){ sub.hidden=!open; g.setAttribute("aria-expanded",open?"true":"false"); }
+  function mark(){
+    var h=(location.hash||"").replace("#","");
+    if(h!=="projects"&&!links.some(function(a){return a.getAttribute("data-go")===h;})) h="home";
+    links.forEach(function(a){ if(a.getAttribute("data-go")===h) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+    g.classList.toggle("on",h==="projects");
+    sublist(h.indexOf("projects")===0);
+  }
+  g.addEventListener("click",function(){ sublist(sub.hidden); });
+  function set(open){
+    if(open) mark();
+    root.classList.toggle("drw-open",open);
+    b.setAttribute("aria-expanded",open?"true":"false");
+    b.setAttribute("aria-label",open?"Close menu":"Open menu");
+    if(open) d.removeAttribute("inert"); else d.setAttribute("inert","");
+    x.hidden=!open;
+  }
+  b.addEventListener("click",function(){ set(!root.classList.contains("drw-open")); });
+  x.addEventListener("click",function(){ set(false); });
+  links.forEach(function(a){ a.addEventListener("click",function(){ set(false); }); });
+  window.addEventListener("hashchange",function(){ mark(); set(false); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") set(false); });
+  var mq=window.matchMedia("(min-width:641px)"), off=function(){ if(mq.matches) set(false); };
+  if(mq.addEventListener) mq.addEventListener("change",off); else if(mq.addListener) mq.addListener(off);
+  mark(); set(false);
 })();
 </script>
 </body>
