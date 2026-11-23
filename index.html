@@ -345,7 +345,7 @@ footer{max-width:1180px;margin:0 auto;padding-block:0 40px;padding-left:max(16px
 }
 
 /* ---- light theme: white page, blue accent; figure panels stay dark so the glowing waveguides read ---- */
-:root{--bg:#ffffff;--surface:#f6f7f9;--line:#e3e6eb;--fg:#15171c;--muted:#3a404a;--faint:#676e79;--accent:#1f5fd1;color-scheme:light}
+:root{--bg:#f6f7f9;--surface:#ffffff;--line:#e3e6eb;--fg:#15171c;--muted:#3a404a;--faint:#676e79;--accent:#1f5fd1;color-scheme:light}
 .fig,.rp-panel,.pj-scroll{--bg:#060708;--surface:#0d0f13;--line:#1f232a;--fg:#eceef2;--muted:#9aa1ad;--faint:#5d636e;--accent:#6aa6ff;color:var(--fg);border-color:#1f232a;background-color:#0d0f13}
 @media (max-width:640px){#v-experience .xp-when .xp-logo,.edu-logo img{background:#fff}}
 /* Experience on wider screens: same stacked layout as on phones (logo tile + role + dates, then the full-width entry) */
@@ -789,6 +789,10 @@ svg.rr text{font-family:var(--body)}
 .tx3d-lab,.tx3d-lab.on{text-shadow:0 0 2px #000,0 0 3px #000,0 0 5px #000,0 0 9px #000}
 .tx3d-lab{color:#dfe3ea}
 }
+
+/* page on a cool off-white: cards and pills white, tinted bands one step deeper */
+#v-projects>h2,#v-experience>h2,#v-research .r-head h2,.nt-h2,.nt-article p.nt-key,.qf-tbl thead th{background:#e9edf3}
+.kpi,.chips li,.bar nav .nav-sub,.nt-card,.pj-toc{background:#fff}
 </style>
 </head>
 <body>
@@ -861,7 +865,7 @@ svg.rr text{font-family:var(--body)}
     <div class="eyebrow">Skills</div>
     <div class="sk-body">
       <div class="sk-row"><h3>Simulation</h3><ul class="chips"><li>Ansys Lumerical FDTD</li><li>Lumerical FDE</li><li>Lumerical MODE</li><li>Silvaco TCAD</li><li>Sentaurus TCAD</li><li>LTspice</li></ul></div>
-      <div class="sk-row"><h3>Fabrication</h3><ul class="chips"><li>Thermal evaporator</li><li>E-beam evaporator</li></ul></div>
+      <div class="sk-row"><h3>Fabrication</h3><ul class="chips"><li>Thermal evaporator</li><li>Maskless photolithography</li></ul></div>
       <div class="sk-row"><h3>Characterization</h3><ul class="chips"><li>Ellipsometer</li><li>Probe station</li></ul></div>
     </div>
   </div>
